@@ -1,7 +1,6 @@
 import { Tabs } from "expo-router";
 import { Swords, BookOpen, User, HelpCircle } from "lucide-react-native";
 import React from "react";
-import { Platform } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -9,12 +8,11 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: "#10B981",
         tabBarInactiveTintColor: "#9CA3AF",
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           backgroundColor: "#FFFFFF",
           borderTopWidth: 1,
           borderTopColor: "#E5E7EB",
-          paddingBottom: Platform.OS === "ios" ? 0 : 5,
-          height: Platform.OS === "ios" ? 85 : 60,
         },
         headerShown: false,
       }}
