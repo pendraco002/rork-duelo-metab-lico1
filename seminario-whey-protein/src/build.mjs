@@ -62,20 +62,11 @@ if (existsSync(path.join(here, 'slides.html'))) {
   const pngDir = path.join(tmp, 'slides');
   rmSync(pngDir, { recursive: true, force: true });
   mkdirSync(pngDir, { recursive: true });
-  const n = await page.locator('.slide').count();
-  await page.addStyleTag({ content: '.slide{margin:0!important} body{background:#000} #label-slot > *{visibility:hidden}' });
+  const n = await page.locator('.s').count();
+  
   for (let i = 0; i < n; i++) {
-    // no PPTX o espaço da foto do rótulo fica vazio para inserir a foto real
-    await page.locator('.slide').nth(i).screenshot({ path: path.join(pngDir, `s${String(i + 1).padStart(2, '0')}.png`) });
+    await page.locator('.s').nth(i).screenshot({ path: path.join(pngDir, `s${String(i + 1).padStart(2, '0')}.png`) });
   }
-  // posição do espaço da foto do rótulo (para o quadro editável no PPTX)
-  const box = await page.evaluate(() => {
-    const el = document.getElementById('label-slot'); const sl = el.closest('.slide');
-    const a = el.getBoundingClientRect(), b = sl.getBoundingClientRect();
-    return { x: a.left - b.left, y: a.top - b.top, w: a.width, h: a.height,
-             slide: [...document.querySelectorAll('.slide')].indexOf(sl) + 1 };
-  });
-  writeFileSync(path.join(tmp, 'label_slot.json'), JSON.stringify(box));
   await page.close();
 }
 

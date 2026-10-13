@@ -1,79 +1,50 @@
 """Monta o PPTX a partir das imagens dos slides (geradas pelo build.mjs).
 
-Cada slide é uma imagem em tela cheia + anotações do apresentador.
-No slide do rótulo fica um quadro editável para inserir a foto real.
+Cada slide é uma imagem em tela cheia + anotações do apresentador (roteiro de fala).
 """
-import json
 import os
 from PIL import Image
 from pptx import Presentation
-from pptx.dml.color import RGBColor
-from pptx.enum.shapes import MSO_SHAPE
-from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
-from pptx.util import Emu, Pt
+from pptx.util import Emu
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TMP = os.path.join(HERE, ".tmp")
 OUT = os.path.join(os.path.dirname(HERE), "Apresentacao_Whey_Protein_Concentrado.pptx")
 
-W, H = 1280, 720
-SW, SH = Emu(12192000), Emu(6858000)  # 16:9
-px = lambda v, total_px, total_emu: Emu(int(v / total_px * total_emu))
-
 NOTES = {
-    1: "[Bruna] Apresentar o grupo e o tema: whey protein concentrado (WPC), a proteína do soro do leite que virou suplemento.",
-    2: "[Bruna] Roteiro: seguimos os 6 tópicos pedidos — caracterização, composição e rótulo, fluxograma, efeitos do processamento, segurança e conservação, análise crítica.",
-    3: "[Bruna] O soro é o líquido que sobra no queijo (~9 L para cada 10 L de leite). Tem pouca proteína, mas de alto valor. O WPC tira água, lactose e minerais até 25–89% de proteína; o WPC80 é o dos suplementos. WPI (≥90%) e WPH (hidrolisado) são variações.",
-    4: "[Bruna] Classificação: suplemento alimentar (RDC 243/2018), com notificação obrigatória na ANVISA (RDC 843/2024). Como ingrediente, é produto lácteo (MAPA). Saborizado é ultraprocessado (NOVA). Consumo: 59% dos lares com usuário de suplemento (ABIAD 2020) — dado de suplementos em geral, não só whey.",
-    5: "[Thiago] WPC80: ~80% de proteína em base seca, 4–10% de lactose. Por isso 30 g dão ~23 g de proteína, não 24 g. Frações: β-lactoglobulina é a maior. PDCAAS 1,0, rico em leucina; ISSN recomenda 20–40 g de proteína por dose.",
-    6: "[Thiago] Separar o que o rótulo diz do que interpretamos. 23 g de proteína em 30 g = 76,7%; ~75% das calorias vêm da proteína; sem lupa porque não passa dos limites. Mostrar alergênicos, 'contém lactose' e as advertências da RDC 243/2018. (Trocar números se o rótulo fotografado for outro.)",
-    7: "[Gabriel] Parte A, no laticínio: recepção e resfriamento do soro, clarificação, desnate, pasteurização (PCC), ultrafiltração e diafiltração (concentram a proteína), secagem por atomização, aglomeração, peneira e detector de metais (PCC).",
-    8: "[Gabriel] Parte B, na indústria de suplementos: recepção, pesagem, mistura com sabor e aditivos, detector de metais, envase, rotulagem e estoque. Destacar: a gota no spray dryer fica fria enquanto evapora. Variações: WPI, WPH, proteína nativa.",
-    9: "[Renan] Efeitos por tipo, sempre dizendo do que dependem. Mensagem principal: desnaturar não é perder valor nutricional; a reação de Maillard é que reduz a lisina disponível.",
-    10: "[Renan] Perigos biológicos, químicos e físicos e seus controles. PCCs: pasteurização e detector de metais. Salmonella e Cronobacter não crescem no pó, mas sobrevivem — por isso a higiene da área seca é essencial.",
-    11: "[Renan] Conservação: umidade causa empedramento (transição vítrea da lactose); calor acelera Maillard; oxigênio e luz oxidam a gordura. Embalagem com barreira e dicas para o consumidor.",
-    12: "[Pedro] Mercado: estudo da UFMG com 88% das marcas com erro de rótulo e uma com proteína 35% abaixo da tolerância; Recife: só 2 de 14 conformes; ANVISA 2025 suspendeu lote com glúten não declarado. Explicar amino spiking.",
-    13: "[Pedro] Vantagens e limitações, considerando frequência, contexto, lactose e o debate sobre ultraprocessados — sem classificações simplistas.",
-    14: "[Pedro] Posicionamento: nem vilão, nem indispensável. Pode entrar como complemento quando há necessidade real, com nutricionista e produto regularizado.",
-    15: "Referências (legislação e estudos brasileiros).",
-    16: "Referências (artigos e livros).",
-    17: "Agradecer e abrir para perguntas. Respostas prontas na seção 7 do dossiê.",
+    1: "[Bruna] Bom dia. Somos o Grupo 1 e vamos falar do whey protein concentrado. O gráfico de pontos mostra o que tem em 100 g de WPC80: cada ponto é 1 grama — 80 são proteína.",
+    2: "[Bruna] Organizamos a apresentação em seis perguntas, uma para cada tópico pedido. Eu começo com o que é o whey e quem consome.",
+    3: "[Bruna] O whey nasce de um resíduo. De cada 10 litros de leite que viram queijo, cerca de 9 viram soro. Esse soro leva cerca de 20% das proteínas do leite e é muito poluente se for descartado: DBO de 30 a 60 mil mg/L.",
+    4: "[Bruna] WPC é o soro sem boa parte da água, da lactose e dos minerais, com 25 a 89% de proteína em base seca. O dos suplementos é o WPC80. A matéria-prima é o soro doce, de queijos de coalho. No pote entram também cacau ou aromas, edulcorantes, gomas e lecitina. O isolado (WPI) e o hidrolisado (WPH) são variações.",
+    5: "[Bruna] O mesmo produto tem quatro leituras: para a ANVISA é suplemento alimentar e, desde 1º de setembro de 2026, precisa de notificação; para o MAPA é ingrediente lácteo; tecnologicamente é um pó feito por membranas e secagem; pela classificação NOVA, o saborizado é ultraprocessado.",
+    6: "[Bruna] Consumo: em 2020, 59% dos lares tinham alguém usando suplemento (dado de suplementos em geral, não só whey). Os concentrados de proteína cresceram 3% em 2024. Nas academias, a proteína está entre os mais usados, muitas vezes sem orientação de nutricionista. Passo para o Thiago.",
+    7: "[Thiago] O WPC80 tem 80 a 82% de proteína, mas ainda tem lactose: de 4 a 10%. Metade da proteína é beta-lactoglobulina. Por que uma dose de 30 g dá cerca de 23 g de proteína? Porque os 80% são em base seca e o pó saborizado tem umidade e ingredientes de sabor. A qualidade proteica é máxima: PDCAAS 1,0, rica em leucina.",
+    8: "[Thiago] Este é o esquema do rótulo que analisamos, com os seis elementos que a lei exige: denominação, tabela nutricional, ingredientes, alergênicos e lactose, as três advertências da RDC 243 e o número de notificação na ANVISA.",
+    9: "[Thiago] Separando o que o rótulo diz do que nós calculamos: 76,7% do pó é proteína; 75% das calorias vêm da proteína; ele não tem lupa porque fica abaixo dos limites; e os 23 g por dose estão dentro da faixa de 20 a 40 g. Passo para o Gabriel.",
+    10: "[Gabriel] O processo tem duas fábricas. A linha azul é o laticínio: recepção e resfriamento do soro, clarificação, desnate, pasteurização (que é PCC), resfriamento, ultrafiltração e diafiltração, concentração, spray drying, aglomeração e detector de metais (outro PCC). O WPC80 em pó vira insumo da segunda fábrica, a de suplementos (linha preta): recepção, pesagem, mistura, detector de metais, envase, rotulagem e estoque.",
+    11: "[Gabriel] Três etapas definem o WPC. A pasteurização, a 72–75 °C por 15–20 s, elimina patógenos com pouca desnaturação. A ultrafiltração segura a proteína e deixa passar lactose e sais; a diafiltração lava o retido com água. No spray drying, o ar entra a 175–200 °C, mas a gota fica fria enquanto evapora. Passo para o Renan.",
+    12: "[Renan] Esta matriz mostra o que cada etapa muda: efeitos físicos, químicos, microbiológicos, sensoriais e nutricionais. Os dois pontos destacados são a reação de Maillard e a perda de lisina disponível, que acontecem principalmente na estocagem. E tudo depende de temperatura, tempo, umidade, oxigênio e formulação.",
+    13: "[Renan] Um ponto importante para não generalizar: desnaturar não é estragar. O calor muda a forma da proteína, mas os aminoácidos continuam lá. A perda real vem da reação de Maillard, quando a lactose se liga à lisina e o corpo deixa de aproveitá-la.",
+    14: "[Renan] Perigos biológicos, químicos e físicos e seus controles. Os PCCs são a pasteurização e o detector de metais. A base são as boas práticas e os POPs. E um alerta: Salmonella e Cronobacter não crescem no pó, mas sobrevivem por meses.",
+    15: "[Renan] Conservação: o inimigo do pó é a água. Quando o pó ganha umidade ou calor, passa da transição vítrea, fica pegajoso, empedra e a Maillard acelera. Por isso: embalagem com barreira, pote bem fechado, dosador seco e local fresco. Passo para o Pedro.",
+    16: "[Pedro] O rótulo nem sempre conta a verdade. Um estudo da UFMG achou erro de rótulo em 88% das marcas e uma marca com proteína 35% abaixo da tolerância. Em Recife, só 2 de 14 amostras estavam totalmente conformes. Em 2025, a ANVISA suspendeu um lote com glúten não declarado. E existe a fraude do amino spiking, que infla a proteína no laudo.",
+    17: "[Pedro] Vale a pena? Depende. A favor: proteína de alta qualidade, praticidade, ajuda quando a comida não basta e aproveita um resíduo. Contra: não é indispensável, o saborizado é ultraprocessado, tem lactose e é alergênico, e o mercado tem falhas. O contexto importa: frequência, dose e quem vai usar.",
+    18: "[Pedro] Nossa conclusão: nem vilão, nem indispensável. O whey pode entrar na alimentação cotidiana quando complementa as refeições, quando existe necessidade real avaliada por nutricionista, e quando o produto é notificado e o rótulo foi conferido.",
+    19: "Referências — legislação.",
+    20: "Referências — artigos, livros e dados.",
+    21: "[Todos] Agradecer e abrir para perguntas. Respostas prontas na seção 7 do dossiê.",
 }
 
 prs = Presentation()
-prs.slide_width, prs.slide_height = SW, SH
+prs.slide_width, prs.slide_height = Emu(12192000), Emu(6858000)  # 16:9
 blank = prs.slide_layouts[6]
 
-slot = json.load(open(os.path.join(TMP, "label_slot.json")))
 pngs = sorted(f for f in os.listdir(os.path.join(TMP, "slides")) if f.endswith(".png"))
-
 for i, name in enumerate(pngs, start=1):
     s = prs.slides.add_slide(blank)
     jpg = os.path.join(TMP, "slides", name[:-4] + ".jpg")
-    Image.open(os.path.join(TMP, "slides", name)).convert("RGB").resize((1920, 1080), Image.LANCZOS).save(jpg, quality=88, optimize=True)
-    s.shapes.add_picture(jpg, 0, 0, SW, SH)
-    if i == slot["slide"]:
-        box = s.shapes.add_shape(
-            MSO_SHAPE.ROUNDED_RECTANGLE,
-            px(slot["x"], W, SW), px(slot["y"], H, SH), px(slot["w"], W, SW), px(slot["h"], H, SH),
-        )
-        box.adjustments[0] = 0.07
-        box.fill.solid()
-        box.fill.fore_color.rgb = RGBColor(0x2A, 0x0E, 0x6B)
-        box.line.color.rgb = RGBColor(0xD8, 0xB4, 0xFE)
-        box.line.width = Pt(1.5)
-        tf = box.text_frame
-        tf.word_wrap = True
-        tf.vertical_anchor = MSO_ANCHOR.MIDDLE
-        lines = [("FOTO DO RÓTULO", True, 16), ("Inserir > Imagem com a foto do produto analisado e apagar este quadro.", False, 11)]
-        for j, (txt, bold, size) in enumerate(lines):
-            p = tf.paragraphs[0] if j == 0 else tf.add_paragraph()
-            p.alignment = PP_ALIGN.CENTER
-            r = p.add_run()
-            r.text = txt
-            r.font.bold = bold
-            r.font.size = Pt(size)
-            r.font.color.rgb = RGBColor(0xF5, 0xF3, 0xFF)
+    Image.open(os.path.join(TMP, "slides", name)).convert("RGB").resize((1920, 1080), Image.LANCZOS).save(jpg, quality=90, optimize=True)
+    s.shapes.add_picture(jpg, 0, 0, prs.slide_width, prs.slide_height)
     s.notes_slide.notes_text_frame.text = NOTES.get(i, "")
 
 prs.save(OUT)

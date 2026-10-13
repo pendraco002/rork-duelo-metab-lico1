@@ -4,636 +4,676 @@
 <meta charset="utf-8">
 <title>Whey Protein Concentrado — Seminário</title>
 <style>
+  @font-face{ font-family:"Inter Tight"; font-weight:400; src:url(fonts/inter-tight-latin-400-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Inter Tight"; font-weight:500; src:url(fonts/inter-tight-latin-500-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Inter Tight"; font-weight:600; src:url(fonts/inter-tight-latin-600-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Inter Tight"; font-weight:700; src:url(fonts/inter-tight-latin-700-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Inter Tight"; font-weight:800; src:url(fonts/inter-tight-latin-800-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Inter Tight"; font-weight:900; src:url(fonts/inter-tight-latin-900-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Instrument Serif"; font-style:normal; src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"Instrument Serif"; font-style:italic; src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2"); }
+  @font-face{ font-family:"JetBrains Mono"; font-weight:400; src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"JetBrains Mono"; font-weight:500; src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2"); }
+  @font-face{ font-family:"JetBrains Mono"; font-weight:700; src:url(fonts/jetbrains-mono-latin-700-normal.woff2) format("woff2"); }
+
   @page{ size:1280px 720px; margin:0; }
   :root{
-    --txt:#f5f3ff; --muted:#cbbcf7; --soft:#a993e8;
-    --v1:#8b5cf6; --v2:#a855f7; --pink:#e879f9; --pink2:#f0abfc;
-    --glass:rgba(255,255,255,.07); --stroke:rgba(216,180,254,.38);
-    --red:#fb7185;
+    --cream:#EEE9DF; --paper:#F7F4EE; --ink:#15130F; --ink2:#3A362F; --mute:#7C7569; --rule:rgba(21,19,15,.16);
+    --cobalt:#2638F2; --soro:#D7E04C; --red:#F2462B;
+    --night:#13120F; --milk:#F0EBE1; --milk2:#BDB6AA; --rule-d:rgba(240,235,225,.16);
+    --sans:"Inter Tight","Inter",sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"JetBrains Mono","DejaVu Sans Mono",monospace;
   }
   *{ box-sizing:border-box; }
-  html,body{ margin:0; padding:0; background:#0b0220; }
-  body{ font-family:"Inter",sans-serif; color:var(--txt); -webkit-font-smoothing:antialiased; }
-  .slide{ width:1280px; height:720px; position:relative; overflow:hidden; break-after:page; page-break-after:always;
-    background:
-      radial-gradient(900px 520px at 88% -12%, rgba(192,38,211,.36) 0%, rgba(192,38,211,0) 62%),
-      radial-gradient(820px 620px at -12% 112%, rgba(124,58,237,.58) 0%, rgba(124,58,237,0) 62%),
-      linear-gradient(135deg,#0e0330 0%,#1b0752 52%,#290a69 100%); }
-  .slide:last-child{ break-after:auto; page-break-after:auto; }
-  svg.waves{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
-  .hdr{ position:absolute; top:20px; left:0; right:0; text-align:center; font-size:12px; letter-spacing:.6px; color:#d9c8ff; font-weight:600; }
-  .ftr{ position:absolute; bottom:18px; left:64px; right:64px; display:flex; justify-content:space-between; font-size:11.5px; color:#b9a5f0; letter-spacing:.3px; }
-  .ftr b{ color:#e9ddff; font-weight:700; }
-  .c{ position:absolute; left:64px; right:64px; top:58px; bottom:50px; }
+  html,body{ margin:0; padding:0; background:#3a3a3a; }
+  body{ font-family:var(--sans); color:var(--ink); -webkit-font-smoothing:antialiased; }
 
-  .tag{ display:inline-flex; align-items:center; gap:9px; padding:7px 14px 7px 8px; border-radius:11px; background:rgba(139,92,246,.26);
-        border:1px solid rgba(216,180,254,.55); font-size:12.5px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:#f3e8ff; }
-  .tag .ib{ width:22px; height:22px; border-radius:7px; display:grid; place-items:center; background:linear-gradient(135deg,#8b5cf6,#c026d3); }
-  .tag svg{ width:14px; height:14px; }
-  h2.t{ margin:14px 0 0; font-size:46px; line-height:1.04; font-weight:300; letter-spacing:-.6px; }
-  h2.t b{ font-weight:800; display:block; }
-  h2.t .hl{ color:var(--pink2); }
-  .lead{ font-size:18px; line-height:1.5; color:var(--muted); margin:12px 0 0; }
-  .glass{ position:relative; background:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.035)); border:1px solid var(--stroke);
-          border-radius:22px; padding:18px 20px; box-shadow:0 18px 50px rgba(8,0,35,.38), 0 0 42px rgba(168,85,247,.13), inset 0 1px 0 rgba(255,255,255,.08); }
-  .glass.solid{ background:linear-gradient(150deg,rgba(139,92,246,.55),rgba(91,33,182,.45)); border-color:rgba(233,213,255,.6); }
-  .glass h4{ margin:0 0 8px; font-size:19px; font-weight:800; display:flex; align-items:center; gap:10px; }
-  .glass p,.glass li{ font-size:15.5px; line-height:1.45; color:#e7defe; }
-  .glass p{ margin:0; }
-  .glass ul{ margin:0; padding-left:18px; } .glass li{ margin:0 0 5px; }
-  .ico{ width:34px; height:34px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(139,92,246,.9),rgba(192,38,211,.9)); flex:0 0 auto; box-shadow:0 0 18px rgba(217,70,239,.45); }
-  .ico svg{ width:19px; height:19px; }
-  svg.i{ fill:none; stroke:#fff; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
-  .btn{ display:inline-flex; align-items:center; gap:8px; background:linear-gradient(90deg,#8b5cf6,#c026d3); color:#fff; padding:8px 15px; border-radius:11px; font-weight:800; font-size:13.5px; letter-spacing:.3px; box-shadow:0 0 22px rgba(192,38,211,.45); }
-  .chip{ display:inline-block; padding:4px 10px; border-radius:99px; font-size:12.5px; font-weight:700; background:rgba(255,255,255,.1); border:1px solid rgba(216,180,254,.45); color:#f3e8ff; }
-  .chip.pcc{ background:#e11d48; border-color:#fda4af; color:#fff; letter-spacing:.8px; }
-  .chip.out{ background:rgba(251,146,60,.16); border-color:rgba(253,186,116,.7); color:#fed7aa; }
-  .src{ position:absolute; left:64px; right:64px; bottom:40px; font-size:11px; color:#a993e8; }
-  .big{ font-size:44px; font-weight:800; line-height:1; color:var(--pink2); letter-spacing:-1px; }
-  .muted{ color:var(--muted); }
-  .row{ display:flex; gap:18px; }
-  .grid{ display:grid; gap:18px; }
-  .n{ width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-weight:800; font-size:14px; flex:0 0 auto;
-      background:linear-gradient(135deg,#8b5cf6,#d946ef); box-shadow:0 0 14px rgba(217,70,239,.55); }
+  /* ---------- quadro ---------- */
+  .s{ width:1280px; height:720px; position:relative; overflow:hidden; background:var(--cream); color:var(--ink); break-after:page; page-break-after:always; }
+  .s:last-child{ break-after:auto; page-break-after:auto; }
+  .s.dark{ background:var(--night); color:var(--milk); }
+  .s.blue{ background:var(--cobalt); color:var(--milk); }
+  .meta{ position:absolute; top:30px; left:64px; right:64px; display:flex; justify-content:space-between; font:500 11px/1 var(--mono); letter-spacing:.09em; text-transform:uppercase; color:var(--mute); }
+  .dark .meta{ color:#8B8478; } .blue .meta{ color:rgba(240,235,225,.72); }
+  .meta b{ font-weight:700; color:var(--ink); } .dark .meta b,.blue .meta b{ color:var(--milk); }
+  .foot{ position:absolute; bottom:26px; left:64px; right:64px; display:flex; justify-content:space-between; gap:48px; font:400 10.5px/1.45 var(--mono); color:var(--mute); }
+  .foot span:last-child{ white-space:nowrap; }
+  .dark .foot{ color:#8B8478; } .blue .foot{ color:rgba(240,235,225,.7); }
+  .a{ position:absolute; }
 
-  /* bars */
-  .bar{ display:grid; grid-template-columns:120px 1fr 86px; align-items:center; gap:12px; margin:0 0 11px; font-size:15px; }
-  .bar .tr{ height:14px; border-radius:99px; background:rgba(255,255,255,.08); overflow:hidden; border:1px solid rgba(216,180,254,.25); }
-  .bar .fl{ height:100%; border-radius:99px; background:linear-gradient(90deg,#8b5cf6,#e879f9); box-shadow:0 0 14px rgba(232,121,249,.6); }
-  .bar .v{ font-weight:800; text-align:right; color:#fff; }
-
-  /* flow */
-  .fl6{ display:grid; grid-template-columns:repeat(6,1fr); column-gap:30px; row-gap:58px; }
-  .fl7{ display:grid; grid-template-columns:repeat(7,1fr); column-gap:22px; }
-  .fs{ position:relative; background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04)); border:1.5px solid rgba(216,180,254,.5);
-       border-radius:18px; padding:12px 12px 13px; min-height:150px; box-shadow:0 0 26px rgba(168,85,247,.16); }
-  .fs.pcc{ border-color:#fb7185; box-shadow:0 0 26px rgba(251,113,133,.25); }
-  .fs.end{ background:linear-gradient(150deg,#8b5cf6,#c026d3); border-color:#f5d0fe; }
-  .fs .n{ width:28px; height:28px; font-size:13px; margin-bottom:8px; }
-  .fs b{ display:block; font-size:15px; line-height:1.2; margin-bottom:5px; }
-  .fs span.d{ display:block; font-size:12.5px; line-height:1.35; color:#d9ccfb; }
-  .fs.end span.d{ color:#fdf4ff; }
-  .fs .chip{ font-size:10.5px; padding:2px 7px; margin-top:6px; }
-  .ar{ position:absolute; width:22px; height:22px; display:grid; place-items:center; color:#f0abfc; }
-  .ar svg{ width:22px; height:22px; stroke:#f0abfc; stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round;  }
-  .ar.r{ right:-27px; top:50%; transform:translateY(-50%); }
-  .ar.l{ left:-27px; top:50%; transform:translateY(-50%) rotate(180deg); }
-  .ar.d{ bottom:-42px; left:50%; transform:translateX(-50%) rotate(90deg); }
-  .fl7 .ar.r{ right:-23px; }
-
-  /* tables */
-  table.t{ width:100%; border-collapse:separate; border-spacing:0; font-size:14.5px; }
-  table.t td{ padding:8px 10px; border-bottom:1px solid rgba(216,180,254,.18); color:#ece4ff; }
-  table.t tr:last-child td{ border-bottom:0; }
-  table.t td.v{ text-align:right; font-weight:800; color:#fff; }
-
-  .refs{ columns:2; column-gap:34px; font-size:11.6px; line-height:1.42; color:#e2d8fb; }
-  .refs p{ margin:0 0 6px; break-inside:avoid; padding-left:12px; text-indent:-12px; }
-  .refs h5{ margin:0 0 6px; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:#f0abfc; }
-  .roteiro .glass{ min-height:170px; padding:24px 24px; }
-  .roteiro .glass h4{ font-size:22px; margin-bottom:12px; }
-  .roteiro .glass p{ font-size:17.5px; }
-  .crit li{ font-size:18.5px; margin-bottom:9px; }
-  .t4 td{ font-size:16px; padding:10px 10px; }
+  /* ---------- tipografia ---------- */
+  .h1{ margin:0; font-weight:800; font-size:54px; line-height:1; letter-spacing:-.035em; }
+  .it{ font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:-.005em; font-size:1.13em; line-height:.9; }
+  .lbl{ font:500 11.5px/1.35 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--mute); }
+  .dark .lbl{ color:#9A9387; } .blue .lbl{ color:rgba(240,235,225,.75); }
+  .body{ font-size:18.5px; line-height:1.45; color:var(--ink2); }
+  .dark .body{ color:var(--milk2); }
+  .mk{ background:linear-gradient(transparent 56%, var(--soro) 56%, var(--soro) 94%, transparent 94%); padding:0 .05em; }
+  .c-cob{ color:var(--cobalt); } .c-soro{ color:var(--soro); } .c-red{ color:var(--red); } .c-mute{ color:var(--mute); }
+  .num{ font-weight:900; letter-spacing:-.055em; line-height:.86; font-feature-settings:"tnum"; }
+  .hr{ height:1px; background:var(--rule); } .dark .hr{ background:var(--rule-d); }
+  .pcc{ display:inline-block; font:700 10px/1 var(--mono); letter-spacing:.08em; color:#fff; background:var(--red); padding:3px 5px 2px; border-radius:3px; vertical-align:2px; }
+  b,strong{ font-weight:700; }
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
-    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3M7.5 15h9"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
-    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l6 4v-4l6 4V6l6 3v12zM7 17h2M12 17h2M17 17h2"/></symbol>
-    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-7M2 20h20"/></symbol>
-    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2zM12 10v5M12 18h.01"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-    <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></symbol>
-    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></symbol>
-    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19l7-7"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.3A5 5 0 0 1 21 19"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></symbol>
-    <symbol id="i-bug" viewBox="0 0 24 24"><rect x="8" y="7" width="8" height="12" rx="4"/><path d="M12 7V4M4 11h4M16 11h4M4 17h4M16 17h4M6 4l2 3M18 4l-2 3"/></symbol>
-    <symbol id="i-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/></symbol>
-    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
-    <symbol id="i-apple" viewBox="0 0 24 24"><path d="M12 7c-2-2-7-1.5-7 4.5S8.5 21 10 21s1.2-.6 2-.6.5.6 2 .6 5-3.5 5-9.5S14 5 12 7zM12 7c0-2 1-3.5 3-4"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-mag" viewBox="0 0 24 24"><path d="M9 3h6M12 3v4M5 21h14l-2-14H7z"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/></symbol>
-    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M5 21h14M6 7h12M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/></symbol>
-  </defs>
-</svg>
+<!-- =========================================================== 01 · CAPA -->
+<section class="s" id="s-capa">
+  <div class="meta"><span>Seminário de Tecnologia de Alimentos</span><span>Módulo 4 · Qualidade na Produção de Refeições</span></div>
 
-<!-- template do pote -->
-<template id="jar">
-  <svg viewBox="0 0 300 360">
-    <defs>
-      <linearGradient id="jarg" x1="0" x2="1"><stop offset="0" stop-color="#2b0b6e"/><stop offset=".45" stop-color="#7c3aed"/><stop offset="1" stop-color="#1c0752"/></linearGradient>
-      <linearGradient id="lidg" x1="0" x2="1"><stop offset="0" stop-color="#e9d5ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
-      <radialGradient id="halog"><stop offset="0" stop-color="#d946ef" stop-opacity=".6"/><stop offset="1" stop-color="#d946ef" stop-opacity="0"/></radialGradient>
-    </defs>
-    <ellipse cx="150" cy="205" rx="150" ry="160" fill="url(#halog)"/>
-    <rect x="62" y="70" width="176" height="44" rx="14" fill="url(#lidg)"/>
-    <rect x="62" y="104" width="176" height="10" fill="#a78bfa" opacity=".6"/>
-    <rect x="52" y="112" width="196" height="208" rx="30" fill="url(#jarg)" stroke="#e9d5ff" stroke-opacity=".75" stroke-width="2"/>
-    <rect x="70" y="150" width="160" height="118" rx="16" fill="rgba(255,255,255,.1)" stroke="rgba(233,213,255,.6)"/>
-    <text x="150" y="196" text-anchor="middle" font-family="Inter" font-weight="800" font-size="34" fill="#fff">WPC</text>
-    <text x="150" y="240" text-anchor="middle" font-family="Inter" font-weight="300" font-size="38" fill="#f5d0fe">80</text>
-    <text x="150" y="258" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9" letter-spacing="2" fill="#e9d5ff">PROTEÍNA DO SORO</text>
-    <rect x="80" y="122" width="10" height="186" rx="5" fill="#fff" opacity=".16"/>
-  </svg>
-</template>
-
-<!-- ============ 1 · CAPA ============ -->
-<section class="slide" data-w="cover">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div style="position:absolute;left:0;top:70px;width:690px">
-      <div class="tag"><span class="ib"><svg class="i"><use href="#i-drop"/></svg></span>Grupo 1 · Módulo 4</div>
-      <h2 class="t" style="font-size:66px;margin-top:22px">whey protein<b style="font-size:84px;letter-spacing:-2px">CONCENTRADO</b></h2>
-      <p class="lead" style="font-size:21px;max-width:600px">Da sobra do queijo ao suplemento: processamento, qualidade e segurança.</p>
+  <div class="a" style="left:58px;top:138px">
+    <div class="num" style="font-size:268px;letter-spacing:-.07em">Whey</div>
+    <div style="margin-top:44px;display:flex;align-items:baseline;gap:18px;padding-left:10px">
+      <span style="font-weight:800;font-size:80px;letter-spacing:-.045em;line-height:1">protein</span>
+      <span class="it c-cob" style="font-size:104px">concentrado</span>
     </div>
-    <div class="glass" style="position:absolute;left:0;bottom:6px;width:560px">
-      <div style="font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:#e9d5ff;font-weight:800;margin-bottom:6px">Integrantes</div>
-      <div style="font-size:19px;font-weight:700">Bruna · Thiago · Gabriel · Renan · Pedro</div>
-      <div class="muted" style="font-size:13.5px;margin-top:6px">Prof. Caio Leonor · Qualidade na Produção de Refeições · Formadora 3</div>
-    </div>
-    <div class="jar" style="position:absolute;right:30px;top:40px;width:400px"></div>
-    <div style="position:absolute;right:360px;top:120px" class="chip">~80% proteína (b.s.)</div>
-    <div style="position:absolute;right:-4px;top:330px" class="chip">ultrafiltração</div>
-    <div style="position:absolute;right:330px;top:470px" class="chip">spray drying</div>
   </div>
-  <div class="ftr"><span><b>Centro Universitário Augusto Motta</b> · Nutrição</span><span>Rio de Janeiro · 2026</span></div>
+
+  <div class="a" style="left:930px;top:150px;width:286px">
+    <div class="lbl" style="margin-bottom:14px">100 g de WPC80 · 1 ponto = 1 g</div>
+    <svg id="waffle" width="286" height="286" viewBox="0 0 286 286"></svg>
+    <div id="waffle-legend" style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;row-gap:7px;column-gap:10px;font:500 11px/1.2 var(--mono);color:var(--ink2)"></div>
+  </div>
+
+  <div class="a" style="left:64px;right:64px;bottom:62px"><div class="hr"></div></div>
+  <div class="a" style="left:64px;right:64px;bottom:30px;display:flex;justify-content:space-between;font:500 12px/1.3 var(--mono);letter-spacing:.04em;color:var(--ink2)">
+    <span><b style="color:var(--ink)">Grupo 1</b> — Bruna · Thiago · Gabriel · Renan · Pedro</span>
+    <span>Prof. Caio Leonor</span>
+    <span>Centro Universitário Augusto Motta · Nutrição · 2026</span>
+  </div>
 </section>
 
-<!-- ============ 2 · ROTEIRO ============ -->
-<section class="slide" data-w="br">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-book"/></svg></span>Roteiro</div>
-    <h2 class="t">o que vamos<b>apresentar</b></h2>
-    <div class="grid roteiro" style="grid-template-columns:repeat(3,1fr);margin-top:40px;gap:22px">
-      <div class="glass"><h4><span class="n">1</span>Caracterização</h4><p>O que é, matérias-primas, classificação e consumo no Brasil</p></div>
-      <div class="glass"><h4><span class="n">2</span>Composição & rótulo</h4><p>Tabela nutricional, ingredientes, aditivos e o que a lei exige</p></div>
-      <div class="glass"><h4><span class="n">3</span>Fluxograma</h4><p>Do soro do queijo ao pote: etapas, finalidades e equipamentos</p></div>
-      <div class="glass"><h4><span class="n">4</span>Efeitos do processo</h4><p>Alterações físicas, químicas, microbiológicas, sensoriais e nutricionais</p></div>
-      <div class="glass"><h4><span class="n">5</span>Segurança & conservação</h4><p>Perigos, pontos críticos, embalagem e vida útil</p></div>
-      <div class="glass solid"><h4><span class="n" style="background:#fff;color:#7c3aed">6</span>Análise crítica</h4><p>Vantagens, limitações e nosso posicionamento</p></div>
-    </div>
+<!-- =========================================================== 02 · ROTEIRO -->
+<section class="s">
+  <div class="meta"><span><b>Roteiro</b></span><span>Whey protein concentrado</span><span>02</span></div>
+  <div class="a" style="left:64px;top:104px;width:330px">
+    <h2 class="h1" style="font-size:64px">Seis<br><span class="it">perguntas,</span><br>dez minutos.</h2>
+    <p class="body" style="margin-top:26px">Cada pergunta corresponde a um tópico pedido nas orientações do seminário.</p>
   </div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>02</span></div>
+  <div class="a" id="agenda" style="left:470px;right:64px;top:104px"></div>
+  <div class="foot"><span></span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 3 · O QUE É ============ -->
-<section class="slide" data-w="tr">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-drop"/></svg></span>1 · Caracterização</div>
-    <h2 class="t">a proteína do soro<b>que virou suplemento</b></h2>
-    <div class="row" style="margin-top:28px;align-items:stretch">
-      <div class="glass" style="flex:1.15">
-        <h4><span class="ico"><svg class="i"><use href="#i-factory"/></svg></span>Da fabricação do queijo ao pó</h4>
-        <div class="row" style="align-items:center;gap:10px;margin:12px 0 14px">
-          <span class="chip">10 L de leite</span><svg class="i" style="width:20px;height:20px"><use href="#i-arrow"/></svg>
-          <span class="chip">queijo</span><span class="muted">+</span><span class="chip" style="background:rgba(232,121,249,.25)">~9 L de soro</span><svg class="i" style="width:20px;height:20px"><use href="#i-arrow"/></svg><span class="chip">WPC em pó</span>
-        </div>
-        <ul>
-          <li><b>Soro de leite:</b> líquido que sobra na fabricação de queijo (IN MAPA 94/2020). Tem só ~0,7% de proteína.</li>
-          <li><b>Matéria-prima:</b> <span class="hl" style="color:#f0abfc">soro doce</span> (pH 6,0–6,6) de queijos de coalho: muçarela, prato, minas.</li>
-          <li><b>WPC:</b> soro sem parte da água, lactose e minerais, com <b>25–89% de proteína</b>. O mais vendido é o <b>WPC80</b>.</li>
-          <li><b>No pote:</b> WPC + cacau/aromas, edulcorantes (sucralose, acessulfame-K), gomas e lecitina.</li>
-        </ul>
-      </div>
-      <div style="flex:.85;display:flex;flex-direction:column;gap:14px">
-        <div class="glass solid" style="padding:15px 18px"><div class="row" style="justify-content:space-between;align-items:baseline"><b style="font-size:21px">WPC · concentrado</b><span class="big" style="font-size:32px;color:#fff">25–89%</span></div><p style="font-size:14px">Ultrafiltração + diafiltração. WPC80: 4–10% de lactose.</p></div>
-        <div class="glass" style="padding:15px 18px"><div class="row" style="justify-content:space-between;align-items:baseline"><b style="font-size:21px">WPI · isolado</b><span class="big" style="font-size:32px">≥ 90%</span></div><p style="font-size:14px">Microfiltração ou troca iônica. Quase sem lactose.</p></div>
-        <div class="glass" style="padding:15px 18px"><div class="row" style="justify-content:space-between;align-items:baseline"><b style="font-size:21px">WPH · hidrolisado</b><span class="big" style="font-size:32px">enzimas</span></div><p style="font-size:14px">Proteína "quebrada" em peptídeos.</p></div>
-      </div>
-    </div>
+<!-- =========================================================== 03 · SORO -->
+<section class="s dark">
+  <div class="meta"><span><b>01 — Caracterização</b></span><span>De onde vem</span><span>03</span></div>
+  <div class="a" style="left:64px;top:104px;width:560px">
+    <h2 class="h1" style="font-size:58px">De cada 10 litros de leite que viram queijo, <span class="it c-soro">9 viram soro.</span></h2>
+    <p class="body" style="margin-top:28px;max-width:520px">O soro leva cerca de <b style="color:var(--milk)">20% das proteínas do leite</b> — as mais valiosas do ponto de vista nutricional. Descartado em rios, é um poluente grave: <b style="color:var(--milk)">DBO de 30.000 a 60.000 mg/L</b>.</p>
+    <p class="body" style="margin-top:14px;max-width:520px">Fazer whey é, antes de tudo, <span style="color:var(--soro)">dar destino a um resíduo.</span></p>
   </div>
-  <div class="src">Fontes: Brasil/MAPA (2020); ADPI (2022); Walstra et al. (2006). % de proteína em base seca.</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>03</span></div>
+  <div class="a" id="liters" style="left:720px;top:118px;width:496px;height:470px"></div>
+  <div class="foot"><span>Fontes: Walstra, Wouters e Geurts (2006); estudos de efluentes de laticínios (Eng. Sanit. Ambient.). Valores aproximados.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 4 · CLASSIFICAÇÃO E CONSUMO ============ -->
-<section class="slide" data-w="bl">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-chart"/></svg></span>1 · Classificação e consumo</div>
-    <h2 class="t">como é classificado<b>e quanto se consome</b></h2>
-    <div class="row" style="margin-top:30px;min-height:392px">
-      <div class="glass" style="flex:1">
-        <h4><span class="ico"><svg class="i"><use href="#i-tag"/></svg></span>Classificação</h4>
-        <table class="t t4">
-          <tr><td style="width:120px"><b>ANVISA</b></td><td><b>Suplemento alimentar</b> (RDC 243/2018). Desde 01/09/2026 precisa de <b>notificação</b> na ANVISA (RDC 843/2024).</td></tr>
-          <tr><td><b>MAPA</b></td><td>Ingrediente lácteo feito em laticínio com SIF (RIISPOA; IN 94/2020).</td></tr>
-          <tr><td><b>Tecnologia</b></td><td>Pó obtido por <b>separação por membranas</b> e <b>secagem</b>.</td></tr>
-          <tr><td><b>NOVA</b></td><td>WPC puro: substância extraída de alimento. <b>Saborizado: ultraprocessado</b>.</td></tr>
-        </table>
-      </div>
-      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <div class="glass solid"><div class="big" style="color:#fff">59%</div><p style="margin-top:10px;font-size:15.5px">dos lares tinham ao menos 1 usuário de suplemento (ABIAD, 2020)</p></div>
-        <div class="glass"><div class="big">+3%</div><p style="margin-top:10px;font-size:15.5px">crescimento dos concentrados de proteína em 2024 (ABIAD)</p></div>
-        <div class="glass"><div class="big" style="font-size:34px">academias</div><p style="margin-top:10px;font-size:15.5px">proteínas (whey) estão entre os suplementos mais usados — muitas vezes <b>sem nutricionista</b></p></div>
-        <div class="glass"><div class="big" style="font-size:34px">ambiente</div><p style="margin-top:10px;font-size:15.5px">soro tem DBO de 30–60 mil mg/L: fazer WPC <b>valoriza um resíduo</b></p></div>
-      </div>
-    </div>
+<!-- =========================================================== 04 · O QUE É -->
+<section class="s">
+  <div class="meta"><span><b>01 — Caracterização</b></span><span>O que é</span><span>04</span></div>
+  <div class="a" style="left:64px;top:100px;width:1000px">
+    <h2 class="h1">WPC é o soro <span class="it">sem</span> boa parte da água, da lactose e dos minerais.</h2>
   </div>
-  <div class="src">Fontes: Brasil (2017; 2018; 2020; 2024); Monteiro et al. (2019); ABIAD/Portal da Indústria (2025); Rev. Conexões (2018). Dados ABIAD = suplementos em geral.</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>04</span></div>
+  <div class="a" style="left:64px;right:64px;top:268px;height:150px" id="scale"></div>
+  <div class="a" style="left:64px;right:64px;top:458px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px">
+    <div><div class="lbl">Matéria-prima</div><div class="hr" style="margin:10px 0 12px"></div><p class="body" style="margin:0;font-size:17px"><b>Soro doce</b> (pH 6,0–6,6), de queijos de coalho: muçarela, prato, minas.</p></div>
+    <div><div class="lbl">No pote do suplemento</div><div class="hr" style="margin:10px 0 12px"></div><p class="body" style="margin:0;font-size:17px">WPC + cacau ou aromas, <b>edulcorantes</b> (sucralose, acessulfame-K), <b>gomas</b> e <b>lecitina</b>.</p></div>
+    <div><div class="lbl">Variações</div><div class="hr" style="margin:10px 0 12px"></div><p class="body" style="margin:0;font-size:17px"><b>WPI</b>: + microfiltração ou troca iônica. <b>WPH</b>: proteína quebrada por enzimas.</p></div>
+  </div>
+  <div class="foot"><span>Fontes: ADPI (2022); IN MAPA nº 94/2020; Walstra, Wouters e Geurts (2006). Proteína em base seca.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 5 · COMPOSIÇÃO ============ -->
-<section class="slide" data-w="tr">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-atom"/></svg></span>2 · Composição</div>
-    <h2 class="t">o que tem dentro<b>do WPC80</b></h2>
-    <div class="row" style="margin-top:24px">
-      <div class="glass" style="flex:1.05">
-        <h4><span class="ico"><svg class="i"><use href="#i-chart"/></svg></span>Composição típica (g/100 g)</h4>
-        <div style="margin-top:14px">
-          <div class="bar"><span>Proteína</span><div class="tr"><div class="fl" style="width:81%"></div></div><span class="v">80–82</span></div>
-          <div class="bar"><span>Lactose</span><div class="tr"><div class="fl" style="width:7%"></div></div><span class="v">4–10</span></div>
-          <div class="bar"><span>Gordura</span><div class="tr"><div class="fl" style="width:6%"></div></div><span class="v">4–8</span></div>
-          <div class="bar"><span>Cinzas</span><div class="tr"><div class="fl" style="width:4%"></div></div><span class="v">3–5</span></div>
-          <div class="bar"><span>Umidade</span><div class="tr"><div class="fl" style="width:4.5%"></div></div><span class="v">3,5–5</span></div>
-        </div>
-        <div class="glass solid" style="margin-top:10px;padding:12px 16px"><p style="font-size:14.5px"><b>Por que 30 g dão ~23 g de proteína?</b> Os 80% são em <b>base seca</b> e do ingrediente puro. Umidade e ingredientes de sabor "diluem": 30 × 0,96 × 0,80 ≈ <b>23 g</b>.</p></div>
-      </div>
-      <div style="flex:.95;display:flex;flex-direction:column;gap:14px">
-        <div class="glass">
-          <h4><span class="ico"><svg class="i"><use href="#i-atom"/></svg></span>Frações proteicas do soro</h4>
-          <table class="t">
-            <tr><td>β-lactoglobulina</td><td class="v">45–57%</td></tr>
-            <tr><td>α-lactalbumina</td><td class="v">15–25%</td></tr>
-            <tr><td>Imunoglobulinas</td><td class="v">10–15%</td></tr>
-            <tr><td>Glicomacropeptídeo (soro doce)</td><td class="v">10–15%</td></tr>
-            <tr><td>Albumina sérica · lactoferrina</td><td class="v">5–10% · 1–2%</td></tr>
-          </table>
-        </div>
-        <div class="row" style="gap:12px">
-          <div class="glass" style="flex:1;padding:14px"><div class="big" style="font-size:30px">1,0</div><p style="font-size:13px;margin-top:4px">PDCAAS (máximo)</p></div>
-          <div class="glass" style="flex:1;padding:14px"><div class="big" style="font-size:30px">~11%</div><p style="font-size:13px;margin-top:4px">da proteína é leucina</p></div>
-          <div class="glass" style="flex:1;padding:14px"><div class="big" style="font-size:30px">20–40 g</div><p style="font-size:13px;margin-top:4px">proteína/dose (ISSN)</p></div>
-        </div>
-      </div>
-    </div>
+<!-- =========================================================== 05 · CLASSIFICAÇÃO -->
+<section class="s">
+  <div class="meta"><span><b>01 — Caracterização</b></span><span>Classificação</span><span>05</span></div>
+  <div class="a" style="left:64px;top:100px;width:420px">
+    <h2 class="h1">Um produto,<br><span class="it c-cob">quatro</span> leituras.</h2>
   </div>
-  <div class="src">Fontes: ADPI (2022); U.S. Dairy Export Council; Madureira et al. (2007); FAO (2013); Jäger et al. (2017).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>05</span></div>
+  <div class="a" style="left:64px;right:64px;top:250px" id="classif"></div>
+  <div class="foot"><span>Fontes: RDC 243/2018; RDC 843/2024; Decreto 9.013/2017; IN MAPA 94/2020; Monteiro et al. (2019). *O whey saborizado; o WPC puro é substância extraída de alimento.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 6 · RÓTULO ============ -->
-<section class="slide" data-w="br">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-search"/></svg></span>2 · Rotulagem</div>
-    <h2 class="t">lendo o rótulo<b>de um whey real</b></h2>
-    <div class="row" style="margin-top:22px;gap:16px">
-      <div id="label-slot" class="glass" style="flex:0 0 300px;height:418px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-style:dashed;border-width:2px">
-        <span class="ico" style="width:56px;height:56px;border-radius:16px"><svg class="i" style="width:28px;height:28px"><use href="#i-eye"/></svg></span>
-        <p style="margin-top:14px;font-size:16px"><b>Foto do rótulo analisado</b></p>
-        <p class="muted" style="font-size:13px;margin-top:6px">(inserir a foto real do produto no PPTX)</p>
-      </div>
-      <div class="glass" style="flex:1">
-        <h4 style="font-size:16px"><span class="chip" style="background:rgba(99,102,241,.35)">O RÓTULO DIZ</span></h4>
-        <p class="muted" style="font-size:13px;margin-bottom:4px">WPC 80% · porção 30 g</p>
-        <table class="t">
-          <tr><td>Valor energético</td><td class="v">122 kcal</td></tr>
-          <tr><td>Proteínas</td><td class="v">23 g</td></tr>
-          <tr><td>Carboidratos</td><td class="v">2,7 g</td></tr>
-          <tr><td>Gorduras totais</td><td class="v">2,0 g</td></tr>
-        </table>
-        <ul style="margin-top:10px;font-size:14px">
-          <li style="font-size:14px">"ALÉRGICOS: CONTÉM LEITE E DERIVADOS"</li>
-          <li style="font-size:14px">"CONTÉM LACTOSE" · glúten</li>
-          <li style="font-size:14px">"Este produto não é um medicamento" e demais avisos da RDC 243/2018</li>
-        </ul>
-      </div>
-      <div class="glass solid" style="flex:1.05">
-        <h4 style="font-size:16px"><span class="chip" style="background:rgba(232,121,249,.3)">NOSSA INTERPRETAÇÃO</span></h4>
-        <ul style="margin-top:6px">
-          <li><b>76,7%</b> do peso do produto é proteína (23 ÷ 30)</li>
-          <li><b>≈ 75% das calorias</b> vêm da proteína</li>
-          <li>23 g por dose: dentro de <b>20–40 g</b> (ISSN)</li>
-          <li><b>Sem lupa frontal</b>: açúcar adicionado, gordura saturada e sódio abaixo dos limites (15 g · 6 g · 600 mg por 100 g)</li>
-          <li>Preparado com <b>leite</b>, soma energia, lactose e proteína</li>
-        </ul>
-      </div>
+<!-- =========================================================== 06 · CONSUMO -->
+<section class="s blue">
+  <div class="meta"><span><b>01 — Caracterização</b></span><span>Consumo no Brasil</span><span>06</span></div>
+  <div class="a num" style="left:52px;top:96px;font-size:392px;color:var(--milk)">59<span style="font-size:.5em;letter-spacing:-.02em;vertical-align:.78em">%</span></div>
+  <div class="a" style="left:66px;top:520px;width:600px">
+    <p style="margin:0;font-size:25px;line-height:1.3;font-weight:600;letter-spacing:-.01em">dos lares brasileiros tinham ao menos uma pessoa usando suplemento alimentar.</p>
+    <div class="lbl" style="margin-top:12px">ABIAD, pesquisa de hábitos, 2020 · suplementos em geral, não só whey</div>
+  </div>
+  <div class="a" style="left:830px;top:132px;width:386px">
+    <div style="border-top:1px solid rgba(240,235,225,.35);padding-top:16px">
+      <div class="num" style="font-size:80px;color:var(--soro)">+3%</div>
+      <p style="margin:10px 0 0;font-size:18px;line-height:1.4">foi o crescimento das vendas de <b>concentrados de proteína</b> em 2024.</p>
+      <div class="lbl" style="margin-top:8px">ABIAD, 2024</div>
+    </div>
+    <div style="border-top:1px solid rgba(240,235,225,.35);padding-top:16px;margin-top:34px">
+      <div style="font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.05">Nas academias,</div>
+      <p style="margin:8px 0 0;font-size:18px;line-height:1.4">proteínas estão entre os suplementos mais usados — muitas vezes indicadas por instrutor, amigo ou vendedor, <span class="it" style="font-size:1.15em">não por nutricionista.</span></p>
+      <div class="lbl" style="margin-top:8px">Revisão integrativa, Rev. Conexões, 2018</div>
     </div>
   </div>
-  <div class="src">Exemplo: Whey Protein Concentrado 80% (Growth Supplements). Normas: RDC 243/2018; RDC 429/2020; IN 75/2020; RDC 727/2022.</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>06</span></div>
+  <div class="foot"><span>Fontes: ABIAD via Portal da Indústria (2025) e imprensa (2020); Rev. Conexões/Unicamp (2018).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 7 · FLUXOGRAMA A ============ -->
-<section class="slide" data-w="bl">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="row" style="justify-content:space-between;align-items:flex-end">
-      <div><div class="tag"><span class="ib"><svg class="i"><use href="#i-factory"/></svg></span>3 · Fluxograma · Parte A</div>
-      <h2 class="t" style="font-size:40px">no laticínio:<b>do soro ao WPC80 em pó</b></h2></div>
-      <div style="display:flex;gap:8px;margin-bottom:6px"><span class="chip pcc">PCC</span><span class="chip">ponto crítico de controle</span><span class="chip out">→ subproduto</span></div>
-    </div>
-    <div class="fl6" style="margin-top:24px">
-      <div class="fs" style="grid-row:1;grid-column:1"><div class="n">1</div><b>Recepção do soro</b><span class="d">pH, acidez, temperatura · resfriar ≤ 7 °C</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:1;grid-column:2"><div class="n">2</div><b>Clarificação</b><span class="d">centrífuga/peneira tira finos de caseína</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:1;grid-column:3"><div class="n">3</div><b>Desnate</b><span class="d">separador centrífugo</span><span class="chip out">→ creme de soro</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs pcc" style="grid-row:1;grid-column:4"><div class="n">4</div><b>Pasteurização</b><span class="d">72–75 °C · 15–20 s</span><span class="chip pcc">PCC</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:1;grid-column:5"><div class="n">5</div><b>Resfriamento</b><span class="d">≤ 10 °C até filtrar</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:1;grid-column:6"><div class="n">6</div><b>Ultrafiltração</b><span class="d">membrana ~10 kDa retém proteína</span><span class="chip out">→ permeado (lactose)</span><span class="ar d"><svg><use href="#i-arrow"/></svg></span></div>
-
-      <div class="fs" style="grid-row:2;grid-column:6"><div class="n">7</div><b>Diafiltração</b><span class="d">água + refiltração · ~80% proteína (b.s.)</span><span class="ar l"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:2;grid-column:5"><div class="n">8</div><b>Concentração</b><span class="d">opcional · evaporador a vácuo</span><span class="ar l"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:2;grid-column:4"><div class="n">9</div><b>Spray drying</b><span class="d">ar 175–200 °C → saída 75–90 °C · umidade 3,5–5%</span><span class="ar l"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="grid-row:2;grid-column:3"><div class="n">10</div><b>Aglomeração</b><span class="d">leito fluidizado + lecitina</span><span class="ar l"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs pcc" style="grid-row:2;grid-column:2"><div class="n">11</div><b>Peneira + detector de metais</b><span class="chip pcc">PCC</span><span class="ar l"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs end" style="grid-row:2;grid-column:1"><div class="n" style="background:#fff;color:#7c3aed">✓</div><b>WPC80 em pó</b><span class="d">sacos de 20–25 kg · estoque seco → indústria de suplementos</span></div>
-    </div>
+<!-- =========================================================== 07 · COMPOSIÇÃO -->
+<section class="s">
+  <div class="meta"><span><b>02 — Composição</b></span><span>O que tem dentro</span><span>07</span></div>
+  <div class="a" style="left:64px;top:100px;width:1152px">
+    <h2 class="h1" style="font-size:48px">80% proteína — mas <span class="it c-cob">ainda tem lactose.</span></h2>
   </div>
-  <div class="src">Fluxograma elaborado pelo grupo a partir de Walstra et al. (2006), Tunick (2008) e ADPI (2022). Parâmetros = faixas típicas.</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>07</span></div>
+  <div class="a" style="left:64px;right:64px;top:196px" id="bar-comp"></div>
+  <div class="a" style="left:64px;width:700px;top:398px" id="bar-frac"></div>
+  <div class="a" style="left:820px;right:64px;top:398px">
+    <div class="lbl">Por que 30 g dão ~23 g de proteína?</div>
+    <div class="hr" style="margin:10px 0 14px"></div>
+    <div style="font:500 21px/1.35 var(--mono);letter-spacing:-.02em">30 g <span class="c-mute">×</span> 0,96 <span class="c-mute">×</span> 0,80 <span class="c-mute">≈</span> <b class="c-cob">23 g</b></div>
+    <p class="body" style="font-size:15.5px;margin:10px 0 0">Os 80% valem para o ingrediente <b>seco e puro</b>. A umidade (~4%) e os ingredientes de sabor “diluem” a proteína.</p>
+  </div>
+  <div class="a" style="left:64px;right:64px;bottom:64px;display:flex;gap:56px;align-items:baseline">
+    <div><span class="num c-cob" style="font-size:40px">1,0</span> <span class="lbl" style="margin-left:6px">PDCAAS — valor máximo</span></div>
+    <div><span class="num c-cob" style="font-size:40px">~11%</span> <span class="lbl" style="margin-left:6px">da proteína é leucina</span></div>
+    <div><span class="num c-cob" style="font-size:40px">20–40 g</span> <span class="lbl" style="margin-left:6px">de proteína por dose (ISSN)</span></div>
+  </div>
+  <div class="foot"><span>Fontes: ADPI (2022); Madureira et al. (2007); FAO (2013); Jäger et al. (2017). Faixas típicas; frações aproximadas.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 8 · FLUXOGRAMA B ============ -->
-<section class="slide" data-w="tr">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-box"/></svg></span>3 · Fluxograma · Parte B</div>
-    <h2 class="t" style="font-size:40px">na indústria de suplementos:<b>do ingrediente ao pote</b></h2>
-    <div class="fl7" style="margin-top:22px">
-      <div class="fs" style="min-height:128px"><div class="n">12</div><b>Recepção e quarentena</b><span class="d">laudos dos insumos</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="min-height:128px"><div class="n">13</div><b>Pesagem</b><span class="d">pré-mistura de micro-ingredientes</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="min-height:128px"><div class="n">14</div><b>Mistura</b><span class="d">misturador em V ou fita</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs pcc" style="min-height:128px"><div class="n">15</div><b>Peneira + metais</b><span class="chip pcc">PCC</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="min-height:128px"><div class="n">16</div><b>Envase</b><span class="d">pote PEAD/refil · N₂ opcional</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs" style="min-height:128px"><div class="n">17</div><b>Rotulagem</b><span class="d">lote · validade · peso</span><span class="ar r"><svg><use href="#i-arrow"/></svg></span></div>
-      <div class="fs end" style="min-height:128px"><div class="n" style="background:#fff;color:#7c3aed">18</div><b>Estoque e expedição</b><span class="d">seco, fresco, sem luz</span></div>
-    </div>
-    <div class="grid" style="grid-template-columns:1fr 1fr 1fr;margin-top:22px;gap:16px">
-      <div class="glass"><h4 style="font-size:17px"><span class="ico"><svg class="i"><use href="#i-thermo"/></svg></span>Pasteurização</h4><p style="font-size:14.5px">72–75 °C por 15–20 s elimina patógenos vegetativos com <b>pouca desnaturação</b>. <b>Não</b> elimina esporos.</p></div>
-      <div class="glass"><h4 style="font-size:17px"><span class="ico"><svg class="i"><use href="#i-flask"/></svg></span>UF + diafiltração</h4><p style="font-size:14.5px">Passam água, lactose e sais (<b>permeado</b>). Ficam as proteínas (<b>retido</b>). A água da DF "lava" o concentrado.</p></div>
-      <div class="glass"><h4 style="font-size:17px"><span class="ico"><svg class="i"><use href="#i-drop"/></svg></span>Spray drying</h4><p style="font-size:14.5px">A gota evapora em segundos e <b>fica fria</b> enquanto perde água (resfriamento evaporativo): a proteína não "cozinha" a 180 °C.</p></div>
-    </div>
-    <div class="glass" style="margin-top:14px;padding:12px 18px"><p style="font-size:14.5px"><b style="color:#f0abfc">Variações:</b> <b>WPI</b> = + microfiltração ou troca iônica · <b>WPH</b> = + hidrólise enzimática · <b>proteína "nativa"</b> = microfiltração direta do leite, sem queijo · UF a frio (10–15 °C) ou a quente (~50 °C).</p></div>
+<!-- =========================================================== 08 · ANATOMIA DO RÓTULO -->
+<section class="s">
+  <div class="meta"><span><b>02 — Rotulagem</b></span><span>O que a lei exige</span><span>08</span></div>
+  <div class="a" style="left:64px;top:100px;width:380px">
+    <h2 class="h1" style="font-size:50px">Anatomia de um <span class="it c-cob">rótulo</span> de whey.</h2>
   </div>
-  <div class="src">Fontes: Walstra et al. (2006); Tunick (2008); ADPI (2022); Roos (2002).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>08</span></div>
+  <div class="a" id="label-slot" style="left:470px;top:92px;width:330px;height:560px"></div>
+  <div class="a" id="label-notes" style="left:840px;right:64px;top:100px"></div>
+  <div class="a" style="left:64px;top:300px;width:360px">
+    <p class="body" style="font-size:17px">Reprodução esquemática do rótulo analisado (whey concentrado 80%, porção de 30 g), com os elementos que a ANVISA exige.</p>
+    <div class="lbl" style="margin-top:18px;line-height:1.7">Rótulo analisado<br><span style="color:var(--ink)">Growth Supplements · WPC 80%</span></div>
+  </div>
+  <div class="foot"><span>Normas: RDC 243/2018; RDC 727/2022; RDC 429/2020; IN 75/2020; Lei 10.674/2003; RDC 843/2024. Conferir com a embalagem.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 9 · EFEITOS ============ -->
-<section class="slide" data-w="bl">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-atom"/></svg></span>4 · Efeitos do processamento</div>
-    <h2 class="t" style="font-size:40px">o que muda no alimento<b>em cada etapa</b></h2>
-    <div class="grid" style="grid-template-columns:repeat(5,1fr);margin-top:22px;gap:14px">
-      <div class="glass" style="padding:16px"><h4 style="font-size:17px">Físico</h4><p style="font-size:13.6px">Líquido vira pó. Aglomeração melhora a dissolução. Pó <b>higroscópico</b> pode <b>empedrar</b>.</p><p class="muted" style="font-size:12.3px;margin-top:8px"><b>Depende de:</b> secagem, lactose amorfa, umidade do ar</p></div>
-      <div class="glass" style="padding:16px"><h4 style="font-size:17px">Químico</h4><p style="font-size:13.6px"><b>Desnaturação</b> da β-lactoglobulina. <b>Maillard</b> (lactose + lisina). Oxidação da gordura residual.</p><p class="muted" style="font-size:12.3px;margin-top:8px"><b>Depende de:</b> temperatura × tempo, aw, O₂, luz</p></div>
-      <div class="glass" style="padding:16px"><h4 style="font-size:17px">Microbiológico</h4><p style="font-size:13.6px">Pasteurização reduz vegetativos. <b>Esporos</b> resistem. No pó, Salmonella <b>não cresce, mas sobrevive</b>.</p><p class="muted" style="font-size:12.3px;margin-top:8px"><b>Depende de:</b> temperatura da UF, limpeza CIP, higiene da área seca</p></div>
-      <div class="glass" style="padding:16px"><h4 style="font-size:17px">Sensorial</h4><p style="font-size:13.6px">Sabor de "cozido" ou "papelão" com o tempo. Aromas e edulcorantes <b>mascaram</b> o sabor do soro.</p><p class="muted" style="font-size:12.3px;margin-top:8px"><b>Depende de:</b> calor, oxidação, formulação</p></div>
-      <div class="glass" style="padding:16px"><h4 style="font-size:17px">Nutricional</h4><p style="font-size:13.6px">↑ proteína (12 → 80% b.s.) · ↓ lactose e minerais · Maillard reduz <b>lisina disponível</b> · calor reduz lactoferrina ativa.</p><p class="muted" style="font-size:12.3px;margin-top:8px"><b>Depende de:</b> grau de UF/DF, calor, estocagem</p></div>
-    </div>
-    <div class="glass solid" style="margin-top:18px;display:flex;gap:16px;align-items:center;padding:16px 20px">
-      <span class="ico" style="width:46px;height:46px"><svg class="i" style="width:24px;height:24px"><use href="#i-alert"/></svg></span>
-      <p style="font-size:16.5px"><b>Sem generalizar:</b> desnaturar <b>não</b> é perder valor nutricional — os aminoácidos continuam lá. O que reduz o valor é a <b>reação de Maillard</b>. Já a <b>bioatividade</b> (lactoferrina, imunoglobulinas) depende da proteína intacta.</p>
-    </div>
+<!-- =========================================================== 09 · RÓTULO: NÚMEROS -->
+<section class="s dark">
+  <div class="meta"><span><b>02 — Rotulagem</b></span><span>Rótulo × interpretação</span><span>09</span></div>
+  <div class="a" style="left:64px;top:100px;width:420px">
+    <h2 class="h1" style="font-size:52px">O rótulo diz.<br><span class="it c-soro">Nós calculamos.</span></h2>
+    <div class="lbl" style="margin-top:40px">O rótulo diz · porção de 30 g</div>
+    <div id="label-says" style="margin-top:12px"></div>
   </div>
-  <div class="src">Fontes: Walstra et al. (2006); Roos (2002); Thomas et al. (2004); Burgess, Lindsay e Flint (2010); Beuchat et al. (2013).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>09</span></div>
+  <div class="a" style="left:560px;right:64px;top:104px;display:grid;grid-template-columns:1fr 1fr;column-gap:40px;row-gap:34px" id="we-calc"></div>
+  <div class="foot"><span>Valores do rótulo: Growth WPC 80%, porção 30 g (conferir no lote analisado). Limites da lupa: RDC 429/2020 e IN 75/2020. Dose: Jäger et al. (2017).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 10 · SEGURANÇA ============ -->
-<section class="slide" data-w="br">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-shield"/></svg></span>5 · Segurança dos alimentos</div>
-    <h2 class="t" style="font-size:40px">perigos<b>e como são controlados</b></h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr 1fr;margin-top:22px;gap:16px">
-      <div class="glass"><h4><span class="ico"><svg class="i"><use href="#i-bug"/></svg></span>Biológicos</h4><ul>
-        <li>Patógenos do soro → <b>pasteurização</b> <span class="chip pcc" style="font-size:10.5px;padding:1px 6px">PCC</span></li>
-        <li>Toxina de <i>S. aureus</i> (resiste ao calor) → soro frio e rápido</li>
-        <li>Esporulados e termófilos → limpeza CIP</li>
-        <li><b>Salmonella e Cronobacter</b> após a secagem → zoneamento da área seca</li></ul></div>
-      <div class="glass"><h4><span class="ico"><svg class="i"><use href="#i-flask"/></svg></span>Químicos</h4><ul>
-        <li>Antibióticos e aflatoxina M1 (vêm do leite)</li>
-        <li>Resíduos de limpeza</li>
-        <li><b>Alergênicos:</b> leite, soja, glúten cruzado</li>
-        <li>Metais pesados (cacau) e <b>fraude</b> por "amino spiking"</li></ul></div>
-      <div class="glass"><h4><span class="ico"><svg class="i"><use href="#i-search"/></svg></span>Físicos</h4><ul>
-        <li>Fragmentos de metal, plástico ou vidro → peneira, ímãs e <b>detector de metais</b> <span class="chip pcc" style="font-size:10.5px;padding:1px 6px">PCC</span></li></ul>
-        <div style="margin-top:14px" class="muted"><p style="font-size:13.5px"><b>Base (pré-requisitos):</b> BPF e POPs — Portaria 326/1997 e RDC 275/2002.</p></div></div>
-    </div>
-    <div class="glass" style="margin-top:16px;padding:14px 18px">
-      <div class="row" style="gap:10px;flex-wrap:wrap;align-items:center">
-        <b style="font-size:14.5px;margin-right:4px">Legislação:</b>
-        <span class="chip">RDC 243/2018 · suplementos</span><span class="chip">RDC 724/2022 · microbiológicos</span><span class="chip">RDC 722/2022 · contaminantes</span><span class="chip">RDC 778/2023 · aditivos</span><span class="chip">RDC 843/2024 · notificação</span>
-      </div>
-    </div>
+<!-- =========================================================== 10 · FLUXOGRAMA -->
+<section class="s">
+  <div class="meta"><span><b>03 — Processamento</b></span><span>Fluxograma</span><span>10</span></div>
+  <div class="a" style="left:64px;top:96px;width:700px">
+    <h2 class="h1" style="font-size:48px">Do soro ao pote, em <span class="it c-cob">18 etapas.</span></h2>
   </div>
-  <div class="src">Fontes: Brasil (1997; 2002; 2018; 2022; 2023; 2024); Burgess, Lindsay e Flint (2010); Beuchat et al. (2013); Moore et al. (2010).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>10</span></div>
+  <div class="a" style="right:64px;top:112px;display:flex;gap:22px;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);align-items:center">
+    <span style="display:flex;align-items:center;gap:7px"><svg width="14" height="14"><circle cx="7" cy="7" r="5.5" fill="#EEE9DF" stroke="#15130F" stroke-width="2.5"/></svg>Etapa</span>
+    <span style="display:flex;align-items:center;gap:7px"><svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="#F2462B"/></svg>PCC</span>
+    <span style="display:flex;align-items:center;gap:7px"><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#7C7569" stroke-width="2" stroke-dasharray="3 3"/></svg>Subproduto</span>
+  </div>
+  <svg class="a" id="metro" style="left:0;top:0" width="1280" height="720" viewBox="0 0 1280 720"></svg>
+  <div class="a" id="metro-labels" style="left:0;top:0;width:1280px;height:720px"></div>
+  <div class="foot"><span>Fluxograma elaborado pelo grupo a partir de Walstra, Wouters e Geurts (2006), Tunick (2008) e ADPI (2022). Parâmetros = faixas típicas.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 11 · CONSERVAÇÃO ============ -->
-<section class="slide" data-w="tr">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-box"/></svg></span>5 · Conservação e vida útil</div>
-    <h2 class="t" style="font-size:40px">o inimigo do pó<b>é a umidade</b></h2>
-    <div class="row" style="margin-top:24px;gap:16px">
-      <div style="flex:1.1;display:flex;flex-direction:column;gap:14px">
-        <div class="glass"><h4><span class="ico"><svg class="i"><use href="#i-drop"/></svg></span>Umidade ↑ → empedramento</h4><p>A lactose do pó está em estado <b>vítreo</b>. Se absorve água ou esquenta, passa da <b>transição vítrea (Tg)</b>: fica pegajosa e empedra.</p></div>
-        <div class="glass"><h4><span class="ico"><svg class="i"><use href="#i-thermo"/></svg></span>Calor ↑ → Maillard</h4><p>Escurecimento e perda de lisina disponível. Principal reação que limita a vida útil de pós lácteos.</p></div>
-        <div class="glass"><h4><span class="ico"><svg class="i"><use href="#i-eye"/></svg></span>O₂ e luz → oxidação</h4><p>A gordura residual oxida e dá sabor de "ranço".</p></div>
-      </div>
-      <div style="flex:.9;display:flex;flex-direction:column;gap:14px">
-        <div class="glass solid"><h4>Embalagem</h4><ul><li>Pote de PEAD com <b>lacre de indução</b></li><li>Refil <b>laminado</b> (barreira a umidade, O₂ e luz)</li><li>Opcional: nitrogênio</li></ul></div>
-        <div class="glass"><h4>Na casa do consumidor</h4><ul><li>Fechar bem após usar</li><li>Dosador sempre <b>seco</b></li><li>Local fresco, longe do sol, do fogão e do banheiro</li></ul></div>
-        <div class="glass" style="padding:14px 18px"><p><b style="color:#f0abfc">Vida útil:</b> definida pelo fabricante em testes de estabilidade (em geral 1–2 anos fechado).</p></div>
-      </div>
-    </div>
+<!-- =========================================================== 11 · ZOOM -->
+<section class="s">
+  <div class="meta"><span><b>03 — Processamento</b></span><span>As três etapas-chave</span><span>11</span></div>
+  <div class="a" style="left:64px;top:100px;width:900px">
+    <h2 class="h1" style="font-size:48px">Três etapas fazem o <span class="it c-cob">WPC</span> ser o que é.</h2>
   </div>
-  <div class="src">Fontes: Roos (2002); Thomas et al. (2004); ADPI (2022).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>11</span></div>
+  <div class="a" style="left:64px;right:64px;top:232px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:44px" id="zoom"></div>
+  <div class="foot"><span>Fontes: Walstra, Wouters e Geurts (2006); Tunick (2008); ADPI (2022); Roos (2002). Desenhos esquemáticos.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 12 · MERCADO ============ -->
-<section class="slide" data-w="bl">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-alert"/></svg></span>6 · Qualidade no mercado</div>
-    <h2 class="t" style="font-size:40px">o rótulo nem sempre<b>conta a verdade</b></h2>
-    <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:24px;gap:16px">
-      <div class="glass solid"><div class="big" style="color:#fff">88%</div><p style="margin-top:10px;font-size:14.5px">das marcas com ao menos 1 erro de rotulagem (UFMG, 9 marcas)</p></div>
-      <div class="glass"><div class="big">−35%</div><p style="margin-top:10px;font-size:14.5px">1 marca com proteína 35% <b>abaixo da tolerância</b> legal (UFMG)</p></div>
-      <div class="glass"><div class="big">2 de 14</div><p style="margin-top:10px;font-size:14.5px">amostras cumpriam todas as regras de rotulagem avaliadas (Recife-PE)</p></div>
-      <div class="glass"><div class="big">2025</div><p style="margin-top:10px;font-size:14.5px">ANVISA suspendeu lote de whey com <b>glúten não declarado</b></p></div>
-    </div>
-    <div class="glass" style="margin-top:18px;display:flex;gap:18px;align-items:center">
-      <span class="ico" style="width:52px;height:52px"><svg class="i" style="width:26px;height:26px"><use href="#i-scale"/></svg></span>
-      <div><h4 style="margin-bottom:4px">"Amino spiking"</h4><p>A proteína é medida pelo <b>nitrogênio total</b> (Kjeldahl). Adicionar aminoácidos baratos (glicina, taurina) aumenta o nitrogênio e faz a proteína <b>parecer maior</b>. Perfil de aminoácidos detecta a fraude.</p></div>
-    </div>
+<!-- =========================================================== 12 · MATRIZ DE EFEITOS -->
+<section class="s">
+  <div class="meta"><span><b>04 — Efeitos do processamento</b></span><span>Matriz</span><span>12</span></div>
+  <div class="a" style="left:64px;top:100px;width:760px">
+    <h2 class="h1" style="font-size:48px">O que cada etapa <span class="it c-cob">muda</span> no alimento.</h2>
   </div>
-  <div class="src">Fontes: UFMG (2021); FPS/Recife (TCC); ANVISA via imprensa (2025); Moore et al. (2010).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>12</span></div>
+  <div class="a" style="left:64px;right:64px;top:198px" id="matrix"></div>
+  <div class="foot"><span>Os efeitos dependem de temperatura × tempo, atividade de água, O₂, luz e formulação. Fontes: Walstra et al. (2006); Thomas et al. (2004); Burgess, Lindsay e Flint (2010); Beuchat et al. (2013).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 13 · ANÁLISE CRÍTICA ============ -->
-<section class="slide" data-w="tr">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-scale"/></svg></span>6 · Análise crítica</div>
-    <h2 class="t" style="font-size:40px">vantagens<b>e limitações</b></h2>
-    <div class="row crit" style="margin-top:24px;gap:18px">
-      <div class="glass" style="flex:1;border-color:rgba(110,231,183,.55)"><h4><span class="ico" style="background:linear-gradient(135deg,#059669,#10b981)"><svg class="i"><use href="#i-check"/></svg></span>Vantagens</h4><ul>
-        <li>Proteína de <b>alta qualidade</b> (PDCAAS 1,0), rica em leucina</li>
-        <li><b>Prático</b> e estável (pó)</li>
-        <li>Ajuda quando a comida não basta: atletas, <b>idosos com perda muscular</b>, pouco apetite</li>
-        <li><b>Aproveita o soro</b>, um resíduo muito poluente</li></ul></div>
-      <div class="glass" style="flex:1;border-color:rgba(251,113,133,.6)"><h4><span class="ico" style="background:linear-gradient(135deg,#be123c,#f43f5e)"><svg class="i"><use href="#i-x"/></svg></span>Limitações</h4><ul>
-        <li><b>Não é indispensável</b>: a maioria atinge a proteína com comida</li>
-        <li>Saborizado = <b>ultraprocessado</b> (edulcorantes, aromas, gomas)</li>
-        <li>Tem <b>lactose</b> (1–3 g/dose) e é <b>alergênico</b></li>
-        <li>Sem fibras e sem a variedade de uma refeição</li>
-        <li>Mercado com <b>não conformidades</b>; uso sem orientação</li></ul></div>
-    </div>
-    <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px">
-      <div class="glass solid" style="padding:14px 18px"><p style="font-size:15px"><b>Frequência e contexto:</b> 1 dose dentro de um plano alimentar ≠ várias doses no lugar de refeições.</p></div>
-      <div class="glass" style="padding:14px 18px"><p style="font-size:15px"><b>Lactose:</b> a maioria dos intolerantes tolera até ~12 g numa dose (EFSA). Alergia ao leite: contraindicado.</p></div>
-      <div class="glass" style="padding:14px 18px"><p style="font-size:15px"><b>"Ultraprocessado"</b> não é sinônimo de "proibido": avaliar composição, finalidade e dose.</p></div>
-    </div>
+<!-- =========================================================== 13 · DESNATURAR ≠ ESTRAGAR -->
+<section class="s dark">
+  <div class="meta"><span><b>04 — Efeitos do processamento</b></span><span>Sem generalizar</span><span>13</span></div>
+  <div class="a" style="left:64px;top:104px;width:760px">
+    <h2 class="h1" style="font-size:86px;letter-spacing:-.045em">Desnaturar<br><span class="it c-soro">não é estragar.</span></h2>
   </div>
-  <div class="src">Fontes: FAO (2013); Bauer et al. (2013); Monteiro et al. (2019); Brasil (2014); EFSA (2010); Ikizler et al. (2020).</div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>13</span></div>
+  <div class="a" style="left:64px;top:418px;right:64px;display:grid;grid-template-columns:1fr 1fr;column-gap:64px" id="beads"></div>
+  <div class="foot"><span>Fontes: Walstra, Wouters e Geurts (2006); Thomas et al. (2004). Esquema ilustrativo.</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 14 · CONCLUSÃO ============ -->
-<section class="slide" data-w="cover">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-check"/></svg></span>Conclusão</div>
-    <h2 class="t" style="font-size:58px;margin-top:18px">nem vilão,<b>nem indispensável</b></h2>
-    <div class="glass" style="margin-top:22px;max-width:720px"><p style="font-size:17.5px;line-height:1.55">O WPC é um ingrediente lácteo de <b>alto valor nutricional</b>, feito de um subproduto. O produto do varejo, porém, costuma ser <b>ultraprocessado</b>, tem <b>lactose e alergênicos</b>, e o mercado tem <b>falhas de rótulo</b>. Ele pode entrar na alimentação cotidiana <b>como complemento</b> quando há uma <b>necessidade real</b>.</p></div>
-    <div class="row" style="margin-top:20px;gap:12px;flex-wrap:wrap;max-width:740px">
-      <span class="btn"><svg class="i" style="width:16px;height:16px"><use href="#i-check"/></svg>complemento, não substituto de refeição</span>
-      <span class="btn"><svg class="i" style="width:16px;height:16px"><use href="#i-users"/></svg>com orientação de nutricionista</span>
-      <span class="btn"><svg class="i" style="width:16px;height:16px"><use href="#i-shield"/></svg>produto notificado na ANVISA</span>
-    </div>
-    <div class="jar" style="position:absolute;right:-6px;top:110px;width:300px"></div>
+<!-- =========================================================== 14 · SEGURANÇA -->
+<section class="s">
+  <div class="meta"><span><b>05 — Qualidade e segurança</b></span><span>Perigos e controles</span><span>14</span></div>
+  <div class="a" style="left:64px;top:100px;width:820px">
+    <h2 class="h1" style="font-size:48px">Perigos e onde são <span class="it c-cob">controlados.</span></h2>
   </div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>14</span></div>
+  <div class="a" style="left:64px;right:64px;top:196px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:44px" id="hazards"></div>
+  <div class="a" style="left:64px;right:64px;top:534px;background:var(--ink);color:var(--milk);padding:20px 26px;display:flex;gap:26px;align-items:center">
+    <div class="num c-soro" style="font-size:44px;letter-spacing:-.04em;white-space:nowrap">aw ≈ 0,2</div>
+    <p style="margin:0;font-size:18px;line-height:1.4"><b>Salmonella e Cronobacter não crescem no pó — mas sobrevivem por meses.</b> Por isso a área seca, depois do spray dryer, é a zona mais vigiada da fábrica.</p>
+  </div>
+  <div class="foot"><span>Fontes: Portaria 326/1997; RDC 275/2002; RDC 724/2022; RDC 722/2022; Burgess et al. (2010); Beuchat et al. (2013); Moore et al. (2010).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 15 · REFERÊNCIAS (1) ============ -->
-<section class="slide" data-w="br">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-book"/></svg></span>Referências · legislação</div>
-    <div class="refs" style="margin-top:20px">
-      <p>BRASIL. Lei nº 10.674, de 16 de maio de 2003. Presença de glúten nos rótulos. Brasília, 2003.</p>
-      <p>BRASIL. Ministério da Saúde. Portaria SVS/MS nº 326, de 30 de julho de 1997. Boas práticas de fabricação. Brasília, 1997.</p>
-      <p>BRASIL. ANVISA. RDC nº 275, de 21 de outubro de 2002. Procedimentos Operacionais Padronizados. Brasília, 2002.</p>
-      <p>BRASIL. Decreto nº 9.013, de 29 de março de 2017 (RIISPOA). Brasília, 2017.</p>
-      <p>BRASIL. ANVISA. RDC nº 243, de 26 de julho de 2018. Requisitos sanitários dos suplementos alimentares. Brasília, 2018.</p>
-      <p>BRASIL. ANVISA. Instrução Normativa nº 28, de 26 de julho de 2018. Constituintes, limites e alegações de suplementos. Brasília, 2018.</p>
-      <p>BRASIL. ANVISA. RDC nº 429 e IN nº 75, de 8 de outubro de 2020. Rotulagem nutricional dos alimentos embalados. Brasília, 2020.</p>
-      <p>BRASIL. MAPA. Instrução Normativa nº 94, de 18 de setembro de 2020. RTIQ do soro de leite. Brasília, 2020.</p>
-      <p>BRASIL. ANVISA. RDC nº 722 e IN nº 160, de 1º de julho de 2022. Contaminantes em alimentos. Brasília, 2022.</p>
-      <p>BRASIL. ANVISA. RDC nº 724 e IN nº 161, de 1º de julho de 2022. Padrões microbiológicos. Brasília, 2022.</p>
-      <p>BRASIL. ANVISA. RDC nº 727, de 1º de julho de 2022. Rotulagem dos alimentos embalados. Brasília, 2022.</p>
-      <p>BRASIL. ANVISA. RDC nº 778 e IN nº 211, de 1º de março de 2023. Aditivos alimentares. Brasília, 2023.</p>
-      <p>BRASIL. ANVISA. RDC nº 843 e IN nº 281, de 2024. Regularização de alimentos. Brasília, 2024.</p>
-      <p>BRASIL. Ministério da Saúde. Guia Alimentar para a População Brasileira. 2. ed. Brasília, 2014.</p>
-      <h5 style="margin-top:12px">Estudos brasileiros e dados</h5>
-      <p>UFMG. Avaliação do teor de proteínas e do grau de hidrólise de suplementos proteicos à base de whey. Repositório UFMG, 2021.</p>
-      <p>FPS. Avaliação da rotulagem de suplementos proteicos comercializados na cidade do Recife-PE. TCC, Faculdade Pernambucana de Saúde.</p>
-      <p>ABIAD. Pesquisa de hábitos de consumo de suplementos (2020) e dados do setor (2024), via Portal da Indústria, 2025.</p>
-      <p>Revista Conexões (Unicamp). Revisão integrativa sobre uso de suplementos no Brasil, 2018.</p>
-    </div>
+<!-- =========================================================== 15 · CONSERVAÇÃO -->
+<section class="s">
+  <div class="meta"><span><b>05 — Conservação</b></span><span>Vida útil</span><span>15</span></div>
+  <div class="a" style="left:64px;top:100px;width:600px">
+    <h2 class="h1" style="font-size:52px">O inimigo do pó<br>é a <span class="it c-cob">água.</span></h2>
   </div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>15</span></div>
+  <svg class="a" id="tg" style="left:56px;top:226px" width="620" height="440" viewBox="0 0 620 440"></svg>
+  <div class="a" style="left:740px;right:64px;top:110px" id="factors"></div>
+  <div class="foot"><span>Fontes: Roos (2002); Thomas et al. (2004); ADPI (2022). Gráfico esquemático da transição vítrea (Tg).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 16 · REFERÊNCIAS (2) ============ -->
-<section class="slide" data-w="tr">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c">
-    <div class="tag"><span class="ib"><svg class="i"><use href="#i-book"/></svg></span>Referências · artigos e livros</div>
-    <div class="refs" style="margin-top:20px">
-      <p>ADPI – AMERICAN DAIRY PRODUCTS INSTITUTE. Whey Protein Concentrate Standard. Elmhurst: ADPI, 2022.</p>
-      <p>BAUER, J. et al. Evidence-based recommendations for optimal dietary protein intake in older people (PROT-AGE). J Am Med Dir Assoc, v. 14, n. 8, p. 542-559, 2013.</p>
-      <p>BEUCHAT, L. R. et al. Low-water activity foods: increased concern as vehicles of foodborne pathogens. J Food Prot, v. 76, n. 1, p. 150-172, 2013.</p>
-      <p>BURGESS, S. A.; LINDSAY, D.; FLINT, S. H. Thermophilic bacilli and their importance in dairy processing. Int J Food Microbiol, v. 144, n. 2, p. 215-225, 2010.</p>
-      <p>EFSA NDA PANEL. Scientific opinion on lactose thresholds in lactose intolerance and galactosaemia. EFSA Journal, v. 8, n. 9, 1777, 2010.</p>
-      <p>FAO. Dietary protein quality evaluation in human nutrition. FAO Food and Nutrition Paper 92. Rome, 2013.</p>
-      <p>IKIZLER, T. A. et al. KDOQI clinical practice guideline for nutrition in CKD: 2020 update. Am J Kidney Dis, v. 76, n. 3, supl. 1, p. S1-S107, 2020.</p>
-      <p>JÄGER, R. et al. ISSN position stand: protein and exercise. J Int Soc Sports Nutr, v. 14, art. 20, 2017.</p>
-      <p>MADUREIRA, A. R. et al. Bovine whey proteins – overview on their main biological properties. Food Res Int, v. 40, n. 10, p. 1197-1211, 2007.</p>
-      <p>MONTEIRO, C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutr, v. 22, n. 5, p. 936-941, 2019.</p>
-      <p>MOORE, J. C. et al. Total protein methods and their potential utility to reduce the risk of food protein adulteration. Compr Rev Food Sci Food Saf, v. 9, n. 4, p. 330-357, 2010.</p>
-      <p>ROOS, Y. H. Importance of glass transition and water activity to spray drying and stability of dairy powders. Le Lait, v. 82, n. 4, p. 475-484, 2002.</p>
-      <p>THOMAS, M. E. C. et al. Milk powders ageing: effect on physical and functional properties. Crit Rev Food Sci Nutr, v. 44, n. 5, p. 297-322, 2004.</p>
-      <p>TUNICK, M. H. Whey protein production and utilization: a brief history. In: ONWULATA, C. I.; HUTH, P. J. (ed.). Whey processing, functionality and health benefits. Ames: Wiley-Blackwell, 2008.</p>
-      <p>WALSTRA, P.; WOUTERS, J. T. M.; GEURTS, T. J. Dairy science and technology. 2. ed. Boca Raton: CRC Press, 2006.</p>
-      <p>Imagem do rótulo: foto do produto analisado, feita pelo grupo (2026).</p>
-    </div>
+<!-- =========================================================== 16 · MERCADO -->
+<section class="s dark">
+  <div class="meta"><span><b>06 — Análise crítica</b></span><span>Qualidade no mercado</span><span>16</span></div>
+  <div class="a" style="left:64px;top:100px;width:900px">
+    <h2 class="h1" style="font-size:52px">O rótulo nem sempre conta <span class="it c-soro">a verdade.</span></h2>
   </div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>16</span></div>
+  <div class="a" style="left:64px;right:64px;top:226px;display:grid;grid-template-columns:repeat(4,1fr)" id="market"></div>
+  <div class="a" style="left:64px;right:64px;top:486px" id="spiking"></div>
+  <div class="foot"><span>Fontes: UFMG (2021, 9 marcas); FPS/Recife-PE (TCC, 14 amostras); ANVISA (2025, via imprensa); Moore et al. (2010).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
 </section>
 
-<!-- ============ 17 · OBRIGADO ============ -->
-<section class="slide" data-w="end">
-  <div class="hdr">seminário · tecnologia de alimentos</div>
-  <div class="c" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
-    <div style="font-size:60px;font-weight:300;color:#f0abfc;line-height:1">+</div>
-    <h2 class="t" style="font-size:64px;margin-top:6px">obrigado!<b>perguntas?</b></h2>
-    <div class="row" style="margin-top:26px;gap:12px"><span class="btn"><svg class="i" style="width:16px;height:16px"><use href="#i-users"/></svg>Bruna · Thiago · Gabriel · Renan · Pedro</span></div>
-    <p class="muted" style="margin-top:18px;font-size:14px">Centro Universitário Augusto Motta · Nutrição · Módulo 4 · Prof. Caio Leonor</p>
+<!-- =========================================================== 17 · ANÁLISE CRÍTICA -->
+<section class="s">
+  <div class="meta"><span><b>06 — Análise crítica</b></span><span>Vantagens e limitações</span><span>17</span></div>
+  <div class="a" style="left:64px;top:100px;width:520px">
+    <h2 class="h1" style="font-size:58px">Vale a pena?<br><span class="it c-cob">Depende.</span></h2>
   </div>
-  <div class="ftr"><span><b>Grupo 1</b> · Whey Protein Concentrado</span><span>Rio de Janeiro · 2026</span></div>
+  <div class="a" style="left:64px;right:64px;top:262px;display:grid;grid-template-columns:1fr 1fr;column-gap:56px" id="pros"></div>
+  <div class="a" style="left:64px;right:64px;top:560px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:40px" id="context"></div>
+  <div class="foot"><span>Fontes: FAO (2013); Bauer et al. (2013); Monteiro et al. (2019); Brasil (2014); EFSA (2010); Ikizler et al. (2020).</span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
+</section>
+
+<!-- =========================================================== 18 · CONCLUSÃO -->
+<section class="s blue">
+  <div class="meta"><span><b>06 — Conclusão</b></span><span>Posicionamento do grupo</span><span>18</span></div>
+  <div class="a" style="left:58px;top:92px">
+    <div class="num" style="font-size:150px;letter-spacing:-.06em;line-height:.92">Nem vilão.</div>
+    <div class="it c-soro" style="font-size:150px;line-height:1.02;margin-top:4px">Nem indispensável.</div>
+  </div>
+  <div class="a" style="left:64px;right:64px;top:450px;border-top:1px solid rgba(240,235,225,.4);padding-top:18px">
+    <p style="margin:0;font-size:20px;line-height:1.42;max-width:980px">O WPC é um ingrediente lácteo de alto valor nutricional, feito de um resíduo. O produto do varejo é, em geral, ultraprocessado, tem lactose e alergênicos, e o mercado tem falhas de rótulo. Ele pode entrar na alimentação cotidiana quando:</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);column-gap:36px;margin-top:22px" id="conds"></div>
+  </div>
+  <div class="foot"><span></span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
+</section>
+
+<!-- =========================================================== 19 · REFERÊNCIAS 1 -->
+<section class="s">
+  <div class="meta"><span><b>Referências</b></span><span>Legislação</span><span>19</span></div>
+  <div class="a" style="left:64px;top:96px"><h2 class="h1" style="font-size:40px">Referências <span class="it c-cob">— legislação</span></h2></div>
+  <div class="a refs" style="left:64px;right:64px;top:176px;columns:2;column-gap:56px;font-size:13px;line-height:1.48;color:var(--ink2)">
+    <p>BRASIL. Lei nº 10.674, de 16 de maio de 2003. Presença de glúten nos rótulos. Brasília, 2003.</p>
+    <p>BRASIL. Ministério da Saúde. Portaria SVS/MS nº 326, de 30 de julho de 1997. Boas práticas de fabricação. Brasília, 1997.</p>
+    <p>BRASIL. ANVISA. RDC nº 275, de 21 de outubro de 2002. Procedimentos Operacionais Padronizados. Brasília, 2002.</p>
+    <p>BRASIL. Decreto nº 9.013, de 29 de março de 2017. Regulamento da Inspeção Industrial e Sanitária de Produtos de Origem Animal (RIISPOA). Brasília, 2017.</p>
+    <p>BRASIL. ANVISA. RDC nº 243, de 26 de julho de 2018. Requisitos sanitários dos suplementos alimentares. Brasília, 2018.</p>
+    <p>BRASIL. ANVISA. Instrução Normativa nº 28, de 26 de julho de 2018. Constituintes, limites e alegações de suplementos. Brasília, 2018.</p>
+    <p>BRASIL. ANVISA. RDC nº 429 e IN nº 75, de 8 de outubro de 2020. Rotulagem nutricional dos alimentos embalados. Brasília, 2020.</p>
+    <p>BRASIL. MAPA. Instrução Normativa nº 94, de 18 de setembro de 2020. Regulamento técnico de identidade e qualidade do soro de leite. Brasília, 2020.</p>
+    <p>BRASIL. ANVISA. RDC nº 722 e IN nº 160, de 1º de julho de 2022. Limites máximos de contaminantes. Brasília, 2022.</p>
+    <p>BRASIL. ANVISA. RDC nº 724 e IN nº 161, de 1º de julho de 2022. Padrões microbiológicos dos alimentos. Brasília, 2022.</p>
+    <p>BRASIL. ANVISA. RDC nº 727, de 1º de julho de 2022. Rotulagem dos alimentos embalados. Brasília, 2022.</p>
+    <p>BRASIL. ANVISA. RDC nº 778 e IN nº 211, de 1º de março de 2023. Aditivos alimentares e coadjuvantes de tecnologia. Brasília, 2023.</p>
+    <p>BRASIL. ANVISA. RDC nº 843 e IN nº 281, de 2024. Regularização de alimentos. Brasília, 2024.</p>
+    <p>BRASIL. Ministério da Saúde. Guia Alimentar para a População Brasileira. 2. ed. Brasília, 2014.</p>
+  </div>
+  <div class="foot"><span></span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
+</section>
+
+<!-- =========================================================== 20 · REFERÊNCIAS 2 -->
+<section class="s">
+  <div class="meta"><span><b>Referências</b></span><span>Artigos, livros e dados</span><span>20</span></div>
+  <div class="a" style="left:64px;top:96px"><h2 class="h1" style="font-size:40px">Referências <span class="it c-cob">— artigos, livros e dados</span></h2></div>
+  <div class="a refs" style="left:64px;right:64px;top:176px;columns:2;column-gap:56px;font-size:12px;line-height:1.42;color:var(--ink2)">
+    <p>ADPI – AMERICAN DAIRY PRODUCTS INSTITUTE. Whey Protein Concentrate Standard. Elmhurst: ADPI, 2022.</p>
+    <p>BAUER, J. et al. Evidence-based recommendations for optimal dietary protein intake in older people: PROT-AGE Study Group. J Am Med Dir Assoc, v. 14, n. 8, p. 542-559, 2013.</p>
+    <p>BEUCHAT, L. R. et al. Low-water activity foods: increased concern as vehicles of foodborne pathogens. J Food Prot, v. 76, n. 1, p. 150-172, 2013.</p>
+    <p>BURGESS, S. A.; LINDSAY, D.; FLINT, S. H. Thermophilic bacilli and their importance in dairy processing. Int J Food Microbiol, v. 144, n. 2, p. 215-225, 2010.</p>
+    <p>EFSA NDA PANEL. Scientific opinion on lactose thresholds in lactose intolerance and galactosaemia. EFSA Journal, v. 8, n. 9, 1777, 2010.</p>
+    <p>FAO. Dietary protein quality evaluation in human nutrition. FAO Food and Nutrition Paper 92. Rome, 2013.</p>
+    <p>IKIZLER, T. A. et al. KDOQI clinical practice guideline for nutrition in CKD: 2020 update. Am J Kidney Dis, v. 76, n. 3, supl. 1, p. S1-S107, 2020.</p>
+    <p>JÄGER, R. et al. International Society of Sports Nutrition position stand: protein and exercise. J Int Soc Sports Nutr, v. 14, art. 20, 2017.</p>
+    <p>MADUREIRA, A. R. et al. Bovine whey proteins – overview on their main biological properties. Food Res Int, v. 40, n. 10, p. 1197-1211, 2007.</p>
+    <p>MONTEIRO, C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutr, v. 22, n. 5, p. 936-941, 2019.</p>
+    <p>MOORE, J. C. et al. Total protein methods and their potential utility to reduce the risk of food protein adulteration. Compr Rev Food Sci Food Saf, v. 9, n. 4, p. 330-357, 2010.</p>
+    <p>ROOS, Y. H. Importance of glass transition and water activity to spray drying and stability of dairy powders. Le Lait, v. 82, n. 4, p. 475-484, 2002.</p>
+    <p>THOMAS, M. E. C. et al. Milk powders ageing: effect on physical and functional properties. Crit Rev Food Sci Nutr, v. 44, n. 5, p. 297-322, 2004.</p>
+    <p>TUNICK, M. H. Whey protein production and utilization: a brief history. In: ONWULATA, C. I.; HUTH, P. J. (ed.). Whey processing, functionality and health benefits. Ames: Wiley-Blackwell, 2008.</p>
+    <p>WALSTRA, P.; WOUTERS, J. T. M.; GEURTS, T. J. Dairy science and technology. 2. ed. Boca Raton: CRC Press, 2006.</p>
+    <p>UFMG. Avaliação do teor de proteínas e do grau de hidrólise de suplementos proteicos à base de whey. Repositório Institucional UFMG, 2021.</p>
+    <p>FPS. Avaliação da rotulagem de suplementos proteicos comercializados na cidade do Recife-PE. Trabalho de Conclusão de Curso. Recife: Faculdade Pernambucana de Saúde.</p>
+    <p>ABIAD. Pesquisa de hábitos de consumo de suplementos (2020) e dados do setor (2024). Via Portal da Indústria, 2025.</p>
+    <p>REVISTA CONEXÕES (Unicamp). Revisão integrativa sobre uso de suplementos por praticantes de atividade física no Brasil, 2018.</p>
+  </div>
+  <div class="foot"><span></span><span>Grupo 1 — Tecnologia de Alimentos</span></div>
+</section>
+
+<!-- =========================================================== 21 · FIM -->
+<section class="s dark">
+  <div class="meta"><span><b>Fim</b></span><span>Whey protein concentrado</span><span>21</span></div>
+  <div class="a" style="left:58px;top:150px">
+    <div class="num" style="font-size:212px;letter-spacing:-.065em">Obrigado.</div>
+    <div class="it c-soro" style="font-size:132px;margin-top:6px;margin-left:8px">Perguntas?</div>
+  </div>
+  <div class="a" style="left:64px;right:64px;bottom:62px"><div class="hr"></div></div>
+  <div class="a" style="left:64px;right:64px;bottom:30px;display:flex;justify-content:space-between;font:500 12px/1.3 var(--mono);letter-spacing:.04em;color:var(--milk2)">
+    <span><b style="color:var(--milk)">Grupo 1</b> — Bruna · Thiago · Gabriel · Renan · Pedro</span>
+    <span>Prof. Caio Leonor · Módulo 4</span>
+    <span>Centro Universitário Augusto Motta · 2026</span>
+  </div>
 </section>
 
 <script>
-  // pote
-  const tpl=document.getElementById('jar');
-  document.querySelectorAll('.jar').forEach(el=>el.appendChild(tpl.content.cloneNode(true)));
+const C={ink:'#15130F',ink2:'#3A362F',mute:'#7C7569',cream:'#EEE9DF',paper:'#F7F4EE',cob:'#2638F2',soro:'#D7E04C',red:'#F2462B',milk:'#F0EBE1',night:'#13120F'};
+const $=id=>document.getElementById(id);
 
-  // ondas neon (inspiradas no exemplo de design)
-  const presets={
-    cover:[{x0:-40,x1:1320,y:560,amp:120,n:38,tilt:-0.32,freq:240},{x0:520,x1:1320,y:-40,amp:70,n:22,tilt:0.12,freq:180}],
-    br:[{x0:600,x1:1320,y:640,amp:80,n:30,tilt:-0.22,freq:200}],
-    bl:[{x0:-40,x1:700,y:660,amp:80,n:30,tilt:-0.12,freq:210}],
-    tr:[{x0:700,x1:1320,y:-30,amp:70,n:26,tilt:0.1,freq:190}],
-    end:[{x0:-40,x1:1320,y:600,amp:110,n:36,tilt:-0.08,freq:260},{x0:-40,x1:1320,y:-40,amp:60,n:20,tilt:0.05,freq:230}]
-  };
-  document.querySelectorAll('.slide').forEach((s,si)=>{
-    const ns='http://www.w3.org/2000/svg';
-    const svg=document.createElementNS(ns,'svg'); svg.setAttribute('class','waves'); svg.setAttribute('viewBox','0 0 1280 720');
-    const id='g'+si;
-    svg.innerHTML=`<defs><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="#a855f7" stop-opacity="0"/><stop offset=".45" stop-color="#d8b4fe" stop-opacity=".55"/><stop offset=".75" stop-color="#f0abfc" stop-opacity=".45"/><stop offset="1" stop-color="#f0abfc" stop-opacity="0"/></linearGradient></defs>`;
-    const g=document.createElementNS(ns,'g'); g.setAttribute('fill','none'); g.setAttribute('stroke',`url(#${id})`); g.setAttribute('stroke-width','1');
-    let d='';
-    (presets[s.dataset.w]||[]).forEach(p=>{
-      for(let i=0;i<p.n;i++){
-        const y=p.y+i*5, a=p.amp*(0.6+0.4*Math.sin(i/p.n*Math.PI)), ph=i*0.09;
-        let path=`M ${p.x0} ${y}`;
-        for(let x=p.x0;x<=p.x1;x+=16){
-          const yy=y+Math.sin((x-p.x0)/p.freq+ph)*a*0.5+Math.sin((x-p.x0)/(p.freq*0.42)+ph*2.1)*a*0.1+(x-p.x0)*p.tilt;
-          path+=` L ${x} ${yy.toFixed(1)}`;
-        }
-        d+=`<path d="${path}" opacity="${(0.18+0.7*Math.sin(Math.PI*i/p.n)).toFixed(2)}"/>`;
-      }
-    });
-    // brilho "neon" sem filtro (mantém o PDF leve): mesma linha, mais grossa e transparente por baixo
-    const glow=document.createElementNS(ns,'g'); glow.setAttribute('fill','none'); glow.setAttribute('stroke',`url(#${id})`);
-    glow.setAttribute('stroke-width','4'); glow.setAttribute('opacity','.16'); glow.innerHTML=d;
-    g.innerHTML=d; svg.appendChild(glow); svg.appendChild(g);
-    s.insertBefore(svg,s.firstChild);
-  });
+/* ---------- 01 capa: waffle 10×10 ---------- */
+(()=>{
+  const parts=[['Proteína',80,C.cob,'fill'],['Lactose',6,C.soro,'fill'],['Gordura',6,C.ink,'fill'],['Minerais',4,'#A79F92','fill'],['Umidade',4,C.ink,'ring']];
+  let cells=[];parts.forEach(p=>{for(let i=0;i<p[1];i++)cells.push(p)});
+  let g='';const step=28.6,r=11.2;
+  cells.forEach((p,i)=>{const col=i%10,row=9-Math.floor(i/10);const cx=14.3+col*step,cy=14.3+row*step;
+    g+=p[3]==='ring'?`<circle cx="${cx}" cy="${cy}" r="${r-1.2}" fill="none" stroke="${p[2]}" stroke-width="1.6"/>`:`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${p[2]}"/>`;});
+  $('waffle').innerHTML=g;
+  $('waffle-legend').innerHTML=parts.map(p=>`<span style="display:flex;align-items:center;gap:8px"><svg width="12" height="12">${p[3]==='ring'?`<circle cx="6" cy="6" r="4.6" fill="none" stroke="${p[2]}" stroke-width="1.5"/>`:`<circle cx="6" cy="6" r="5.5" fill="${p[2]}"/>`}</svg>${p[0]} <b style="margin-left:auto;color:${C.ink}">${p[1]} g</b></span>`).join('');
+})();
+
+/* ---------- 02 roteiro ---------- */
+(()=>{
+  const rows=[['01','O que é e quem consome?','Caracterização','Bruna'],['02','O que tem dentro — e o que o rótulo diz?','Composição e rotulagem','Thiago'],['03','Como é feito?','Fluxograma de processamento','Gabriel'],['04','O que o processo muda?','Efeitos do processamento','Renan'],['05','É seguro? Como conservar?','Qualidade, segurança e conservação','Renan'],['06','Vale a pena?','Análise crítica e conclusão','Pedro']];
+  $('agenda').innerHTML=rows.map((r,i)=>`<div style="display:grid;grid-template-columns:62px 1fr 110px;align-items:baseline;padding:17px 0 16px;border-top:1px solid ${i?'var(--rule)':C.ink}">
+    <span style="font:500 15px/1 var(--mono);color:${C.cob}">${r[0]}</span>
+    <span><span style="display:block;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1">${r[1]}</span><span class="lbl" style="display:block;margin-top:7px">${r[2]}</span></span>
+    <span style="font:500 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-align:right;color:var(--ink2)">${r[3]}</span></div>`).join('')+`<div style="border-top:1px solid var(--rule)"></div>`;
+})();
+
+/* ---------- 03 litros ---------- */
+(()=>{
+  const W=496,H=470,n=10,gap=10,bw=(W-gap*(n-1))/n,top=40,bh=360;
+  let s=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
+  for(let i=0;i<n;i++){const x=i*(bw+gap);const isQ=i===0;
+    s+=`<rect x="${x}" y="${top}" width="${bw}" height="${bh}" fill="${isQ?C.milk:C.soro}" ${isQ?'':'opacity="'+(0.55+0.045*i).toFixed(2)+'"'}/>`;
+    s+=`<text x="${x+bw/2}" y="${top+bh+26}" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="#8B8478">${i+1} L</text>`;}
+  s+=`<line x1="0" y1="${top-16}" x2="${bw}" y2="${top-16}" stroke="${C.milk}" stroke-width="1.2"/><text x="0" y="${top-26}" font-family="JetBrains Mono" font-size="12" letter-spacing="1" fill="${C.milk}">QUEIJO ≈ 1 KG</text>`;
+  s+=`<line x1="${bw+gap}" y1="${top-16}" x2="${W}" y2="${top-16}" stroke="${C.soro}" stroke-width="1.2"/><text x="${W}" y="${top-26}" text-anchor="end" font-family="JetBrains Mono" font-size="12" letter-spacing="1" fill="${C.soro}">SORO ≈ 9 L</text>`;
+  s+=`<text x="0" y="${H-8}" font-family="JetBrains Mono" font-size="11" fill="#8B8478">CADA BARRA = 1 LITRO DE LEITE</text></svg>`;
+  $('liters').innerHTML=s;
+})();
+
+/* ---------- 04 escala de proteína ---------- */
+(()=>{
+  const W=1152,x=p=>p/100*W,y=74;
+  let s=`<svg width="${W}" height="150" viewBox="0 0 ${W} 150" style="overflow:visible">`;
+  s+=`<rect x="${x(25)}" y="${y-9}" width="${x(89)-x(25)}" height="18" fill="${C.cob}" opacity=".12"/>`;
+  s+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="${C.ink}" stroke-width="1.4"/>`;
+  for(let p=0;p<=100;p+=10){s+=`<line x1="${x(p)}" y1="${y-5}" x2="${x(p)}" y2="${y+5}" stroke="${C.ink}" stroke-width="1"/><text x="${x(p)}" y="${y+26}" text-anchor="${p===0?'start':p===100?'end':'middle'}" font-family="JetBrains Mono" font-size="11" fill="${C.mute}">${p}%</text>`;}
+  s+=`<text x="${x(25)}" y="${y+50}" font-family="JetBrains Mono" font-size="11" letter-spacing="1" fill="${C.cob}">FAIXA DO WPC: 25–89% DE PROTEÍNA (BASE SECA)</text>`;
+  const marks=[[12,'Soro em pó','~12%',C.mute,9],[34,'WPC34','34%',C.ink,9],[80,'WPC80','80%',C.cob,16],[92,'WPI','≥ 90%',C.ink,9]];
+  marks.forEach(m=>{s+=`<circle cx="${x(m[0])}" cy="${y}" r="${m[4]}" fill="${m[3]}" ${m[0]===80?`stroke="${C.cream}" stroke-width="3"`:''}/>`;
+    s+=`<text x="${x(m[0])}" y="${y-(m[0]===80?36:24)}" text-anchor="middle" font-family="Inter Tight" font-weight="${m[0]===80?800:700}" font-size="${m[0]===80?26:17}" fill="${m[3]===C.mute?C.ink2:m[3]}">${m[1]} <tspan font-family="JetBrains Mono" font-weight="500" font-size="${m[0]===80?15:12}" fill="${C.mute}">${m[2]}</tspan></text>`;});
+  s+=`<text x="${W}" y="${y-58}" text-anchor="end" font-family="JetBrains Mono" font-size="11" letter-spacing="1" fill="${C.mute}">PROTEÍNA →</text></svg>`;
+  $('scale').innerHTML=s;
+})();
+
+/* ---------- 05 classificação ---------- */
+(()=>{
+  const rows=[['ANVISA','Suplemento alimentar','Regras de composição, segurança e rótulo. Desde 01/09/2026 precisa de notificação na ANVISA.','RDC 243/2018 · RDC 843/2024'],
+    ['MAPA','Ingrediente lácteo','Fabricado em laticínio com inspeção federal (SIF).','RIISPOA · IN 94/2020'],
+    ['Tecnologia','Pó de separação por membranas','Concentrado por ultrafiltração e seco por atomização.','Walstra et al., 2006'],
+    ['Classificação NOVA','<span class="mk">Ultraprocessado*</span>','Quando leva aromas, edulcorantes e espessantes.','Monteiro et al., 2019']];
+  $('classif').innerHTML=rows.map((r,i)=>`<div style="display:grid;grid-template-columns:200px 420px 1fr;column-gap:28px;align-items:baseline;padding:20px 0 19px;border-top:1px solid ${i?'var(--rule)':C.ink}">
+    <span class="lbl" style="color:${C.cob}">${r[0]}</span>
+    <span style="font-size:30px;font-weight:800;letter-spacing:-.025em;line-height:1.05">${r[1]}</span>
+    <span><span style="font-size:16.5px;line-height:1.4;color:${C.ink2}">${r[2]}</span><span class="lbl" style="display:block;margin-top:6px;font-size:10.5px">${r[3]}</span></span></div>`).join('')+`<div style="border-top:1px solid var(--rule)"></div>`;
+})();
+
+/* ---------- 07 barras de composição ---------- */
+(()=>{
+  const W=1152,H=64;
+  const parts=[['Proteína','80–82 g',80,C.cob],['Lactose','4–10 g',6,C.soro],['Gordura','4–8 g',6,C.ink],['Minerais','3–5 g',4,'#A79F92'],['Umidade','3,5–5 g',4,'hatch']];
+  const sw=p=>p[3]==='hatch'?`<svg width="14" height="14"><rect x="0.75" y="0.75" width="12.5" height="12.5" fill="url(#hatch)" stroke="${C.ink}" stroke-width="1.5"/></svg>`:`<svg width="14" height="14"><rect width="14" height="14" fill="${p[3]}"/></svg>`;
+  let x=0,s=`<div class="lbl" style="margin-bottom:14px">Em 100 g de WPC80 — faixas típicas</div><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="${C.ink}" stroke-width="1.3"/></pattern></defs>`;
+  parts.forEach((p,i)=>{const w=p[2]/100*W;const fill=p[3]==='hatch'?'url(#hatch)':p[3];
+    s+=`<rect x="${x}" y="0" width="${w-(i<parts.length-1?3:0)}" height="${H}" fill="${fill}"/>`;
+    if(i===0)s+=`<text x="${x+22}" y="${H/2+12}" font-family="Inter Tight" font-weight="900" font-size="34" letter-spacing="-1" fill="${C.milk}">Proteína <tspan font-family="JetBrains Mono" font-weight="500" font-size="16" letter-spacing="0">80–82 g</tspan></text>`;
+    x+=w;});
+  s+=`</svg><div style="display:flex;justify-content:flex-end;gap:30px;margin-top:14px;font:500 12.5px/1 var(--mono);color:${C.ink}">`+
+     parts.slice(1).map(p=>`<span style="display:flex;align-items:center;gap:8px">${sw(p)}<b>${p[0]}</b> <span style="color:${C.ink2}">${p[1]}</span></span>`).join('')+`</div>`;
+  $('bar-comp').innerHTML=s;
+
+  const fr=[['β-lactoglobulina',50,C.cob,'#fff'],['α-lactalbumina',20,'#5866F5','#fff'],['Glicomacropeptídeo',12,'#8C95F8',C.ink],['Imunoglobulinas',10,'#B9BEFB',C.ink],['Outras*',8,'#DADCFC',C.ink]];
+  const W2=700;let x2=0,s2=`<div class="lbl" style="margin-bottom:12px">Frações da proteína do soro (aprox.)</div><svg width="${W2}" height="30" viewBox="0 0 ${W2} 30">`;
+  fr.forEach(p=>{const w=p[1]/100*W2;s2+=`<rect x="${x2}" y="0" width="${w-2}" height="30" fill="${p[2]}"/><text x="${x2+8}" y="19.5" font-family="JetBrains Mono" font-size="11.5" font-weight="700" fill="${p[3]}">${p[1]}%</text>`;x2+=w;});
+  s2+=`</svg><div style="display:flex;flex-wrap:wrap;column-gap:20px;row-gap:8px;margin-top:12px;font:600 13.5px/1 var(--sans);color:${C.ink2}">`+
+      fr.map(p=>`<span style="display:flex;align-items:center;gap:7px"><svg width="11" height="11"><rect width="11" height="11" fill="${p[2]}"/></svg>${p[0]}</span>`).join('')+`</div><div class="lbl" style="margin-top:8px;font-size:10px">*albumina sérica, lactoferrina e outras</div>`;
+  $('bar-frac').innerHTML=s2;
+})();
+
+/* ---------- 08 rótulo esquemático ---------- */
+(()=>{
+  const call=n=>`<span style="display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:${C.cob};color:#fff;font:700 11px/1 var(--mono);flex:0 0 auto">${n}</span>`;
+  $('label-slot').innerHTML=`<div style="position:absolute;inset:0;background:${C.paper};box-shadow:0 1px 0 rgba(0,0,0,.04),0 30px 60px -30px rgba(21,19,15,.35);padding:22px 22px 18px;font-family:'Inter Tight';color:${C.ink}">
+    <div style="display:flex;justify-content:space-between;align-items:center">${call(1)}<span style="font:700 10px/1 var(--mono);letter-spacing:.12em">SUPLEMENTO ALIMENTAR EM PÓ</span></div>
+    <div style="font-weight:900;font-size:30px;letter-spacing:-.04em;line-height:.95;margin-top:10px">WHEY PROTEIN<br>CONCENTRADO 80%</div>
+    <div style="display:flex;gap:8px;align-items:flex-start;margin-top:14px">${call(2)}
+      <div style="flex:1;border:1.6px solid ${C.ink};font-size:10.5px">
+        <div style="font-weight:800;font-size:11.5px;padding:4px 6px;border-bottom:1.6px solid ${C.ink}">INFORMAÇÃO NUTRICIONAL</div>
+        <div style="padding:3px 6px;border-bottom:1px solid ${C.ink};font-size:9.5px">Porção: 30 g</div>
+        <div style="display:grid;grid-template-columns:1fr 52px 30px;padding:3px 6px;border-bottom:1.6px solid ${C.ink};font-weight:700;font-size:9.5px"><span></span><span style="text-align:right">30 g</span><span style="text-align:right">%VD*</span></div>
+        ${[['Valor energético (kcal)','122','6'],['Carboidratos (g)','2,7','1'],['Proteínas (g)','23','46'],['Gorduras totais (g)','2,0','3'],['…','','']].map(r=>`<div style="display:grid;grid-template-columns:1fr 52px 30px;padding:2.5px 6px;border-bottom:1px solid rgba(21,19,15,.35)"><span>${r[0]}</span><span style="text-align:right;font-weight:700">${r[1]}</span><span style="text-align:right">${r[2]}</span></div>`).join('')}
+        <div style="padding:3px 6px;font-size:8.5px;color:${C.ink2}">*Percentual de valores diários fornecidos pela porção.</div>
+      </div></div>
+    <div style="display:flex;gap:8px;align-items:flex-start;margin-top:12px">${call(3)}<div style="font-size:10.5px;line-height:1.4"><b>INGREDIENTES:</b> proteína concentrada do soro do leite, cacau, aromatizante, edulcorante sucralose, espessante goma xantana, emulsificante lecitina de soja…</div></div>
+    <div style="display:flex;gap:8px;align-items:flex-start;margin-top:10px">${call(4)}<div style="font-size:10.5px;line-height:1.4;font-weight:800">ALÉRGICOS: CONTÉM LEITE E DERIVADOS E DERIVADOS DE SOJA. CONTÉM LACTOSE. NÃO CONTÉM GLÚTEN.</div></div>
+    <div style="display:flex;gap:8px;align-items:flex-start;margin-top:10px">${call(5)}<div style="font-size:10.5px;line-height:1.4">Este produto não é um medicamento. Não exceder a recomendação diária de consumo indicada na embalagem. Mantenha fora do alcance de crianças.</div></div>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:10px">${call(6)}<div style="font:500 10px/1.3 var(--mono)">Alimento notificado na ANVISA nº ________</div></div>
+    <div style="position:absolute;right:16px;bottom:12px;font:500 8.5px/1 var(--mono);letter-spacing:.08em;color:${C.mute}">ESQUEMA · TEXTO ILUSTRATIVO</div>
+  </div>`;
+  const notes=[['Denominação','“Suplemento alimentar” + nome do produto.','RDC 243/2018'],['Tabela nutricional','Modelo próprio para suplementos, por porção e %VD.','RDC 429/2020 · IN 75/2020'],['Ingredientes','Em ordem decrescente; aditivos com função e nome.','RDC 727/2022'],['Alergênicos e lactose','“Contém leite”, “contém lactose” e aviso de glúten.','RDC 727/2022 · Lei 10.674/2003'],['Advertências','Três frases obrigatórias para suplementos.','RDC 243/2018'],['Regularização','Número de notificação na ANVISA.','RDC 843/2024']];
+  $('label-notes').innerHTML=notes.map((n,i)=>`<div style="display:grid;grid-template-columns:30px 1fr;padding:11px 0 10px;border-top:1px solid ${i?'var(--rule)':C.ink}">${call(i+1)}<div><div style="font-size:17px;font-weight:800;letter-spacing:-.015em">${n[0]}</div><div style="font-size:14px;line-height:1.35;color:${C.ink2};margin-top:2px">${n[1]}</div><div class="lbl" style="font-size:9.5px;margin-top:4px">${n[2]}</div></div></div>`).join('')+`<div style="border-top:1px solid var(--rule)"></div><div class="lbl" style="margin-top:12px;line-height:1.5">Sem lupa frontal: não ultrapassa<br>os limites (ver próximo slide).</div>`;
+})();
+
+/* ---------- 09 rótulo × cálculo ---------- */
+(()=>{
+  const says=[['Valor energético','122 kcal'],['Proteínas','23 g'],['Carboidratos','2,7 g'],['Gorduras totais','2,0 g']];
+  $('label-says').innerHTML=says.map((r,i)=>`<div style="display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-top:1px solid ${i?'var(--rule-d)':C.milk}"><span style="font-size:18px;color:var(--milk2)">${r[0]}</span><span style="font:700 20px/1 var(--mono);color:var(--milk)">${r[1]}</span></div>`).join('')+`<div style="border-top:1px solid var(--rule-d)"></div>`;
+  const calc=[['76,7%','do pó é proteína','23 g ÷ 30 g'],['75%','das calorias vêm da proteína','23 g × 4 kcal = 92 de 122 kcal'],['Sem lupa','abaixo dos limites por 100 g','açúcar adic. 15 g · gord. sat. 6 g · sódio 600 mg'],['✓ 20–40 g','23 g está na faixa por dose','recomendação ISSN para quem treina']];
+  $('we-calc').innerHTML=calc.map(c=>`<div style="border-top:1px solid ${C.soro};padding-top:16px"><div class="num" style="font-size:${c[0].length>6?58:76}px;color:var(--soro)">${c[0]}</div><div style="font-size:20px;font-weight:700;margin-top:12px;letter-spacing:-.01em">${c[1]}</div><div class="lbl" style="margin-top:6px;line-height:1.5">${c[2]}</div></div>`).join('');
+})();
+
+/* ---------- 10 metrô ---------- */
+(()=>{
+  const A=[['01','Recepção','pH, acidez<br>≤ 7 °C'],['02','Clarificação','tira finos<br>de caseína'],['03','Desnate','centrífuga'],['04','Pasteurização','72–75 °C<br>15–20 s',0,1],['05','Resfriamento','≤ 10 °C'],['06','Ultrafiltração','membrana<br>~10 kDa'],['07','Diafiltração','+ água<br>~80% prot.'],['08','Concentração','opcional<br>a vácuo'],['09','Spray drying','ar a<br>175–200 °C'],['10','Aglomeração','leito<br>fluidizado'],['11','Detector de metais','+ peneira',0,1]];
+  const B=[['12','Recepção','quarentena<br>e laudos'],['13','Pesagem','pré-mistura'],['14','Mistura','sabor e aditivos'],['15','Peneira + metais','',0,1],['16','Envase','pote ou refil<br>N₂ opcional'],['17','Rotulagem','lote · validade'],['18','Estoque','seco e fresco']];
+  const yA=316,yB=548,xr=1216,R=48;
+  const xA=i=>112+i*103.6, xB=i=>1112-i*134;
+  let s='';
+  s+=`<path d="M 84 ${yA} H ${xr-R} A ${R} ${R} 0 0 1 ${xr} ${yA+R} V ${(yA+yB)/2}" fill="none" stroke="${C.cob}" stroke-width="7" stroke-linecap="round"/>`;
+  s+=`<path d="M ${xr} ${(yA+yB)/2} V ${yB-R} A ${R} ${R} 0 0 1 ${xr-R} ${yB} H 150" fill="none" stroke="${C.ink}" stroke-width="7" stroke-linecap="round"/>`;
+  s+=`<rect x="${xr-13}" y="${(yA+yB)/2-13}" width="26" height="26" rx="13" fill="${C.cream}" stroke="${C.ink}" stroke-width="3"/>`;
+  [[2,'creme de soro'],[5,'permeado: lactose e sais']].forEach(([i,t])=>{const x=xA(i);s+=`<path d="M ${x} ${yA} V ${yA-62} H ${x+18}" fill="none" stroke="${C.mute}" stroke-width="2" stroke-dasharray="4 4"/><circle cx="${x+22}" cy="${yA-62}" r="4" fill="${C.cream}" stroke="${C.mute}" stroke-width="2"/>`;});
+  const st=(x,y,p,color)=>p?`<circle cx="${x}" cy="${y}" r="13" fill="${C.red}" stroke="${C.cream}" stroke-width="3"/>`:`<circle cx="${x}" cy="${y}" r="11" fill="${C.cream}" stroke="${color}" stroke-width="4"/>`;
+  A.forEach((a,i)=>s+=st(xA(i),yA,a[4],C.cob));
+  B.forEach((b,i)=>s+=st(xB(i),yB,b[4],C.ink));
+  s+=`<circle cx="150" cy="${yB}" r="20" fill="${C.ink}"/><path d="M141 ${yB} l6 6 l12 -12" fill="none" stroke="${C.soro}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+  $('metro').innerHTML=s;
+  const lab=(x,y,n,t,d,p,w=96)=>`<div style="position:absolute;left:${x-w/2}px;top:${y}px;width:${w}px;text-align:center">
+    <div style="font:700 10.5px/1 var(--mono);color:${p?C.red:C.mute};letter-spacing:.05em">${n}${p?' · PCC':''}</div>
+    <div style="font-size:14.5px;font-weight:800;letter-spacing:-.015em;line-height:1.1;margin-top:5px">${t}</div>
+    ${d?`<div style="font:400 10.5px/1.3 var(--mono);color:${C.ink2};margin-top:4px">${d}</div>`:''}</div>`;
+  let h='';
+  A.forEach((a,i)=>h+=lab(xA(i),yA+24,a[0],a[1],a[2],a[4]));
+  B.forEach((b,i)=>h+=lab(xB(i),yB+26,b[0],b[1],b[2],b[4],118));
+  [[2,'→ creme de soro'],[5,'→ permeado: lactose e sais']].forEach(([i,t])=>h+=`<div style="position:absolute;left:${xA(i)+32}px;top:${yA-70}px;font:500 11px/1 var(--mono);color:${C.mute};white-space:nowrap">${t}</div>`);
+  h+=`<div class="lbl" style="position:absolute;left:84px;top:${yA-40}px;color:${C.cob}">A · Laticínio — MAPA / SIF</div>`;
+  h+=`<div class="lbl" style="position:absolute;left:178px;top:${yB-40}px;color:${C.ink}">B · Indústria de suplementos — ANVISA</div>`;
+  h+=`<div style="position:absolute;right:${1280-xr+28}px;top:${(yA+yB)/2+6}px;text-align:right"><div style="font-size:15px;font-weight:800;letter-spacing:-.01em">WPC80 em pó</div><div style="font:400 10.5px/1.3 var(--mono);color:${C.ink2}">sacos de 20–25 kg → vira insumo</div></div>`;
+  h+=`<div style="position:absolute;left:${150-50}px;top:${yB+28}px;width:100px;text-align:center"><div style="font-size:14.5px;font-weight:800">Pote pronto</div></div>`;
+  $('metro-labels').innerHTML=h;
+})();
+
+/* ---------- 11 zoom ---------- */
+(()=>{
+  const mono='font-family="JetBrains Mono" font-size="11"';
+  const pas=`<svg width="340" height="190" viewBox="0 0 340 190">
+    <line x1="30" y1="160" x2="330" y2="160" stroke="${C.ink}" stroke-width="1.2"/><line x1="30" y1="160" x2="30" y2="10" stroke="${C.ink}" stroke-width="1.2"/>
+    <text x="330" y="180" text-anchor="end" ${mono} fill="${C.mute}">TEMPO →</text><text x="36" y="18" ${mono} fill="${C.mute}">°C</text>
+    <path d="M30 140 C 70 140, 90 46, 130 46" fill="none" stroke="${C.cob}" stroke-width="3.5"/>
+    <path d="M130 46 H 205" fill="none" stroke="${C.red}" stroke-width="6" stroke-linecap="round"/>
+    <path d="M205 46 C 245 46, 260 138, 320 138" fill="none" stroke="${C.cob}" stroke-width="3.5"/>
+    <text x="167" y="34" text-anchor="middle" font-family="Inter Tight" font-weight="800" font-size="17" fill="${C.red}">72–75 °C</text>
+    <line x1="130" y1="64" x2="205" y2="64" stroke="${C.ink}" stroke-width="1"/><line x1="130" y1="59" x2="130" y2="69" stroke="${C.ink}"/><line x1="205" y1="59" x2="205" y2="69" stroke="${C.ink}"/>
+    <text x="167" y="84" text-anchor="middle" ${mono} fill="${C.ink}">15–20 s</text>
+    <text x="330" y="116" text-anchor="end" ${mono} fill="${C.ink}">≤ 10 °C</text></svg>`;
+  let dotsL='',dotsR='';const big=[[60,60],[95,45],[80,100],[115,90],[55,135],[110,135]];
+  big.forEach(([x,y])=>dotsL+=`<circle cx="${x}" cy="${y}" r="15" fill="${C.cob}"/>`);
+  [[75,30],[135,62],[40,98],[140,118],[88,150],[48,168]].forEach(([x,y])=>dotsL+=`<circle cx="${x}" cy="${y}" r="4.5" fill="${C.ink}"/>`);
+  [[205,40],[250,70],[225,110],[290,95],[210,160],[265,145],[300,40],[310,160]].forEach(([x,y])=>dotsR+=`<circle cx="${x}" cy="${y}" r="4.5" fill="${C.ink}"/>`);
+  const uf=`<svg width="340" height="190" viewBox="0 0 340 190">
+    <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="${C.ink}"/></marker></defs>
+    <rect x="166" y="12" width="8" height="166" fill="${C.soro}"/>
+    ${Array.from({length:14},(_,i)=>`<line x1="166" y1="${20+i*11.5}" x2="174" y2="${20+i*11.5}" stroke="${C.cream}" stroke-width="3"/>`).join('')}
+    ${dotsL}${dotsR}
+    <path d="M150 128 L 196 128" stroke="${C.ink}" stroke-width="1.6" marker-end="url(#ah)"/>
+    <path d="M150 78 L 196 78" stroke="${C.ink}" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="20" y="186" ${mono} fill="${C.cob}">RETIDO: PROTEÍNA</text><text x="330" y="186" text-anchor="end" ${mono} fill="${C.ink}">PERMEADO</text>
+    <text x="170" y="8" text-anchor="middle" ${mono} fill="${C.mute}">MEMBRANA</text></svg>`;
+  let drops='';[[170,52,5],[156,62,4],[184,64,4],[146,80,3.5],[194,82,3.5],[164,86,3],[178,100,2.6],[152,108,2.4],[190,114,2.4],[170,122,2]].forEach(([x,y,r])=>drops+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${C.cob}"/>`);
+  const sd=`<svg width="340" height="190" viewBox="0 0 340 190">
+    <defs><marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="${C.red}"/></marker><marker id="ah3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="${C.cob}"/></marker></defs>
+    <path d="M110 30 H 230 V 120 L 178 172 H 162 L 110 120 Z" fill="none" stroke="${C.ink}" stroke-width="2"/>
+    <rect x="164" y="18" width="12" height="20" fill="${C.ink}"/>${drops}
+    <path d="M30 26 H 150" stroke="${C.red}" stroke-width="2.4" marker-end="url(#ah2)"/>
+    <path d="M232 104 H 330" stroke="${C.cob}" stroke-width="2.4" marker-end="url(#ah3)"/>
+    <text x="30" y="16" ${mono} fill="${C.red}">AR 175–200 °C</text><text x="330" y="94" text-anchor="end" ${mono} fill="${C.cob}">SAI 75–90 °C</text>
+    <text x="170" y="188" text-anchor="middle" ${mono} fill="${C.ink}">PÓ · 3,5–5% UMIDADE</text></svg>`;
+  const cols=[['Etapa 04 · PCC','Pasteurização',pas,'Elimina patógenos com <b>pouca desnaturação</b>. Não elimina esporos.'],['Etapas 06–07','Ultra + diafiltração',uf,'A proteína fica; <b>lactose e sais passam</b>. A água da diafiltração “lava” o retido.'],['Etapa 09','Spray drying',sd,'A gota seca em segundos e <b>fica fria enquanto evapora</b>: a proteína não “cozinha”.']];
+  $('zoom').innerHTML=cols.map(c=>`<div><div class="lbl" style="color:${c[0].includes('PCC')?C.red:C.cob}">${c[0]}</div><div style="font-size:30px;font-weight:800;letter-spacing:-.03em;margin:6px 0 14px">${c[1]}</div><div style="border-top:1px solid ${C.ink};padding-top:16px">${c[2]}</div><p class="body" style="font-size:16.5px;margin:16px 0 0">${c[3]}</p></div>`).join('');
+})();
+
+/* ---------- 12 matriz ---------- */
+(()=>{
+  const cols=['Físico','Químico','Microbiológico','Sensorial','Nutricional'];
+  const rows=[['Pasteurização','04',['—','pouca desnaturação','↓ patógenos; esporos resistem','sabor de cozido, se intensa','↓ bioatividade, se intensa']],
+    ['Ultra + diafiltração','06–07',['concentra; ↑ viscosidade','retira lactose e sais','a ~50 °C, risco de termófilos','menos salgado e ácido','↑ proteína · ↓ lactose · ↓ minerais']],
+    ['Secagem','09–10',['líquido → pó; aglomera','desnaturação parcial; Maillard começa','aw ≈ 0,2: nada cresce, mas sobrevive','cor creme','pode ↓ lisina disponível']],
+    ['Estocagem','18 →',['umidade → empedra','<span class="mk">Maillard</span> e oxidação','recontaminação se mal fechado','papelão, ranço, escurece','<span class="mk">↓ lisina disponível</span>']]];
+  let h=`<div style="display:grid;grid-template-columns:190px repeat(5,1fr);border-top:1px solid ${C.ink}">`;
+  h+=`<div></div>`+cols.map(c=>`<div class="lbl" style="padding:12px 12px 12px 0;color:${C.ink}">${c}</div>`).join('');
+  rows.forEach(r=>{h+=`<div style="border-top:1px solid var(--rule);padding:16px 12px 16px 0"><div style="font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.1">${r[0]}</div><div class="lbl" style="margin-top:4px;color:${C.cob}">Etapa ${r[1]}</div></div>`;
+    r[2].forEach(c=>h+=`<div style="border-top:1px solid var(--rule);border-left:1px solid var(--rule);padding:16px 12px;font-size:15px;line-height:1.35;color:${c==='—'?C.mute:C.ink2}">${c}</div>`);});
+  h+=`</div><div style="border-top:1px solid ${C.ink}"></div>`;
+  $('matrix').innerHTML=h;
+})();
+
+/* ---------- 13 contas (desnaturação × Maillard) ---------- */
+(()=>{
+  const folded=[[40,40],[58,30],[74,40],[70,58],[52,62],[40,76],[56,88],[74,82],[90,70],[94,50],[86,32],[100,24]];
+  const beads=(pts,hl)=>pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="7.5" fill="${hl===i?C.soro:C.milk}"/>`).join('');
+  const chain=pts=>`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#8B8478" stroke-width="2"/>`;
+  const line=Array.from({length:12},(_,i)=>[210+i*19,56]);
+  const svg1=`<svg width="460" height="110" viewBox="0 0 460 110"><defs><marker id="ahm" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="${C.milk}"/></marker></defs>${chain(folded)}${beads(folded)}
+    <path d="M128 56 H 190" stroke="${C.milk}" stroke-width="1.6" marker-end="url(#ahm)"/><text x="159" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#9A9387">CALOR</text>
+    ${chain(line)}${beads(line)}</svg>`;
+  const line2=Array.from({length:12},(_,i)=>[30+i*19,56]);
+  const svg2=`<svg width="460" height="110" viewBox="0 0 460 110">${chain(line2)}${beads(line2,6)}
+    <polygon points="144,8 158,0 172,8 172,24 158,32 144,24" fill="none" stroke="${C.soro}" stroke-width="2.4"/>
+    <line x1="144" y1="49" x2="154" y2="30" stroke="${C.soro}" stroke-width="2.4"/>
+    <text x="182" y="20" font-family="JetBrains Mono" font-size="11" fill="${C.soro}">LACTOSE</text>
+    <text x="144" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="${C.soro}">LISINA BLOQUEADA</text></svg>`;
+  $('beads').innerHTML=`<div><div class="lbl">Desnaturação · calor</div><div style="border-top:1px solid var(--rule-d);margin:10px 0 8px"></div>${svg1}<p class="body" style="font-size:17px;margin:6px 0 0">A proteína <b style="color:var(--milk)">muda de forma</b>, mas os aminoácidos continuam lá. O valor nutricional se mantém.</p></div>
+  <div><div class="lbl" style="color:var(--soro)">Reação de Maillard · calor + tempo</div><div style="border-top:1px solid var(--rule-d);margin:10px 0 8px"></div>${svg2}<p class="body" style="font-size:17px;margin:6px 0 0">A lactose se liga à <b style="color:var(--milk)">lisina</b>, e o corpo deixa de aproveitá-la. <span style="color:var(--soro)">Aqui sim há perda.</span></p></div>`;
+})();
+
+/* ---------- 14 perigos ---------- */
+(()=>{
+  const P='<span class="pcc">PCC</span>';
+  const cols=[['B','Biológicos',[['Patógenos do soro','pasteurização '+P],['Toxina de S. aureus','soro frio e processado rápido'],['Esporulados e termófilos','limpeza CIP; UF a frio'],['Salmonella, Cronobacter','zoneamento da área seca']]],
+    ['Q','Químicos',[['Antibióticos, aflatoxina M1','controle do leite; laudos'],['Resíduos de limpeza','enxágue validado'],['Alergênicos (leite, soja, glúten)','limpeza entre lotes; rótulo'],['Metais (cacau) e fraude','fornecedores; análises']]],
+    ['F','Físicos',[['Metal, plástico, vidro','peneira, ímãs e detector de metais '+P],['Base de tudo','BPF e POPs: Portaria 326/1997 e RDC 275/2002']]]];
+  $('hazards').innerHTML=cols.map(c=>`<div><div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:var(--serif);font-size:92px;line-height:.8;color:${C.cob}">${c[0]}</span><span style="font-size:24px;font-weight:800;letter-spacing:-.02em">${c[1]}</span></div>
+    <div style="border-top:1px solid ${C.ink};margin-top:12px"></div>${c[2].map(r=>`<div style="padding:9px 0 8px;border-bottom:1px solid var(--rule)"><div style="font-size:16px;font-weight:700;line-height:1.25">${r[0]}</div><div style="font-size:14.5px;color:${C.ink2};margin-top:2px;line-height:1.3">→ ${r[1]}</div></div>`).join('')}</div>`).join('');
+})();
+
+/* ---------- 15 transição vítrea ---------- */
+(()=>{
+  const ox=60,oy=322,W=520,H=300,ns='http://www.w3.org/2000/svg';
+  const d=`M ${ox+6} ${oy-H+12} C ${ox+120} ${oy-H+84}, ${ox+260} ${oy-82}, ${ox+W-6} ${oy-40}`;
+  const tmp=document.createElementNS(ns,'path');tmp.setAttribute('d',d);$('tg').appendChild(tmp);
+  const L=tmp.getTotalLength();const at=f=>tmp.getPointAtLength(L*f);
+  const yAt=x=>{let lo=0,hi=L;for(let k=0;k<40;k++){const m=(lo+hi)/2;tmp.getPointAtLength(m).x<x?lo=m:hi=m;}return tmp.getPointAtLength(lo).y;};
+  const mk=(id,c)=>`<marker id="${id}" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="${c}"/></marker>`;
+  let s=`<defs>${mk('aa',C.ink)}</defs>`;
+  s+=`<path d="${d} L ${ox+W-6} ${oy-H} L ${ox+6} ${oy-H} Z" fill="${C.soro}" opacity=".6"/>`;
+  s+=`<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="2.8"/>`;
+  s+=`<line x1="${ox}" y1="${oy}" x2="${ox+W}" y2="${oy}" stroke="${C.ink}" stroke-width="1.3"/><line x1="${ox}" y1="${oy}" x2="${ox}" y2="${oy-H}" stroke="${C.ink}" stroke-width="1.3"/>`;
+  s+=`<text x="${ox+W}" y="${oy+22}" text-anchor="end" font-family="JetBrains Mono" font-size="11.5" fill="${C.mute}">UMIDADE DO PÓ →</text>`;
+  s+=`<text transform="translate(${ox-14} ${oy}) rotate(-90)" font-family="JetBrains Mono" font-size="11.5" fill="${C.mute}">TEMPERATURA →</text>`;
+  // regiões
+  s+=`<text x="${ox+W-14}" y="${oy-H+34}" text-anchor="end" font-family="Inter Tight" font-weight="800" font-size="24" fill="${C.ink}">Pegajoso</text><text x="${ox+W-14}" y="${oy-H+54}" text-anchor="end" font-family="JetBrains Mono" font-size="11" fill="${C.ink2}">EMPEDRA · MAILLARD ACELERA</text>`;
+  s+=`<text x="${ox+W-14}" y="${oy-14}" text-anchor="end" font-family="Inter Tight" font-weight="800" font-size="18" fill="${C.ink}">Vítreo <tspan font-family="JetBrains Mono" font-weight="400" font-size="11" fill="${C.ink2}">· ESTÁVEL</tspan></text>`;
+  // rótulo da curva Tg
+  const p1=at(.36),p2=at(.39),ang=Math.atan2(p2.y-p1.y,p2.x-p1.x)*180/Math.PI;
+  s+=`<text transform="translate(${p1.x+6} ${p1.y-10}) rotate(${ang.toFixed(1)})" font-family="JetBrains Mono" font-weight="700" font-size="11.5" fill="${C.ink}">Tg · TRANSIÇÃO VÍTREA</text>`;
+  // ponto e setas
+  const px=ox+120,py=oy-92,xr=ox+436,yu=oy-H+36;
+  s+=`<path d="M ${px+14} ${py} H ${xr-2}" stroke="${C.ink}" stroke-width="2.2" marker-end="url(#aa)"/>`;
+  s+=`<path d="M ${px} ${py-14} V ${yu+2}" stroke="${C.ink}" stroke-width="2.2" marker-end="url(#aa)"/>`;
+  s+=`<circle cx="${px}" cy="${py}" r="10" fill="${C.cob}"/>`;
+  s+=`<text x="${px-4}" y="${py+32}" font-family="Inter Tight" font-weight="700" font-size="15" fill="${C.cob}">despensa, pote fechado</text>`;
+  const badge=(x,y,n)=>`<circle cx="${x}" cy="${y}" r="13" fill="${C.ink}"/><text x="${x}" y="${y+4.5}" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="${C.soro}">${n}</text>`;
+  s+=badge(xr+22,py,1)+badge(px,yu-18,2);
+  // legenda das setas
+  s+=`<g font-family="Inter Tight" font-size="15" fill="${C.ink}">`+
+     `${badge(ox+14,oy+58,1)}<text x="${ox+36}" y="${oy+63}"><tspan font-weight="800">+ umidade</tspan> — banheiro, dosador molhado</text>`+
+     `${badge(ox+14,oy+90,2)}<text x="${ox+36}" y="${oy+95}"><tspan font-weight="800">+ calor</tspan> — carro no sol, perto do fogão</text></g>`;
+  tmp.remove();
+  $('tg').insertAdjacentHTML('beforeend',s);
+  const f=[['Umidade ↑','Lactose vítrea vira pegajosa: o pó empedra.'],['Calor ↑','Maillard: escurece e perde lisina.'],['O₂ e luz','A gordura residual oxida: sabor de ranço.']];
+  $('factors').innerHTML=`<div class="lbl">Três inimigos</div>`+f.map((r,i)=>`<div style="border-top:1px solid ${i?'var(--rule)':C.ink};padding:13px 0 12px;margin-top:${i?0:10}px"><div style="font-size:21px;font-weight:800;letter-spacing:-.02em">${r[0]}</div><div style="font-size:16px;color:${C.ink2};margin-top:3px;line-height:1.35">${r[1]}</div></div>`).join('')+
+  `<div class="lbl" style="margin-top:22px">A proteção</div><div style="border-top:1px solid ${C.ink};margin-top:10px;padding-top:12px;font-size:16px;line-height:1.5;color:${C.ink2}">Pote de PEAD com <b style="color:${C.ink}">lacre de indução</b> ou refil <b style="color:${C.ink}">laminado</b>; N₂ opcional. Em casa: fechar bem, dosador seco, local fresco.</div>
+  <div style="margin-top:14px;font:500 12px/1.5 var(--mono);color:${C.mute}">VIDA ÚTIL: DEFINIDA PELO FABRICANTE<br>(EM GERAL 1–2 ANOS FECHADO)</div>`;
+})();
+
+/* ---------- 16 mercado ---------- */
+(()=>{
+  const m=[['88%','das marcas com pelo menos 1 erro de rotulagem','UFMG · 9 marcas'],['−35%','de proteína abaixo da tolerância legal em uma marca','UFMG'],['2/14','amostras cumpriam todas as regras de rótulo avaliadas','Recife-PE · TCC'],['2025','ANVISA suspende lote com glúten não declarado','ANVISA · imprensa']];
+  $('market').innerHTML=m.map((r,i)=>`<div style="padding:0 26px 0 ${i?26:0}px;border-left:${i?'1px solid var(--rule-d)':'0'}"><div class="num" style="font-size:84px;color:${i===1?C.soro:C.milk}">${r[0]}</div><div style="font-size:17px;line-height:1.35;margin-top:16px;color:var(--milk2)">${r[1]}</div><div class="lbl" style="margin-top:10px">${r[2]}</div></div>`).join('');
+  const box=(t,sub,col)=>`<div style="border:1.5px solid ${col};padding:12px 14px;min-width:0"><div style="font:700 15px/1.2 var(--sans);color:${col===C.soro?C.soro:C.milk}">${t}</div><div style="font:400 11px/1.35 var(--mono);color:#9A9387;margin-top:4px">${sub}</div></div>`;
+  const arr=`<span style="font:400 22px/1 var(--mono);color:#9A9387;align-self:center">→</span>`;
+  $('spiking').innerHTML=`<div class="lbl" style="color:var(--soro)">Como funciona a fraude “amino spiking”</div><div style="border-top:1px solid var(--rule-d);margin:10px 0 14px"></div>
+  <div style="display:grid;grid-template-columns:1fr auto 1.15fr auto 1fr auto 1.15fr;gap:12px">
+    ${box('+ glicina, taurina','baratos e ricos em nitrogênio',C.soro)}${arr}${box('Kjeldahl mede o N total','não distingue a origem do N','#5E584F')}${arr}${box('N × 6,38 = “proteína”','fator das proteínas do leite','#5E584F')}${arr}${box('Proteína inflada no laudo','perfil de aminoácidos desmascara',C.soro)}</div>`;
+})();
+
+/* ---------- 17 prós e contras ---------- */
+(()=>{
+  const pro=['Proteína de alta qualidade (PDCAAS 1,0), rica em leucina','Prático e estável na despensa','Ajuda quando a comida não basta: atletas, idosos com perda muscular, pouco apetite','Dá destino a um resíduo poluente'];
+  const con=['Não é indispensável: a maioria atinge a meta de proteína com comida','Saborizado = ultraprocessado (edulcorantes, aromas, gomas)','Tem lactose e é alergênico (proteína do leite)','Mercado com falhas de rótulo; uso sem orientação'];
+  const col=(t,items,sym,color)=>`<div><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:24px;font-weight:800;letter-spacing:-.02em">${t}</span><span style="font:700 26px/1 var(--mono);color:${color}">${sym}</span></div><div style="border-top:1px solid ${C.ink};margin-top:10px"></div>${items.map(i=>`<div style="padding:10px 0 9px;border-bottom:1px solid var(--rule);font-size:17px;line-height:1.35;color:${C.ink2}">${i}</div>`).join('')}</div>`;
+  $('pros').innerHTML=col('A favor',pro,'+',C.cob)+col('Contra',con,'−',C.red);
+  const ctx=[['Frequência','1 dose num plano alimentar ≠ várias doses no lugar de refeições.'],['Lactose','~1–3 g por dose; a maioria dos intolerantes tolera até ~12 g (EFSA).'],['“Ultraprocessado”','Não é sinônimo de proibido: avaliar composição, finalidade e dose.']];
+  $('context').innerHTML=ctx.map(c=>`<div><div class="lbl" style="color:${C.cob}">${c[0]}</div><div style="font-size:15px;line-height:1.4;color:${C.ink2};margin-top:6px">${c[1]}</div></div>`).join('');
+})();
+
+/* ---------- 18 condições ---------- */
+(()=>{
+  const c=[['01','Complementa — não substitui — refeições.'],['02','Existe necessidade real, avaliada por nutricionista.'],['03','O produto é notificado na ANVISA e o rótulo foi conferido.']];
+  $('conds').innerHTML=c.map(r=>`<div style="display:flex;gap:14px;align-items:baseline"><span style="font:700 15px/1 var(--mono);color:var(--soro)">${r[0]}</span><span style="font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.01em">${r[1]}</span></div>`).join('');
+})();
 </script>
 </body>
 </html>
