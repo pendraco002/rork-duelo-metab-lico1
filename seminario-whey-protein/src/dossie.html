@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Dossiê de Pesquisa — Whey Protein Concentrado</title>
+<style>
+  :root{
+    --ink:#1d1433; --muted:#5b4d7a; --line:#ddd0ff;
+    --violet:#6d28d9; --violet-2:#8b5cf6; --deep:#1a0840; --deep-2:#3b0f8c;
+    --card:#f5f0ff; --card-2:#fbf9ff;
+    --ok:#0f766e; --warn:#b45309; --pcc:#be123c;
+  }
+  @page{ size:A4; margin:16mm 15mm 18mm 15mm; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:#fff; }
+  body{ font-family:"Inter","Liberation Sans",sans-serif; font-size:10.4pt; line-height:1.56; color:var(--ink); text-align:left; }
+  p{ margin:0 0 7pt; }
+  strong{ font-weight:700; color:#140b2b; }
+  ul,ol{ margin:2pt 0 8pt; padding-left:16pt; }
+  li{ margin-bottom:3pt; }
+  a{ color:var(--violet); text-decoration:none; word-break:break-word; }
+  .pb{ break-before:page; }
+  .avoid{ break-inside:avoid; }
+
+  /* ---------- section header ---------- */
+  .sec{ display:flex; align-items:center; gap:12pt; margin:0 0 12pt; padding:13pt 16pt;
+        border-radius:14pt; color:#fff; break-after:avoid;
+        background:
+          radial-gradient(120% 160% at 100% 0%, rgba(217,70,239,.45) 0%, rgba(217,70,239,0) 55%),
+          linear-gradient(120deg,#16053a 0%,#3b0f8c 70%,#5b21b6 100%); }
+  .sec .n{ flex:0 0 auto; width:34pt; height:34pt; border-radius:50%; display:grid; place-items:center;
+           font-weight:800; font-size:15pt; background:rgba(255,255,255,.12); border:1px solid rgba(233,213,255,.55); }
+  .sec h2{ margin:0; font-size:16pt; line-height:1.15; font-weight:300; letter-spacing:.2pt; }
+  .sec h2 b{ font-weight:800; }
+  .sec .k{ display:block; font-size:7.6pt; letter-spacing:1.6pt; text-transform:uppercase; color:#e9d5ff; font-weight:600; margin-bottom:2pt; }
+  h3{ font-size:12pt; color:var(--deep-2); margin:14pt 0 6pt; break-after:avoid; display:flex; align-items:center; gap:7pt; }
+  h3::before{ content:""; width:4pt; height:13pt; border-radius:2pt; background:linear-gradient(var(--violet-2),#d946ef); }
+  h4{ font-size:10.4pt; margin:10pt 0 4pt; color:var(--deep-2); break-after:avoid; }
+
+  /* ---------- boxes ---------- */
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:12pt; padding:10pt 12pt; margin:0 0 10pt; break-inside:avoid; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:9pt; margin-bottom:10pt; }
+  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:9pt; margin-bottom:10pt; }
+  .grid2 .card,.grid3 .card{ margin:0; }
+  .pill{ display:inline-block; font-size:7.2pt; font-weight:700; letter-spacing:1.1pt; text-transform:uppercase;
+         padding:2.5pt 8pt; border-radius:99pt; background:var(--violet); color:#fff; margin-bottom:5pt; }
+  .pill.ghost{ background:#ede4ff; color:var(--deep-2); border:1px solid #cdb9ff; }
+  .pill.pcc{ background:var(--pcc); }
+  .call{ border-radius:10pt; padding:9pt 12pt; margin:0 0 10pt; break-inside:avoid; border:1px solid; }
+  .call .t{ font-weight:800; font-size:8pt; letter-spacing:1.2pt; text-transform:uppercase; display:block; margin-bottom:3pt; }
+  .call.rot{ background:#eef2ff; border-color:#c7d2fe; } .call.rot .t{ color:#3730a3; }
+  .call.int{ background:#fdf2ff; border-color:#f0c4fb; } .call.int .t{ color:#a21caf; }
+  .call.warn{ background:#fffbeb; border-color:#fcd34d; } .call.warn .t{ color:var(--warn); }
+  .call.ok{ background:#ecfdf5; border-color:#a7f3d0; } .call.ok .t{ color:var(--ok); }
+  .src{ font-size:8pt; color:var(--muted); margin-top:3pt; }
+
+  /* ---------- tables ---------- */
+  table{ width:100%; border-collapse:separate; border-spacing:0; margin:0 0 10pt; font-size:9pt; line-height:1.42;
+         border:1px solid var(--line); border-radius:10pt; overflow:hidden; break-inside:auto; }
+  thead{ display:table-header-group; }
+  tr{ break-inside:avoid; }
+  th{ background:#2e0f73; color:#fff; text-align:left; font-weight:700; padding:6pt 8pt; font-size:8.6pt; }
+  td{ padding:6pt 8pt; vertical-align:top; border-top:1px solid #ece4ff; }
+  tbody tr:nth-child(even) td{ background:#f8f5ff; }
+  td.c{ text-align:center; }
+  .tagpcc{ display:inline-block; background:var(--pcc); color:#fff; font-size:7pt; font-weight:800; padding:1pt 5pt; border-radius:4pt; letter-spacing:.6pt; }
+
+  /* ---------- cover (rendered as its own page) ---------- */
+  .cover{ width:210mm; height:297mm; position:relative; overflow:hidden; color:#fff; padding:22mm 18mm;
+          background:
+            radial-gradient(70% 45% at 85% 12%, rgba(217,70,239,.55) 0%, rgba(217,70,239,0) 60%),
+            radial-gradient(80% 60% at 0% 100%, rgba(124,58,237,.65) 0%, rgba(124,58,237,0) 60%),
+            linear-gradient(160deg,#0d0326 0%,#1c0752 55%,#2b0b6e 100%); }
+  .cover .waves{ position:absolute; inset:0; }
+  .cover .inst{ font-size:9pt; letter-spacing:2.2pt; text-transform:uppercase; color:#e9d5ff; font-weight:600; position:relative; }
+  .cover .inst span{ display:block; font-weight:400; letter-spacing:1.2pt; color:#c4b5fd; margin-top:3pt; text-transform:none; font-size:9.5pt; }
+  .cover .mid{ position:absolute; left:18mm; right:18mm; top:78mm; }
+  .cover .tag{ display:inline-block; padding:4pt 11pt; border-radius:99pt; border:1px solid rgba(233,213,255,.6); background:rgba(168,85,247,.25);
+               font-size:8pt; letter-spacing:2pt; text-transform:uppercase; font-weight:700; margin-bottom:12pt; }
+  .cover h1{ margin:0; font-size:40pt; line-height:1.02; font-weight:300; letter-spacing:-.5pt; }
+  .cover h1 b{ font-weight:800; display:block; color:#f7efff; text-shadow:0 0 28px rgba(217,70,239,.45); }
+  .cover .sub{ margin-top:12pt; font-size:12.5pt; color:#ddd6fe; max-width:120mm; line-height:1.45; }
+  .cover .tub{ position:absolute; right:10mm; top:128mm; width:78mm; }
+  .cover .glass{ position:absolute; left:18mm; bottom:20mm; width:105mm; padding:12pt 14pt; border-radius:14pt;
+                 background:rgba(255,255,255,.07); border:1px solid rgba(216,180,254,.45); box-shadow:0 0 40px rgba(168,85,247,.25); }
+  .cover .glass .lb{ font-size:7.5pt; letter-spacing:1.8pt; text-transform:uppercase; color:#d8b4fe; font-weight:700; margin-bottom:4pt; }
+  .cover .glass .names{ font-size:11pt; font-weight:600; line-height:1.5; }
+  .cover .glass .meta{ margin-top:7pt; font-size:8.6pt; color:#c4b5fd; line-height:1.5; }
+  .cover .date{ position:absolute; right:18mm; bottom:20mm; text-align:right; font-size:8.6pt; color:#c4b5fd; line-height:1.6; }
+  .cover .date b{ display:block; color:#fff; font-size:10pt; }
+
+  /* ---------- flowchart ---------- */
+  .flow{ display:grid; grid-template-columns:1.12fr .88fr; gap:12pt; }
+  .lane{ border-radius:12pt; padding:9pt 10pt 10pt; border:1px dashed #c9b6ff; background:var(--card-2); }
+  .lane h5{ margin:0 0 7pt; font-size:8pt; letter-spacing:1.4pt; text-transform:uppercase; color:var(--deep-2); }
+  .lane h5 span{ display:block; letter-spacing:.2pt; text-transform:none; color:var(--muted); font-weight:500; font-size:8pt; }
+  .step{ position:relative; display:flex; gap:7pt; align-items:flex-start; background:#fff; border:1.4px solid #b9a2ff; border-radius:9pt;
+         padding:4pt 7pt; margin-bottom:10pt; font-size:8.1pt; line-height:1.27; break-inside:avoid; }
+  .step:not(:last-child)::after{ content:""; position:absolute; left:50%; bottom:-10pt; width:2px; height:7pt; background:var(--violet); transform:translateX(-50%); }
+  .step:not(:last-child)::before{ content:""; position:absolute; left:50%; bottom:-10.5pt; transform:translateX(-50%); border:4pt solid transparent; border-top:4.5pt solid var(--violet); border-bottom:0; }
+  .step .no{ flex:0 0 auto; width:16pt; height:16pt; border-radius:50%; background:linear-gradient(135deg,#7c3aed,#c026d3); color:#fff; font-weight:800; font-size:8pt; display:grid; place-items:center; }
+  .step b{ display:block; font-size:8.8pt; color:#140b2b; }
+  .step i{ font-style:normal; color:var(--muted); }
+  .step.pcc{ border-color:var(--pcc); }
+  .step.end{ background:linear-gradient(120deg,#2e0f73,#6d28d9); color:#fff; border-color:#6d28d9; }
+  .step.end b,.step.end i{ color:#fff; }
+  .side{ display:inline-block; margin-top:3pt; font-size:7.4pt; color:#7c2d12; background:#fff7ed; border:1px dashed #fdba74; border-radius:5pt; padding:1pt 5pt; }
+  .legend{ font-size:8pt; color:var(--muted); margin-top:4pt; display:flex; gap:12pt; flex-wrap:wrap; }
+
+  .toc{ counter-reset:t; list-style:none; padding:0; margin:0; }
+  .toc li{ display:flex; gap:10pt; align-items:baseline; padding:6pt 0; border-bottom:1px dashed var(--line); margin:0; }
+  .toc li b{ color:var(--violet); width:20pt; }
+  .refs p{ font-size:8.6pt; line-height:1.45; margin:0 0 5pt; padding-left:14pt; text-indent:-14pt; }
+  .small{ font-size:8.6pt; }
+  .kpi{ display:grid; grid-template-columns:repeat(4,1fr); gap:8pt; margin:0 0 10pt; }
+  .kpi div{ background:linear-gradient(150deg,#1c0752,#4c1d95); color:#fff; border-radius:11pt; padding:9pt 10pt; break-inside:avoid; }
+  .kpi b{ display:block; font-size:17pt; font-weight:800; color:#f5d0fe; line-height:1.1; }
+  .kpi span{ font-size:7.8pt; color:#ddd6fe; line-height:1.3; display:block; margin-top:3pt; }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="cover" id="cover">
+  <svg class="waves" viewBox="0 0 794 1123" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="wg" x1="0" x2="1"><stop offset="0" stop-color="#a855f7" stop-opacity="0"/><stop offset=".5" stop-color="#d8b4fe" stop-opacity=".55"/><stop offset="1" stop-color="#f0abfc" stop-opacity="0"/></linearGradient>
+      <filter id="glow"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <g id="wavegroup" fill="none" stroke="url(#wg)" stroke-width="1" filter="url(#glow)"></g>
+  </svg>
+  <div class="inst">Centro Universitário Augusto Motta · Nutrição
+    <span>Módulo 4 – Qualidade na Produção de Refeições · Formadora 3 · Prof. Caio Leonor</span></div>
+  <div class="mid">
+    <div class="tag">Seminário · Tecnologia de Alimentos</div>
+    <h1>dossiê de pesquisa<b>Whey Protein Concentrado</b></h1>
+    <p class="sub">Caracterização, composição e rotulagem, fluxograma de processamento, efeitos do processo, segurança, conservação e análise crítica.</p>
+  </div>
+  <svg class="tub" viewBox="0 0 300 360" aria-hidden="true">
+    <defs>
+      <linearGradient id="jar" x1="0" x2="1"><stop offset="0" stop-color="#2b0b6e"/><stop offset=".45" stop-color="#6d28d9"/><stop offset="1" stop-color="#1c0752"/></linearGradient>
+      <linearGradient id="lid" x1="0" x2="1"><stop offset="0" stop-color="#e9d5ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
+      <radialGradient id="halo"><stop offset="0" stop-color="#d946ef" stop-opacity=".55"/><stop offset="1" stop-color="#d946ef" stop-opacity="0"/></radialGradient>
+    </defs>
+    <ellipse cx="150" cy="200" rx="150" ry="160" fill="url(#halo)"/>
+    <rect x="62" y="70" width="176" height="44" rx="14" fill="url(#lid)"/>
+    <rect x="62" y="104" width="176" height="10" fill="#a78bfa" opacity=".6"/>
+    <rect x="52" y="112" width="196" height="208" rx="30" fill="url(#jar)" stroke="#d8b4fe" stroke-opacity=".7" stroke-width="2"/>
+    <rect x="70" y="150" width="160" height="118" rx="16" fill="rgba(255,255,255,.1)" stroke="rgba(233,213,255,.6)"/>
+    <text x="150" y="196" text-anchor="middle" font-family="Inter" font-weight="800" font-size="34" fill="#fff">WPC</text>
+    <text x="150" y="240" text-anchor="middle" font-family="Inter" font-weight="300" font-size="38" fill="#f5d0fe">80</text>
+    <text x="150" y="258" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9" letter-spacing="2" fill="#e9d5ff">PROTEÍNA DO SORO</text>
+    <rect x="80" y="122" width="10" height="186" rx="5" fill="#fff" opacity=".15"/>
+  </svg>
+  <div class="glass">
+    <div class="lb">Grupo 1</div>
+    <div class="names">Bruna · Thiago · Gabriel · Renan · Pedro</div>
+    <div class="meta">Material de apoio interno do grupo — base científica para montar e apresentar o seminário.</div>
+  </div>
+  <div class="date"><b>Rio de Janeiro · 2026</b>Envio no AVA: 26/10 a 30/10<br>Apresentação: 05/11</div>
+</section>
+
+<!-- ===================== CONTENT ===================== -->
+<main id="content">
+
+<div class="sec"><div class="n">i</div><div><span class="k">antes de começar</span><h2>como usar <b>este dossiê</b></h2></div></div>
+
+<p>Este documento reúne <strong>toda a pesquisa</strong> do Grupo 1. Ele segue, na mesma ordem, os <strong>6 tópicos</strong> que o professor pediu nas orientações do seminário. Os slides são um resumo deste material.</p>
+
+<div class="grid3">
+  <div class="call rot" style="margin:0"><span class="t">📌 O rótulo diz</span>Informação que está escrita no rótulo ou na legislação. É <strong>dado</strong>, não opinião.</div>
+  <div class="call int" style="margin:0"><span class="t">💬 Interpretação do grupo</span>O que <strong>nós concluímos</strong> a partir dos dados. O professor pediu para separar as duas coisas.</div>
+  <div class="call warn" style="margin:0"><span class="t">⚠️ Conferir</span>Ponto que o grupo precisa <strong>checar</strong> no produto real (foto do rótulo) antes de apresentar.</div>
+</div>
+
+<h3>Sumário</h3>
+<ol class="toc">
+  <li><b>00</b>Resumo em 1 página</li>
+  <li><b>01</b>Caracterização do alimento e consumo no Brasil</li>
+  <li><b>02</b>Composição nutricional e rotulagem</li>
+  <li><b>03</b>Fluxograma de processamento</li>
+  <li><b>04</b>Efeitos do processamento</li>
+  <li><b>05</b>Qualidade, segurança e conservação</li>
+  <li><b>06</b>Análise crítica e conclusão</li>
+  <li><b>07</b>Preparação: perguntas prováveis, divisão das falas e glossário</li>
+  <li><b>08</b>Referências</li>
+</ol>
+
+<div class="call warn"><span class="t">⚠️ Sobre as fontes</span>
+Este dossiê foi montado com pesquisa em legislação oficial (ANVISA, MAPA), normas técnicas da indústria (ADPI), artigos científicos e estudos brasileiros. Para dados de mercado e notícias, indicamos a fonte e o nível de confiança. Antes de colocar números nos slides, <strong>confirme na fonte original</strong> listada nas referências.</div>
+
+<!-- ===== 00 RESUMO ===== -->
+<div class="sec pb"><div class="n">00</div><div><span class="k">visão geral</span><h2>resumo <b>em 1 página</b></h2></div></div>
+
+<div class="kpi">
+  <div><b>~80%</b><span>proteína em base seca no WPC80 (ADPI, 2022)</span></div>
+  <div><b>4–10%</b><span>lactose no WPC80 — ainda tem lactose</span></div>
+  <div><b>~23 g</b><span>proteína em 30 g de produto típico (não 24 g)</span></div>
+  <div><b>59%</b><span>dos lares com ≥1 usuário de suplemento (ABIAD, 2020)</span></div>
+</div>
+
+<div class="card"><span class="pill">O que é</span>
+<p>O <strong>whey protein concentrado (WPC)</strong> é a proteína do <strong>soro do leite</strong> — o líquido que sobra quando se fabrica queijo. A indústria remove água, lactose e minerais do soro com <strong>membranas de filtração</strong> e depois <strong>seca em pó</strong>. O tipo mais vendido como suplemento é o <strong>WPC80</strong> (cerca de 80% de proteína em base seca).</p></div>
+
+<div class="grid2">
+  <div class="card"><span class="pill ghost">Processo-chave</span>
+    <ol class="small" style="margin:0">
+      <li>Recepção e clarificação do soro</li>
+      <li>Desnate e <strong>pasteurização</strong> (PCC)</li>
+      <li><strong>Ultrafiltração + diafiltração</strong> (concentra proteína)</li>
+      <li><strong>Secagem por atomização</strong> (spray dryer)</li>
+      <li>Aglomeração → mistura com sabor → envase</li>
+    </ol></div>
+  <div class="card"><span class="pill ghost">Principais efeitos</span>
+    <ul class="small" style="margin:0">
+      <li>↑ proteína; ↓ lactose e minerais</li>
+      <li>Desnaturação de β-lactoglobulina (calor)</li>
+      <li><strong>Reação de Maillard</strong> → perda de lisina e escurecimento</li>
+      <li>Pó higroscópico: risco de <strong>empedramento</strong></li>
+      <li>Esporos e recontaminação pós-secagem</li>
+    </ul></div>
+</div>
+
+<div class="grid2">
+  <div class="card"><span class="pill ghost">Segurança</span>
+    <p class="small" style="margin:0">Perigos: <strong>Salmonella</strong> e <strong>Cronobacter</strong> (sobrevivem no pó), bacilos termófilos esporulados, alergênicos (leite, soja, glúten por contaminação cruzada), metais pesados (vindos de ingredientes como cacau), fraude por <strong>"amino spiking"</strong>. Controles: pasteurização, detector de metais, BPF, controle de alergênicos e análises de lote.</p></div>
+  <div class="card"><span class="pill ghost">Mercado brasileiro</span>
+    <p class="small" style="margin:0">Estudos brasileiros acharam <strong>falhas de rotulagem frequentes</strong> (ex.: 88% das marcas com ≥1 não conformidade em estudo da UFMG) e casos de proteína <strong>abaixo do declarado</strong>. Desde <strong>01/09/2026</strong>, suplementos precisam estar <strong>notificados na ANVISA</strong> (RDC 843/2024).</p></div>
+</div>
+
+<div class="call int"><span class="t">💬 Nossa conclusão (resumo)</span>
+O WPC é uma fonte proteica de <strong>alta qualidade</strong> (PDCAAS = 1,0, rico em leucina) e <strong>prática</strong>. Mas é um produto <strong>processado / frequentemente ultraprocessado</strong> (quando tem aditivos), <strong>não é indispensável</strong>, tem lactose e alergênicos e o mercado tem problemas de qualidade. Ele <strong>pode fazer parte</strong> da alimentação cotidiana quando há uma necessidade real que a comida sozinha não cobre, com <strong>orientação de nutricionista</strong> e escolha de marca regularizada. Nem vilão, nem obrigatório.</div>
+
+<!-- ===== 01 CARACTERIZAÇÃO ===== -->
+<div class="sec pb"><div class="n">01</div><div><span class="k">tópico 1</span><h2>caracterização <b>do alimento</b></h2></div></div>
+
+<h3>1.1 Definição do produto</h3>
+<p><strong>Soro de leite</strong> é o líquido que se separa da coalhada quando o leite é coagulado para fazer queijo ou caseína. O Ministério da Agricultura (MAPA) define seu padrão de identidade e qualidade na <strong>IN MAPA nº 94/2020</strong> (Regulamento Técnico do soro de leite, com Anexo I alterado pela Portaria SDA nº 1.016/2024).</p>
+<p>Na fabricação de queijo, cerca de <strong>9 L de soro</strong> saem de cada <strong>10 L de leite</strong>. O soro tem pouca proteína (≈ 0,6–0,8%), mas essa proteína é de altíssimo valor biológico. As proteínas do soro são cerca de <strong>20% das proteínas do leite</strong> (os outros 80% são caseínas, que ficam no queijo).</p>
+<p><strong>Whey protein concentrado (WPC)</strong> é o produto obtido quando se retira do soro pasteurizado parte da água, da lactose e dos minerais, até o pó ter <strong>entre 25% e 89% de proteína</strong> (base seca). Os tipos mais comuns são o <strong>WPC34</strong> (usado em alimentos, como substituto de leite em pó) e o <strong>WPC80</strong> (usado em suplementos).</p>
+
+<table class="avoid">
+  <thead><tr><th>Tipo</th><th>Proteína (base seca)</th><th>Lactose</th><th>Como se obtém</th></tr></thead>
+  <tbody>
+    <tr><td><strong>WPC</strong> (concentrado)</td><td>25–89% (WPC80 ≈ 80%)</td><td>WPC80: 4–10%</td><td>Ultrafiltração + diafiltração + secagem</td></tr>
+    <tr><td><strong>WPI</strong> (isolado)</td><td>≥ 90%</td><td>geralmente &lt; 1–2%</td><td>Microfiltração ou troca iônica (etapa extra)</td></tr>
+    <tr><td><strong>WPH</strong> (hidrolisado)</td><td>variável</td><td>variável</td><td>Hidrólise enzimática do WPC ou WPI</td></tr>
+  </tbody>
+</table>
+<p class="src">Fontes: ADPI (2022); U.S. Dairy Export Council (dados de composição típica); IN MAPA 94/2020.</p>
+
+<h3>1.2 Matérias-primas e ingredientes</h3>
+<div class="grid2">
+  <div class="card"><span class="pill">Matéria-prima</span>
+    <p class="small"><strong>Soro doce</strong> (pH ≈ 6,0–6,6): vem de queijos de coagulação enzimática (coalho), como muçarela, prato e minas. É o mais usado para WPC.</p>
+    <p class="small" style="margin:0"><strong>Soro ácido</strong> (pH &lt; 5,1): vem de queijos/produtos de coagulação ácida (ex.: cottage, iogurte grego). Tem mais minerais e é mais difícil de processar.</p></div>
+  <div class="card"><span class="pill">Ingredientes do produto final (varia por marca)</span>
+    <ul class="small" style="margin:0">
+      <li>Proteína concentrada do soro do leite (WPC)</li>
+      <li>Cacau em pó (sabor chocolate), aromatizantes</li>
+      <li><strong>Edulcorantes</strong>: sucralose, acessulfame de potássio, glicosídeos de esteviol</li>
+      <li><strong>Espessantes</strong>: goma xantana, goma guar</li>
+      <li><strong>Emulsificante</strong>: lecitina de soja ou de girassol</li>
+      <li>Às vezes: antiumectante (dióxido de silício), vitaminas, minerais</li>
+    </ul></div>
+</div>
+<div class="call warn"><span class="t">⚠️ Conferir</span>A lista acima é <strong>típica</strong>. Para o slide do rótulo, usar a <strong>lista real</strong> do produto que o grupo fotografar. Versões "sem sabor" costumam ter só WPC (+ às vezes lecitina).</div>
+
+<h3>1.3 Classificação</h3>
+<table>
+  <thead><tr><th style="width:24%">Critério</th><th>Classificação do WPC</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Sanitária (ANVISA)</strong></td><td>Quando vendido para suplementar a dieta: <strong>suplemento alimentar</strong> (RDC nº 243/2018) — produto para ingestão oral, destinado a suplementar a alimentação de pessoas saudáveis. A antiga categoria "suplemento proteico para atletas" (RDC 18/2010) foi revogada pela RDC 243/2018. Desde a <strong>RDC 843/2024</strong>, suplementos passaram a exigir <strong>notificação na ANVISA</strong>; o prazo de adequação para produtos antigos terminou em <strong>01/09/2026</strong>.</td></tr>
+    <tr><td><strong>Agropecuária (MAPA)</strong></td><td>Como ingrediente lácteo, é fabricado em laticínio com inspeção (SIF), sob o RIISPOA (Decreto 9.013/2017) e a IN MAPA 94/2020 (soro de leite e derivados).</td></tr>
+    <tr><td><strong>Tecnológica</strong></td><td>Ingrediente lácteo <strong>desidratado</strong>, obtido por <strong>separação por membranas</strong> e <strong>secagem</strong>. Subtipos por teor de proteína: WPC, WPI e WPH.</td></tr>
+    <tr><td><strong>Grau de processamento (NOVA / Guia Alimentar)</strong></td><td>O WPC puro é uma <strong>substância extraída de alimento</strong>, de uso típico industrial. O whey <strong>saborizado</strong>, com aromatizantes, edulcorantes e espessantes, se enquadra como <strong>ultraprocessado</strong> (grupo 4). <em>Ver análise crítica no tópico 6: isso não significa, sozinho, que ele seja "ruim".</em></td></tr>
+  </tbody>
+</table>
+<p class="src">Fontes: Brasil (2014; 2017; 2018; 2020; 2024); Monteiro et al. (2019).</p>
+
+<h3>1.4 Consumo no Brasil</h3>
+<div class="kpi">
+  <div><b>59%</b><span>dos domicílios tinham ≥1 pessoa usando suplemento (ABIAD, 2020)</span></div>
+  <div><b>6 em 10</b><span>brasileiros já usaram suplementos (ABIAD, levantamento citado em 2025)</span></div>
+  <div><b>+3%</b><span>crescimento dos concentrados de proteína em 2024 (ABIAD)</span></div>
+  <div><b>#1</b><span>proteína do soro é a principal fonte de suplementação proteica no país (setor)</span></div>
+</div>
+<ul>
+  <li><strong>Pesquisa de hábitos da ABIAD (2020):</strong> em <strong>59% dos lares</strong> pelo menos uma pessoa consumia algum suplemento — aumento em relação a 2015.</li>
+  <li><strong>ABIAD (2024):</strong> o setor de alimentos para fins especiais cresceu 2,4% em 2024; vitaminas +9,3% e <strong>concentrados de proteínas ≈ +3%</strong>.</li>
+  <li><strong>Academias:</strong> revisões da literatura brasileira mostram que <strong>proteínas (principalmente whey)</strong> estão entre os suplementos mais usados por praticantes de musculação, com objetivo de ganho de massa e força. Muitas vezes a indicação vem de <strong>instrutores, amigos ou vendedores</strong>, e não de nutricionista.</li>
+  <li><strong>Lado ambiental:</strong> o soro tem DBO de <strong>30.000 a 60.000 mg/L</strong> — é muito poluente se descartado em rios. Transformar soro em WPC é uma forma de <strong>valorizar um subproduto</strong> (economia circular).</li>
+</ul>
+<div class="call int"><span class="t">💬 Interpretação do grupo</span>Os dados da ABIAD são de <strong>suplementos em geral</strong>, não só whey. Não existe (nas fontes oficiais que encontramos) um percentual nacional exato só de consumidores de whey. Por isso, no slide, dizer "suplementos" e citar a fonte — não inventar um número de whey.</div>
+<p class="src">Fontes: ABIAD via Portal da Indústria (2025) e imprensa (2020; 2025); revisão integrativa em <em>Conexões</em> (Unicamp, 2018); estudos de efluentes de laticínios (Eng. Sanit. Ambient.).</p>
+
+<!-- ===== 02 COMPOSIÇÃO E ROTULAGEM ===== -->
+<div class="sec pb"><div class="n">02</div><div><span class="k">tópico 2</span><h2>composição <b>e rotulagem</b></h2></div></div>
+
+<h3>2.1 Composição típica do WPC80 (ingrediente)</h3>
+<table class="avoid">
+  <thead><tr><th>Componente</th><th>ADPI (2022) — padrão técnico</th><th>U.S. Dairy (típico, como está)</th><th>Por que importa</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Proteína</strong></td><td>80–82% (base seca); mín. 79,5%</td><td>80–82%</td><td>Principal nutriente; define o "80"</td></tr>
+    <tr><td><strong>Lactose</strong></td><td>4–10%</td><td>4–8%</td><td>Relevante para intolerantes à lactose</td></tr>
+    <tr><td><strong>Gordura</strong></td><td>4–8% (máx. 10%)</td><td>4–8%</td><td>Pode oxidar e gerar sabor de "ranço"</td></tr>
+    <tr><td><strong>Cinzas (minerais)</strong></td><td>3–5%</td><td>3–4%</td><td>Grande parte sai no permeado</td></tr>
+    <tr><td><strong>Umidade</strong></td><td>3,5–5% (máx. 6%)</td><td>3,5–4,5%</td><td>Baixa umidade = estabilidade do pó</td></tr>
+  </tbody>
+</table>
+
+<div class="call int"><span class="t">💬 Por que 30 g de um whey "80%" tem ≈ 23–24 g de proteína, e não 24 g?</span>
+O "80%" é calculado em <strong>base seca</strong> (sem a água) e vale para o <strong>ingrediente puro</strong>. O pó tem ~4% de umidade, e o produto saborizado ainda leva cacau, aroma, gomas e edulcorante, que "diluem" a proteína. Conta aproximada: 30 g × 0,96 (tirando a umidade) × 0,80 ≈ <strong>23 g</strong>. Isso bate com rótulos comerciais típicos.</div>
+
+<h3>2.2 Frações proteicas do soro</h3>
+<table class="avoid">
+  <thead><tr><th>Fração</th><th>% da proteína do soro</th><th>Destaque</th></tr></thead>
+  <tbody>
+    <tr><td><strong>β-lactoglobulina</strong></td><td>≈ 45–57%</td><td>Fração principal; rica em aminoácidos de cadeia ramificada; <strong>desnatura com calor</strong> (a partir de ~70 °C); principal alergênico do soro</td></tr>
+    <tr><td><strong>α-lactalbumina</strong></td><td>≈ 15–25%</td><td>Rica em triptofano e cisteína</td></tr>
+    <tr><td><strong>Imunoglobulinas</strong></td><td>≈ 10–15%</td><td>Função imune; sensíveis ao calor</td></tr>
+    <tr><td><strong>Glicomacropeptídeo (GMP)</strong></td><td>≈ 10–15% (só no soro doce)</td><td>Vem da κ-caseína cortada pelo coalho; pobre em fenilalanina</td></tr>
+    <tr><td><strong>Albumina sérica (BSA)</strong></td><td>≈ 5–10%</td><td>Liga ácidos graxos</td></tr>
+    <tr><td><strong>Lactoferrina</strong></td><td>≈ 1–2%</td><td>Liga ferro; bioativa; sensível ao calor</td></tr>
+  </tbody>
+</table>
+<p class="src">Fontes: Madureira et al. (2007); revisões de proteínas do soro. As faixas variam entre autores.</p>
+
+<h3>2.3 Qualidade da proteína</h3>
+<ul>
+  <li><strong>PDCAAS = 1,0</strong> (valor máximo da escala) e <strong>DIAAS ≥ 1,0</strong> para a maioria dos padrões de referência (FAO, 2013) — contém todos os aminoácidos essenciais em boa quantidade e é muito digerível.</li>
+  <li><strong>Leucina:</strong> ≈ 10–11% da proteína do soro. A leucina é o principal "sinal" para a síntese de proteína muscular.</li>
+  <li><strong>Digestão rápida</strong>: os aminoácidos aparecem no sangue mais rápido do que com caseína.</li>
+  <li><strong>Recomendações (ISSN, Jäger et al., 2017):</strong> para quem treina, 1,4–2,0 g de proteína/kg/dia; por refeição, ≈ 0,25 g/kg ou <strong>20–40 g de proteína</strong> (com ~700–3.000 mg de leucina). <em>Essas metas podem ser atingidas com comida; o whey é uma das opções.</em></li>
+</ul>
+
+<h3>2.4 O que a legislação exige no rótulo (checklist)</h3>
+<table>
+  <thead><tr><th style="width:36%">Item</th><th>Regra</th><th style="width:16%">Norma</th></tr></thead>
+  <tbody>
+    <tr><td>Denominação "<strong>Suplemento alimentar</strong>"</td><td>Designação de venda clara do produto</td><td>RDC 243/2018</td></tr>
+    <tr><td>Advertências obrigatórias</td><td>"Este produto não é um medicamento"; "Não exceder a recomendação diária de consumo indicada na embalagem"; "Mantenha fora do alcance de crianças"</td><td>RDC 243/2018</td></tr>
+    <tr><td>Recomendação de uso</td><td>Quantidade diária, modo de preparo, grupo populacional indicado</td><td>RDC 243/2018</td></tr>
+    <tr><td>Lista de ingredientes</td><td>Em ordem <strong>decrescente</strong> de quantidade; aditivos com função + nome</td><td>RDC 727/2022</td></tr>
+    <tr><td><strong>Alergênicos</strong></td><td>"ALÉRGICOS: CONTÉM LEITE E DERIVADOS" (+ "DERIVADOS DE SOJA" se tiver lecitina de soja)</td><td>RDC 727/2022</td></tr>
+    <tr><td><strong>Lactose</strong></td><td>"CONTÉM LACTOSE" quando &gt; 100 mg/100 g (o WPC80 tem lactose)</td><td>RDC 727/2022</td></tr>
+    <tr><td>Glúten</td><td>"CONTÉM GLÚTEN" ou "NÃO CONTÉM GLÚTEN"</td><td>Lei 10.674/2003</td></tr>
+    <tr><td>Tabela de informação nutricional</td><td>Modelo e regras específicas para suplementos alimentares, com valores por porção e %VD</td><td>RDC 429/2020; IN 75/2020</td></tr>
+    <tr><td>Rotulagem nutricional frontal (lupa)</td><td>Obrigatória se ultrapassar os limites para sólidos: <strong>açúcar adicionado ≥ 15 g</strong>, <strong>gordura saturada ≥ 6 g</strong> ou <strong>sódio ≥ 600 mg</strong> por 100 g</td><td>RDC 429/2020 (art. 18); IN 75/2020</td></tr>
+    <tr><td>Regularização</td><td>"Alimento notificado na ANVISA" + número do processo</td><td>RDC 843/2024</td></tr>
+    <tr><td>Outros</td><td>Lote, validade, conteúdo líquido, conservação, fabricante/CNPJ</td><td>RDC 727/2022; INMETRO</td></tr>
+  </tbody>
+</table>
+
+<h3>2.5 Exemplo de análise de rótulo</h3>
+<div class="call warn"><span class="t">⚠️ Conferir — obrigatório</span>
+O exemplo abaixo usa valores de referência do <strong>Whey Protein Concentrado 80% (Growth Supplements), porção 30 g</strong>, obtidos em banco de dados de alimentos (terceiros). O professor exige <strong>foto legível do rótulo analisado</strong>. O grupo deve <strong>fotografar o rótulo real</strong> (pode ser de outra marca) e <strong>substituir os números</strong> pelos do rótulo. A forma de analisar continua a mesma.</div>
+
+<div class="grid2">
+  <div class="call rot" style="margin:0"><span class="t">📌 O rótulo diz (porção 30 g)</span>
+    <table style="margin:4pt 0 0;font-size:8.8pt">
+      <tbody>
+        <tr><td>Valor energético</td><td class="c"><strong>122 kcal</strong></td></tr>
+        <tr><td>Proteínas</td><td class="c"><strong>23 g</strong></td></tr>
+        <tr><td>Carboidratos</td><td class="c">2,7 g</td></tr>
+        <tr><td>Gorduras totais</td><td class="c">2,0 g</td></tr>
+        <tr><td>Preparo</td><td class="c">30 g em 200–250 mL de água ou leite</td></tr>
+      </tbody>
+    </table></div>
+  <div class="call int" style="margin:0"><span class="t">💬 Nossa interpretação (cálculos)</span>
+    <ul class="small" style="margin:0">
+      <li>Proteína = 23 ÷ 30 = <strong>76,7% do peso</strong> do produto (coerente com WPC80 + umidade + sabor).</li>
+      <li>Energia da proteína = 23 × 4 = 92 kcal → <strong>≈ 75% das calorias</strong>.</li>
+      <li>23 g está dentro da faixa de <strong>20–40 g por dose</strong> (ISSN).</li>
+      <li>Em 100 g: ~9 g de carboidratos totais e ~6,7 g de gordura total → <strong>abaixo</strong> dos limites da lupa (o açúcar adicionado e a gordura saturada são só uma parte desses valores).</li>
+      <li>Se preparado com <strong>leite</strong>, a dose muda bastante (soma a energia, a lactose e a proteína do leite).</li>
+    </ul></div>
+</div>
+
+<h4>Roteiro para analisar o rótulo que vocês fotografarem</h4>
+<ol class="small">
+  <li><strong>Porção:</strong> quantos gramas? Quantos dosadores? A porção é realista?</li>
+  <li><strong>Proteína por porção</strong> e <strong>% proteína no produto</strong> (proteína ÷ porção × 100). Um WPC80 saborizado costuma ficar em ~70–78%.</li>
+  <li><strong>Lista de ingredientes:</strong> o 1º ingrediente é WPC? Há maltodextrina, açúcar, amido, outras proteínas (soja, colágeno)? Há <strong>aminoácidos isolados</strong> (glicina, taurina) — possível sinal de "amino spiking"?</li>
+  <li><strong>Aditivos:</strong> identificar cada um pela função (edulcorante, espessante, emulsificante, aromatizante, antiumectante).</li>
+  <li><strong>Avisos:</strong> alergênicos, lactose, glúten, frases da RDC 243/2018, número de notificação na ANVISA.</li>
+  <li><strong>Lupa frontal:</strong> tem ou não tem? Explicar por quê, com base nos limites.</li>
+  <li><strong>Alegações:</strong> há frases como "ganho de massa", "anabólico", "100% puro"? Elas são permitidas? (Suplementos só podem usar as alegações aprovadas pela ANVISA na IN 28/2018.)</li>
+</ol>
+
+<h3>2.6 Qualidade do whey vendido no Brasil — o que os estudos mostram</h3>
+<table>
+  <thead><tr><th style="width:30%">Estudo / caso</th><th>Achado principal</th></tr></thead>
+  <tbody>
+    <tr><td>UFMG (2021) — 9 marcas nacionais</td><td>1 marca com teor de proteína <strong>35% abaixo da tolerância</strong> legal; <strong>88%</strong> das marcas com ao menos 1 não conformidade de rotulagem; grau de hidrólise muito variável.</td></tr>
+    <tr><td>Recife-PE (TCC, 14 amostras)</td><td>Apenas <strong>2 amostras (14,3%)</strong> cumpriam todos os critérios de rotulagem avaliados.</td></tr>
+    <tr><td>Freires et al. (2016) — 3 amostras</td><td>Proteína de acordo, mas uma amostra importada tinha <strong>fibra não declarada</strong> no rótulo.</td></tr>
+    <tr><td>ANVISA (2025) — lote de whey</td><td>Suspensão e recolhimento de lote por <strong>glúten não declarado</strong> (trigo, centeio e cevada detectados em laboratório) e alegações enganosas.</td></tr>
+    <tr><td>Senacon / Abenutri (2024)</td><td>Medidas contra dezenas de marcas por problemas na declaração de proteína; a Brasnutri (entidade do setor) contestou a metodologia das análises. <em>Caso controverso — citar com cuidado.</em></td></tr>
+  </tbody>
+</table>
+<div class="call int"><span class="t">💬 O que é "amino spiking"?</span>
+O teor de proteína costuma ser medido pelo <strong>nitrogênio total</strong> (método de Kjeldahl × fator 6,38 para proteínas do leite). Se o fabricante adiciona aminoácidos baratos ou compostos nitrogenados (glicina, taurina, creatina), o nitrogênio sobe e a proteína <strong>parece maior do que é</strong>. Por isso, análises de perfil de aminoácidos são mais confiáveis (Moore et al., 2010).</div>
+
+<!-- ===== 03 FLUXOGRAMA ===== -->
+<div class="sec pb"><div class="n">03</div><div><span class="k">tópico 3</span><h2>fluxograma <b>de processamento</b></h2></div></div>
+<p class="small" style="margin-bottom:8pt">Fluxograma elaborado pelo grupo a partir de Walstra et al. (2006), Tunick (2008), ADPI (2022) e literatura técnica de laticínios. O processo tem <strong>duas fábricas</strong>: o <strong>laticínio</strong> produz o ingrediente WPC80 (fiscalização MAPA/SIF) e a <strong>indústria de suplementos</strong> formula o produto final (fiscalização ANVISA).</p>
+
+<div class="legend" style="margin:0 0 8pt"><span><span class="tagpcc">PCC</span> ponto crítico de controle</span><span>b.s. = base seca</span><span>Parâmetros = faixas típicas da literatura; cada fábrica valida os seus.</span></div>
+<div class="flow" id="flowchart">
+  <div class="lane">
+    <h5>Parte A · Laticínio<span>produção do ingrediente WPC80</span></h5>
+    <div class="step"><div class="no">1</div><div><b>Recepção do soro doce</b><i>pH, acidez, temperatura, sólidos · resfriar ≤ 7 °C</i></div></div>
+    <div class="step"><div class="no">2</div><div><b>Clarificação</b><i>peneira/centrífuga remove finos de caseína</i></div></div>
+    <div class="step"><div class="no">3</div><div><b>Desnate</b><i>separador centrífugo</i><br><span class="side">→ creme de soro (subproduto)</span></div></div>
+    <div class="step pcc"><div class="no">4</div><div><b>Pasteurização HTST <span class="tagpcc">PCC</span></b><i>72–75 °C por 15–20 s</i></div></div>
+    <div class="step"><div class="no">5</div><div><b>Resfriamento / tanque pulmão</b><i>≤ 10 °C até a filtração</i></div></div>
+    <div class="step"><div class="no">6</div><div><b>Ultrafiltração (UF)</b><i>membranas ~10 kDa · retém proteínas</i><br><span class="side">→ permeado: lactose, minerais, água</span></div></div>
+    <div class="step"><div class="no">7</div><div><b>Diafiltração (DF)</b><i>adiciona água e refiltra · proteína sobe a ~80% (b.s.)</i></div></div>
+    <div class="step"><div class="no">8</div><div><b>Concentração (opcional)</b><i>evaporador a vácuo, baixa temperatura</i></div></div>
+    <div class="step"><div class="no">9</div><div><b>Secagem por atomização</b><i>ar: entrada ~175–200 °C · saída ~75–90 °C · umidade final 3,5–5%</i></div></div>
+    <div class="step"><div class="no">10</div><div><b>Aglomeração / instantização</b><i>leito fluidizado + lecitina</i></div></div>
+    <div class="step pcc"><div class="no">11</div><div><b>Peneiramento + detector de metais <span class="tagpcc">PCC</span></b><i>embalagem a granel (sacos 20–25 kg) e estocagem seca</i></div></div>
+  </div>
+  <div class="lane">
+    <h5>Parte B · Indústria de suplementos<span>formulação do produto final</span></h5>
+    <div class="step"><div class="no">12</div><div><b>Recepção e quarentena</b><i>WPC, cacau, aromas, edulcorantes, gomas, lecitina · laudos de análise</i></div></div>
+    <div class="step"><div class="no">13</div><div><b>Pesagem / pré-mistura</b><i>micro-ingredientes misturados antes</i></div></div>
+    <div class="step"><div class="no">14</div><div><b>Mistura</b><i>misturador em V, fita ou bicone · homogeneidade</i></div></div>
+    <div class="step pcc"><div class="no">15</div><div><b>Peneiramento + detector de metais <span class="tagpcc">PCC</span></b></div></div>
+    <div class="step"><div class="no">16</div><div><b>Envase</b><i>dosador de rosca · pote PEAD ou refil laminado · opcional N₂ · selo por indução</i></div></div>
+    <div class="step"><div class="no">17</div><div><b>Codificação e rotulagem</b><i>lote, validade · balança de checagem de peso</i></div></div>
+    <div class="step end"><div class="no" style="background:#fff;color:#6d28d9">18</div><div><b>Armazenamento e expedição</b><i>local seco, fresco, sem luz · liberação após análises do lote</i></div></div>
+  </div>
+</div>
+
+<h3 class="pb">3.1 Explicação de cada etapa</h3>
+<table>
+  <thead><tr><th style="width:17%">Etapa</th><th style="width:25%">Para que serve</th><th style="width:30%">O que se transforma</th><th>Equipamento / método</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1. Recepção</strong></td><td>Garantir soro apto e fresco</td><td>O soro ainda tem fermento do queijo: se ficar morno, <strong>acidifica</strong> e as bactérias crescem</td><td>Tanques isotérmicos; análises de pH, acidez, temperatura, sólidos; resfriador de placas</td></tr>
+    <tr><td><strong>2. Clarificação</strong></td><td>Tirar "finos" de caseína e partículas</td><td>Remoção de sólidos que <strong>entupiriam as membranas</strong></td><td>Peneiras/filtros rotativos, centrífuga clarificadora</td></tr>
+    <tr><td><strong>3. Desnate</strong></td><td>Reduzir gordura</td><td>Gordura sai como creme de soro; menos gordura = <strong>menos entupimento</strong> e <strong>menos oxidação</strong> no pó</td><td>Separador centrífugo (desnatadeira)</td></tr>
+    <tr><td><strong>4. Pasteurização</strong></td><td>Eliminar patógenos vegetativos</td><td>Redução microbiana; <strong>pouca desnaturação</strong> proteica nessa faixa; <strong>não elimina esporos</strong></td><td>Trocador de calor a placas (HTST) com registro de tempo/temperatura</td></tr>
+    <tr><td><strong>5. Resfriamento</strong></td><td>Segurar o soro até a UF</td><td>Frio reduz multiplicação de bactérias</td><td>Trocador de placas; tanque pulmão</td></tr>
+    <tr><td><strong>6. Ultrafiltração</strong></td><td>Concentrar proteína</td><td>Membrana deixa passar moléculas pequenas (lactose 342 Da, sais) e <strong>retém proteínas</strong> (β-lg ~18 kDa; α-la ~14 kDa). Muitas vezes a ~10–15 °C (menos bactérias) ou ~50 °C (mais fluxo, maior risco de termófilos)</td><td>Membranas poliméricas em espiral, 1–10 bar</td></tr>
+    <tr><td><strong>7. Diafiltração</strong></td><td>"Lavar" o concentrado</td><td>Água adicionada arrasta mais lactose e minerais; proteína sobe de ~35% para <strong>~80% (b.s.)</strong></td><td>Mesmo sistema de UF, com adição de água</td></tr>
+    <tr><td><strong>8. Concentração</strong></td><td>Economizar energia na secagem</td><td>Aumenta sólidos; limitada pela <strong>viscosidade</strong> do concentrado proteico</td><td>Evaporador de filme descendente a vácuo</td></tr>
+    <tr><td><strong>9. Secagem por atomização</strong></td><td>Transformar líquido em pó estável</td><td>Gotas viram pó em segundos. A água evaporando <strong>resfria a gota</strong>, que fica bem abaixo da temperatura do ar. Atividade de água final baixa (≈ 0,2–0,3)</td><td>Spray dryer (bico ou disco atomizador), câmara de secagem, ciclones/filtros</td></tr>
+    <tr><td><strong>10. Aglomeração</strong></td><td>Melhorar a dissolução</td><td>Partículas finas se juntam → pó <strong>"molha" e dispersa melhor</strong> (instantâneo)</td><td>Leito fluidizado (vibro-fluidizador); aspersão de lecitina</td></tr>
+    <tr><td><strong>11. Peneira + metais</strong></td><td>Remover corpos estranhos</td><td>Retira grumos e fragmentos metálicos</td><td>Peneira vibratória, detector de metais, ímãs</td></tr>
+    <tr><td><strong>12–13. Recepção e pesagem</strong></td><td>Controlar insumos e fórmula</td><td>Verificação de laudos (proteína, micro, alergênicos)</td><td>Balanças calibradas; área de pesagem</td></tr>
+    <tr><td><strong>14. Mistura</strong></td><td>Distribuir sabor e aditivos</td><td>Mistura física; risco de <strong>segregação</strong> se partículas tiverem tamanhos muito diferentes</td><td>Misturador em V, de fita ou bicone</td></tr>
+    <tr><td><strong>16. Envase</strong></td><td>Proteger o pó</td><td>Barreira contra <strong>umidade, oxigênio e luz</strong></td><td>Envasadora com rosca dosadora; injeção de N₂ (opcional); selagem por indução</td></tr>
+    <tr><td><strong>17–18. Rotulagem e armazenagem</strong></td><td>Rastreabilidade e conservação</td><td>Lote e validade; estoque fresco e seco</td><td>Codificador (jato de tinta/laser), balança de checagem</td></tr>
+  </tbody>
+</table>
+
+<h3>3.2 Variações de processo</h3>
+<div class="grid2">
+  <div class="card"><span class="pill ghost">Whey isolado (WPI)</span><p class="small" style="margin:0">Etapa extra de <strong>microfiltração</strong> (remove gordura/fosfolipídios) ou <strong>troca iônica</strong> → ≥ 90% de proteína e quase sem lactose. Mais caro.</p></div>
+  <div class="card"><span class="pill ghost">Whey hidrolisado (WPH)</span><p class="small" style="margin:0"><strong>Enzimas</strong> quebram a proteína em peptídeos, seguido de inativação térmica. Sabor mais amargo; usado também em fórmulas infantis e clínicas.</p></div>
+  <div class="card"><span class="pill ghost">Proteína sérica "nativa"</span><p class="small" style="margin:0">Obtida por <strong>microfiltração direta do leite</strong>, sem fazer queijo. Não tem GMP, nem resíduos de fermento ou corante de queijo; menos desnaturada.</p></div>
+  <div class="card"><span class="pill ghost">Outras variações</span><p class="small" style="margin:0">UF <strong>a frio</strong> (10–15 °C) × <strong>a quente</strong> (~50 °C); secagem em <strong>um</strong> ou <strong>dois/três estágios</strong> (com leito fluidizado integrado); liofilização (rara, cara); soro ácido (iogurte grego).</p></div>
+</div>
+
+<!-- ===== 04 EFEITOS ===== -->
+<div class="sec pb"><div class="n">04</div><div><span class="k">tópico 4</span><h2>efeitos <b>do processamento</b></h2></div></div>
+<p>Atenção: o professor pediu para <strong>não generalizar</strong>. Por isso, a última coluna diz <strong>do que cada efeito depende</strong>.</p>
+<table>
+  <thead><tr><th style="width:13%">Tipo</th><th style="width:37%">O que pode acontecer</th><th style="width:16%">Onde</th><th>Depende de</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Físico</strong></td><td>Líquido vira pó; muda tamanho, porosidade e densidade da partícula; aglomeração melhora a dissolução. O pó é <strong>higroscópico</strong> (puxa água) e pode <strong>empedrar</strong> (caking).</td><td>Secagem, aglomeração, armazenagem</td><td>Tipo de atomizador, temperatura de saída, lactose amorfa, umidade do ar, embalagem</td></tr>
+    <tr><td><strong>Químico</strong></td><td><strong>Desnaturação</strong> da β-lactoglobulina e agregação por pontes dissulfeto. <strong>Reação de Maillard</strong> (lactose + lisina): escurecimento e compostos como furosina e CML. <strong>Oxidação lipídica</strong> da gordura residual. Redução de lactose e minerais pela UF/DF.</td><td>Tratamento térmico, secagem, estocagem</td><td>Temperatura × tempo, pH, teor de lactose e gordura, atividade de água, O₂ e luz</td></tr>
+    <tr><td><strong>Microbiológico</strong></td><td>Pasteurização reduz bactérias vegetativas. <strong>Esporos</strong> (Bacillus, Geobacillus, Anoxybacillus) sobrevivem e bacilos termófilos podem crescer em equipamentos a 40–65 °C (biofilmes). No pó seco <strong>não há multiplicação</strong>, mas <strong>Salmonella e Cronobacter sobrevivem</strong> por meses.</td><td>UF a quente, evaporação, pós-secagem</td><td>Temperatura de operação, tempo de corrida entre limpezas (CIP), higiene da área seca</td></tr>
+    <tr><td><strong>Sensorial</strong></td><td>Sabores de "cozido", "papelão" ou "velho" (estocagem); cor creme-amarelada (riboflavina e, às vezes, corante de queijo); textura e sabor finais dependem de aromas, edulcorantes e gomas.</td><td>Térmico, estocagem, formulação</td><td>Intensidade do calor, oxidação, formulação de cada marca</td></tr>
+    <tr><td><strong>Nutricional</strong></td><td>↑ proteína (de ~12% para ~80% b.s.); ↓ lactose (de ~70% para 4–10% b.s.); ↓ minerais e parte das vitaminas hidrossolúveis (vão para o permeado). Maillard pode reduzir <strong>lisina disponível</strong>. Calor reduz a <strong>bioatividade</strong> de lactoferrina e imunoglobulinas.</td><td>UF/DF, térmico, estocagem</td><td>Grau de concentração, intensidade do calor, tempo e temperatura de estocagem</td></tr>
+  </tbody>
+</table>
+<div class="call ok"><span class="t">✅ Cuidado com generalizações (ponto forte para a apresentação)</span>
+<strong>Desnaturar não é o mesmo que "estragar".</strong> A desnaturação térmica muda a forma da proteína, mas <strong>não reduz o valor nutricional</strong> — os aminoácidos continuam lá, e a proteína desnaturada pode até ser mais fácil de digerir. O que reduz o valor nutricional é a <strong>reação de Maillard</strong> (a lisina fica "presa" e não é aproveitada). Já a <strong>bioatividade</strong> (lactoferrina, imunoglobulinas) depende da estrutura nativa e é afetada pelo calor.</div>
+
+<h3>4.1 Reação de Maillard e empedramento — por que o armazenamento importa</h3>
+<ul>
+  <li>A Maillard em pós lácteos é a principal reação que limita a vida útil; ela é mais rápida em <strong>atividade de água intermediária</strong> e <strong>temperaturas mais altas</strong>.</li>
+  <li>A lactose do pó fica em estado <strong>amorfo (vítreo)</strong>. Se o pó absorve água ou esquenta, passa da <strong>temperatura de transição vítrea (Tg)</strong>: fica pegajoso, <strong>empedra</strong>, a lactose pode cristalizar e as reações aceleram (Roos, 2002).</li>
+  <li>Estudos mostram que pó guardado em <strong>baixa umidade relativa (~11%)</strong> muda menos de cor e empedra menos do que a 44% ou 85% de UR (Thomas et al., 2004).</li>
+</ul>
+<div class="call int"><span class="t">💬 Tradução prática</span>Pote aberto no banheiro, colher molhada e carro no sol aceleram empedramento, escurecimento e perda de qualidade do whey.</div>
+
+<!-- ===== 05 SEGURANÇA ===== -->
+<div class="sec pb"><div class="n">05</div><div><span class="k">tópico 5</span><h2>qualidade, segurança <b>e conservação</b></h2></div></div>
+
+<h3>5.1 Perigos e como são controlados</h3>
+<table>
+  <thead><tr><th style="width:14%">Tipo</th><th style="width:38%">Perigo</th><th style="width:20%">Etapa de risco</th><th>Controle</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="4"><strong>Biológico</strong></td><td>Patógenos do leite/soro (Salmonella, Listeria, E. coli patogênica, S. aureus)</td><td>Recepção, espera do soro</td><td>Resfriar rápido; <strong>pasteurização (PCC)</strong> com registro</td></tr>
+    <tr><td><strong>Enterotoxina estafilocócica</strong> (resiste ao calor)</td><td>Soro mantido morno</td><td>Tempo/temperatura na espera; higiene de manipuladores</td></tr>
+    <tr><td>Bacilos esporulados e termófilos (B. cereus, Geobacillus)</td><td>UF a quente, evaporador</td><td>Limpeza CIP em intervalos validados; UF a frio</td></tr>
+    <tr><td><strong>Salmonella e Cronobacter</strong> (recontaminação)</td><td>Pós-secagem, mistura, envase</td><td>Zoneamento da área seca, monitoramento ambiental, controle de pó e umidade</td></tr>
+    <tr><td rowspan="4"><strong>Químico</strong></td><td>Resíduos de antibióticos; aflatoxina M1 (vem do leite)</td><td>Matéria-prima</td><td>Programa de qualidade do leite; laudos</td></tr>
+    <tr><td>Resíduos de produtos de limpeza (CIP)</td><td>Pós-limpeza</td><td>Enxágue validado; POPs</td></tr>
+    <tr><td><strong>Alergênicos</strong> (leite, soja; glúten por contaminação cruzada)</td><td>Mistura e envase</td><td>Programa de alergênicos, limpeza entre lotes, rotulagem</td></tr>
+    <tr><td>Metais pesados (Pb, Cd, As) — maior risco em ingredientes vegetais como <strong>cacau</strong>; fraude (amino spiking, amido, melamina)</td><td>Insumos</td><td>Qualificação de fornecedores; análises de contaminantes e de aminoácidos</td></tr>
+    <tr><td><strong>Físico</strong></td><td>Fragmentos metálicos, plástico, vidro</td><td>Equipamentos, embalagem</td><td>Peneiras, ímãs, <strong>detector de metais (PCC)</strong></td></tr>
+  </tbody>
+</table>
+<div class="call int"><span class="t">💬 Metais pesados — o que os dados mostram</span>A Consumer Reports (EUA, out/2025) achou chumbo em vários pós proteicos, mas os produtos <strong>de origem vegetal</strong> tinham cerca de <strong>9 vezes mais chumbo</strong> que os de proteína láctea, como o whey. Não encontramos estudo brasileiro equivalente — é uma lacuna.</div>
+
+<h3>5.2 Legislação de qualidade e segurança aplicável</h3>
+<table class="avoid">
+  <thead><tr><th style="width:36%">Norma</th><th>Assunto</th></tr></thead>
+  <tbody>
+    <tr><td>Portaria SVS/MS 326/1997 e <strong>RDC 275/2002</strong></td><td>Boas Práticas de Fabricação (BPF) e Procedimentos Operacionais Padronizados (POPs)</td></tr>
+    <tr><td>Decreto 9.013/2017 (RIISPOA) e IN MAPA 94/2020</td><td>Inspeção de produtos de origem animal; padrão do soro de leite</td></tr>
+    <tr><td><strong>RDC 243/2018</strong> e IN 28/2018</td><td>Composição, qualidade, segurança e rotulagem de suplementos; lista de constituintes, limites e alegações</td></tr>
+    <tr><td>RDC 724/2022 e IN 161/2022</td><td>Padrões microbiológicos de alimentos</td></tr>
+    <tr><td>RDC 722/2022 e IN 160/2022</td><td>Limites máximos de contaminantes (inclui metais e micotoxinas)</td></tr>
+    <tr><td>RDC 778/2023 e IN 211/2023</td><td>Aditivos alimentares e coadjuvantes permitidos</td></tr>
+    <tr><td>RDC 843/2024 e IN 281/2024</td><td>Regularização de alimentos: <strong>notificação obrigatória</strong> de suplementos</td></tr>
+  </tbody>
+</table>
+
+<h3>5.3 Embalagem, armazenamento e vida útil</h3>
+<div class="grid3">
+  <div class="card"><span class="pill">Embalagem</span><ul class="small" style="margin:0">
+    <li><strong>Ingrediente:</strong> sacos multifoliados com saco interno de polietileno (20–25 kg)</li>
+    <li><strong>Produto final:</strong> pote de PEAD com lacre de indução ou refil laminado (barreira a umidade, O₂ e luz)</li>
+    <li>Opcional: atmosfera com nitrogênio</li></ul></div>
+  <div class="card"><span class="pill">Armazenamento</span><ul class="small" style="margin:0">
+    <li>Local <strong>seco, fresco</strong> e protegido da luz</li>
+    <li>Fechar bem após o uso</li>
+    <li>Usar dosador <strong>seco</strong></li>
+    <li>Evitar calor (carro, perto do fogão) e umidade (banheiro)</li></ul></div>
+  <div class="card"><span class="pill">Vida útil</span><p class="small" style="margin:0">Definida por cada fabricante com testes de estabilidade; para pós proteicos costuma ficar em torno de <strong>1 a 2 anos</strong> fechado. ⚠️ Conferir no rótulo do produto analisado.</p></div>
+</div>
+<div class="card"><span class="pill ghost">Fatores que reduzem a vida útil</span>
+<p class="small" style="margin:0"><strong>Umidade / atividade de água ↑</strong> (empedramento, Maillard) · <strong>Temperatura ↑</strong> (Maillard, perda de lisina, escurecimento) · <strong>Oxigênio e luz</strong> (oxidação da gordura e da riboflavina → sabor de ranço) · <strong>Teor de lactose e gordura</strong> do produto · <strong>Qualidade da embalagem</strong> e do fechamento.</p></div>
+
+<!-- ===== 06 CRÍTICA ===== -->
+<div class="sec pb"><div class="n">06</div><div><span class="k">tópico 6</span><h2>análise crítica <b>e conclusão</b></h2></div></div>
+<div class="grid2">
+  <div class="card" style="background:#ecfdf5;border-color:#a7f3d0"><span class="pill" style="background:#0f766e">Vantagens</span><ul class="small" style="margin:0">
+    <li>Proteína de <strong>alta qualidade</strong> (PDCAAS 1,0) e rica em <strong>leucina</strong></li>
+    <li><strong>Prático</strong>: preparo rápido, não precisa de geladeira (pó)</li>
+    <li>Ajuda a atingir metas proteicas quando a comida não basta: atletas, <strong>idosos com perda de massa muscular</strong> (PROT-AGE: 1,0–1,2 g/kg/dia ou mais), baixo apetite, algumas condições clínicas</li>
+    <li>Pó estável, com longa vida útil</li>
+    <li><strong>Aproveita um subproduto</strong> muito poluente (soro)</li></ul></div>
+  <div class="card" style="background:#fff1f2;border-color:#fecdd3"><span class="pill" style="background:#be123c">Limitações</span><ul class="small" style="margin:0">
+    <li><strong>Não é indispensável</strong>: a maioria das pessoas atinge a meta de proteína com comida</li>
+    <li>Saborizado = <strong>ultraprocessado</strong>, com edulcorantes, aromas e gomas</li>
+    <li>Tem <strong>lactose</strong> (WPC80: 4–10%) e é <strong>alergênico</strong> (proteína do leite) — não serve para alérgicos</li>
+    <li>Não traz fibras, nem a variedade de micronutrientes de uma refeição</li>
+    <li>Mercado com <strong>não conformidades</strong> de rótulo e de teor proteico</li>
+    <li>Uso <strong>sem orientação</strong> é comum; em doença renal crônica a proteína precisa ser individualizada (KDOQI, 2020)</li></ul></div>
+</div>
+
+<h3>6.1 Pontos para a discussão (evitando classificações simplistas)</h3>
+<ul>
+  <li><strong>"Ultraprocessado" não é sinônimo de "proibido".</strong> A classificação NOVA olha o <strong>grau e a finalidade</strong> do processamento. O Guia Alimentar recomenda evitar ultraprocessados como base da alimentação — mas um suplemento proteico usado <strong>em dose definida, com objetivo clínico ou esportivo</strong>, é um contexto diferente de um biscoito recheado. O WPC <strong>sem sabor</strong> tem processamento intenso, porém <strong>sem aditivos cosméticos</strong>.</li>
+  <li><strong>Lactose:</strong> uma dose de 30 g de WPC80 traz cerca de <strong>1–3 g de lactose</strong>. A EFSA (2010) aponta que a maioria dos intolerantes tolera até ~12 g de lactose numa dose. Para quem é muito sensível, o WPI é uma alternativa. <em>Alergia</em> à proteína do leite é outra coisa: contraindica o produto.</li>
+  <li><strong>Custo × benefício:</strong> comparar o custo por grama de proteína do whey com ovos, frango, leite e leguminosas — o resultado varia com preço e região (sugestão: o grupo pode fazer essa conta com preços de mercado do Rio).</li>
+  <li><strong>Frequência e contexto:</strong> 1 dose por dia, dentro de um plano alimentar, é diferente de usar várias doses substituindo refeições.</li>
+</ul>
+
+<div class="call int" style="padding:12pt 14pt"><span class="t">💬 Posicionamento final do grupo</span>
+<p style="margin:0">O whey protein concentrado é um <strong>ingrediente lácteo de alto valor nutricional</strong>, obtido por um processo que <strong>aproveita o soro do queijo</strong> e preserva bem a qualidade da proteína quando bem controlado (temperatura, umidade, higiene da área seca). Ao mesmo tempo, o produto vendido no varejo é, em geral, <strong>ultraprocessado</strong>, contém <strong>lactose e alergênicos</strong>, e o mercado brasileiro mostra <strong>falhas de rotulagem e de teor de proteína</strong>.</p>
+<p style="margin:6pt 0 0">Concluímos que ele <strong>pode ser incluído</strong> na alimentação cotidiana <strong>como complemento</strong> — e não como substituto de refeições — quando existe <strong>necessidade identificada</strong> que a comida sozinha não cobre, com <strong>orientação de nutricionista</strong>, dose adequada e escolha de <strong>produto regularizado</strong> na ANVISA. Para a maioria das pessoas saudáveis, ele é <strong>opcional</strong>.</p></div>
+
+<!-- ===== 07 PREPARAÇÃO ===== -->
+<div class="sec pb"><div class="n">07</div><div><span class="k">preparação</span><h2>perguntas prováveis, <b>falas e glossário</b></h2></div></div>
+
+<h3>7.1 Perguntas que o professor pode fazer</h3>
+<table>
+  <thead><tr><th style="width:38%">Pergunta</th><th>Resposta curta</th></tr></thead>
+  <tbody>
+    <tr><td>Qual a diferença entre WPC, WPI e WPH?</td><td>Teor de proteína e processo: WPC 25–89% (UF/DF); WPI ≥ 90% (etapa extra de microfiltração ou troca iônica); WPH = proteína quebrada por enzimas.</td></tr>
+    <tr><td>Por que a secagem a ~180 °C não destrói a proteína?</td><td>Porque a gota fica fria enquanto a água evapora (resfriamento evaporativo) e o tempo é de segundos. A temperatura do produto fica bem abaixo da do ar de entrada.</td></tr>
+    <tr><td>Desnaturação diminui o valor nutricional?</td><td>Não necessariamente: os aminoácidos continuam lá. O que reduz o valor é a reação de Maillard (perda de lisina disponível). A bioatividade sim é afetada.</td></tr>
+    <tr><td>Por que o pó seco pode ter Salmonella se ela não cresce nele?</td><td>Baixa atividade de água impede a multiplicação, mas não mata. A bactéria sobrevive meses e volta a crescer quando o pó é misturado com líquido.</td></tr>
+    <tr><td>Qual é o PCC mais importante?</td><td>A pasteurização (perigo biológico) e o detector de metais (perigo físico). A higiene da área seca é controlada por pré-requisitos (BPF/POPs).</td></tr>
+    <tr><td>Whey é ultraprocessado?</td><td>O saborizado com aditivos, sim (NOVA grupo 4). Mas a avaliação deve considerar composição, finalidade, dose e contexto — não só o rótulo de "ultraprocessado".</td></tr>
+    <tr><td>Intolerante à lactose pode usar?</td><td>Muitos toleram a dose (~1–3 g de lactose em 30 g de WPC80). Se houver sintomas, WPI. Alérgico à proteína do leite: não pode.</td></tr>
+  </tbody>
+</table>
+
+<h3>7.2 Sugestão de divisão das falas (10 minutos, 5 pessoas)</h3>
+<table class="avoid">
+  <thead><tr><th>Integrante</th><th>Conteúdo</th><th>Slides</th><th>Tempo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bruna</strong></td><td>Abertura, caracterização, classificação e consumo no Brasil</td><td class="c">1–4</td><td class="c">2 min</td></tr>
+    <tr><td><strong>Thiago</strong></td><td>Composição nutricional e análise do rótulo</td><td class="c">5–6</td><td class="c">2 min</td></tr>
+    <tr><td><strong>Gabriel</strong></td><td>Fluxograma de processamento (laticínio + suplemento)</td><td class="c">7–8</td><td class="c">2 min</td></tr>
+    <tr><td><strong>Renan</strong></td><td>Efeitos do processamento, segurança e conservação</td><td class="c">9–11</td><td class="c">2 min</td></tr>
+    <tr><td><strong>Pedro</strong></td><td>Qualidade do mercado, análise crítica e conclusão</td><td class="c">12–14</td><td class="c">2 min</td></tr>
+  </tbody>
+</table>
+<p class="small">É só uma sugestão — o grupo pode trocar. O importante é a divisão ficar equilibrada, como pede a orientação do professor.</p>
+
+<h3>7.3 Glossário rápido</h3>
+<table class="avoid">
+  <tbody>
+    <tr><td style="width:28%"><strong>Base seca (b.s.)</strong></td><td>Percentual calculado sem contar a água do produto.</td></tr>
+    <tr><td><strong>Ultrafiltração (UF)</strong></td><td>Filtração por membrana com poros muito pequenos: passam água, lactose e sais; ficam as proteínas.</td></tr>
+    <tr><td><strong>Diafiltração (DF)</strong></td><td>Adicionar água ao concentrado e filtrar de novo, para "lavar" mais lactose e sais.</td></tr>
+    <tr><td><strong>Permeado / retido</strong></td><td>Permeado = o que atravessa a membrana. Retido = o que fica (a parte rica em proteína).</td></tr>
+    <tr><td><strong>Spray dryer</strong></td><td>Secador por atomização: borrifa o líquido em gotas finas dentro de ar quente.</td></tr>
+    <tr><td><strong>Atividade de água (aw)</strong></td><td>Quanto da água está "livre" para reações e micróbios. Pó de whey: ≈ 0,2–0,3.</td></tr>
+    <tr><td><strong>Transição vítrea (Tg)</strong></td><td>Temperatura em que o pó amorfo deixa de ser "vidro" rígido e fica pegajoso.</td></tr>
+    <tr><td><strong>Reação de Maillard</strong></td><td>Reação entre açúcar (lactose) e aminoácido (lisina) que escurece o produto e reduz o aproveitamento da lisina.</td></tr>
+    <tr><td><strong>PCC</strong></td><td>Ponto Crítico de Controle (APPCC): etapa onde o controle é essencial para eliminar ou reduzir um perigo.</td></tr>
+    <tr><td><strong>PDCAAS / DIAAS</strong></td><td>Escores de qualidade proteica que combinam aminoácidos essenciais e digestibilidade.</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== 08 REFERÊNCIAS ===== -->
+<div class="sec pb"><div class="n">08</div><div><span class="k">fontes</span><h2>referências <b>bibliográficas</b></h2></div></div>
+<div class="refs">
+<h4>Legislação</h4>
+<p>BRASIL. Lei nº 10.674, de 16 de maio de 2003. Obriga que os produtos alimentícios informem sobre a presença de glúten. <em>Diário Oficial da União</em>, Brasília, 2003.</p>
+<p>BRASIL. Ministério da Saúde. Secretaria de Vigilância Sanitária. Portaria nº 326, de 30 de julho de 1997. Regulamento técnico sobre condições higiênico-sanitárias e boas práticas de fabricação. Brasília, 1997.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 275, de 21 de outubro de 2002. Procedimentos Operacionais Padronizados e lista de verificação das BPF. Brasília, 2002.</p>
+<p>BRASIL. Decreto nº 9.013, de 29 de março de 2017. Regulamento da Inspeção Industrial e Sanitária de Produtos de Origem Animal (RIISPOA). Brasília, 2017.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 243, de 26 de julho de 2018. Requisitos sanitários dos suplementos alimentares. Brasília, 2018.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Instrução Normativa nº 28, de 26 de julho de 2018. Listas de constituintes, limites de uso, alegações e rotulagem complementar dos suplementos alimentares. Brasília, 2018 (e atualizações).</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 429, de 8 de outubro de 2020, e Instrução Normativa nº 75, de 8 de outubro de 2020. Rotulagem nutricional dos alimentos embalados. Brasília, 2020.</p>
+<p>BRASIL. Ministério da Agricultura, Pecuária e Abastecimento. Instrução Normativa nº 94, de 18 de setembro de 2020. Regulamento técnico de identidade e qualidade do soro de leite. Brasília, 2020 (Anexo I alterado pela Portaria SDA nº 1.016/2024).</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 722 e Instrução Normativa nº 160, de 1º de julho de 2022. Limites máximos tolerados de contaminantes em alimentos. Brasília, 2022.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 724 e Instrução Normativa nº 161, de 1º de julho de 2022. Padrões microbiológicos dos alimentos. Brasília, 2022.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 727, de 1º de julho de 2022. Rotulagem dos alimentos embalados. Brasília, 2022.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 778, de 1º de março de 2023, e Instrução Normativa nº 211, de 1º de março de 2023. Aditivos alimentares e coadjuvantes de tecnologia. Brasília, 2023.</p>
+<p>BRASIL. Agência Nacional de Vigilância Sanitária. Resolução RDC nº 843 e Instrução Normativa nº 281, de 2024. Regularização de alimentos e embalagens. Brasília, 2024.</p>
+<h4>Livros, artigos e documentos técnicos</h4>
+<p>AMERICAN DAIRY PRODUCTS INSTITUTE (ADPI). <em>Whey Protein Concentrate Standard</em>. Elmhurst: ADPI, 2022.</p>
+<p>BAUER, J. et al. Evidence-based recommendations for optimal dietary protein intake in older people: a position paper from the PROT-AGE Study Group. <em>Journal of the American Medical Directors Association</em>, v. 14, n. 8, p. 542-559, 2013.</p>
+<p>BEUCHAT, L. R. et al. Low-water activity foods: increased concern as vehicles of foodborne pathogens. <em>Journal of Food Protection</em>, v. 76, n. 1, p. 150-172, 2013.</p>
+<p>BRASIL. Ministério da Saúde. <em>Guia Alimentar para a População Brasileira</em>. 2. ed. Brasília: Ministério da Saúde, 2014.</p>
+<p>BURGESS, S. A.; LINDSAY, D.; FLINT, S. H. Thermophilic bacilli and their importance in dairy processing. <em>International Journal of Food Microbiology</em>, v. 144, n. 2, p. 215-225, 2010.</p>
+<p>EFSA PANEL ON DIETETIC PRODUCTS, NUTRITION AND ALLERGIES. Scientific opinion on lactose thresholds in lactose intolerance and galactosaemia. <em>EFSA Journal</em>, v. 8, n. 9, 1777, 2010.</p>
+<p>FAO. <em>Dietary protein quality evaluation in human nutrition</em>. Report of an FAO Expert Consultation. FAO Food and Nutrition Paper 92. Rome: FAO, 2013.</p>
+<p>IKIZLER, T. A. et al. KDOQI clinical practice guideline for nutrition in CKD: 2020 update. <em>American Journal of Kidney Diseases</em>, v. 76, n. 3, supl. 1, p. S1-S107, 2020.</p>
+<p>JÄGER, R. et al. International Society of Sports Nutrition position stand: protein and exercise. <em>Journal of the International Society of Sports Nutrition</em>, v. 14, art. 20, 2017. DOI: 10.1186/s12970-017-0177-8.</p>
+<p>MADUREIRA, A. R. et al. Bovine whey proteins – overview on their main biological properties. <em>Food Research International</em>, v. 40, n. 10, p. 1197-1211, 2007.</p>
+<p>MONTEIRO, C. A. et al. Ultra-processed foods: what they are and how to identify them. <em>Public Health Nutrition</em>, v. 22, n. 5, p. 936-941, 2019.</p>
+<p>MOORE, J. C. et al. Total protein methods and their potential utility to reduce the risk of food protein adulteration. <em>Comprehensive Reviews in Food Science and Food Safety</em>, v. 9, n. 4, p. 330-357, 2010.</p>
+<p>ROOS, Y. H. Importance of glass transition and water activity to spray drying and stability of dairy powders. <em>Le Lait</em>, v. 82, n. 4, p. 475-484, 2002.</p>
+<p>THOMAS, M. E. C. et al. Milk powders ageing: effect on physical and functional properties. <em>Critical Reviews in Food Science and Nutrition</em>, v. 44, n. 5, p. 297-322, 2004.</p>
+<p>TUNICK, M. H. Whey protein production and utilization: a brief history. In: ONWULATA, C. I.; HUTH, P. J. (ed.). <em>Whey processing, functionality and health benefits</em>. Ames: Wiley-Blackwell, 2008. p. 1-13.</p>
+<p>WALSTRA, P.; WOUTERS, J. T. M.; GEURTS, T. J. <em>Dairy science and technology</em>. 2. ed. Boca Raton: CRC Press, 2006.</p>
+<h4>Estudos brasileiros, dados de mercado e notícias</h4>
+<p>SOARES et al. <em>Avaliação do teor de proteínas e do grau de hidrólise de suplementos proteicos à base de whey</em>. Belo Horizonte: Repositório Institucional UFMG, 2021. Disponível em: https://repositorio.ufmg.br/bitstream/1843/42006/1/.</p>
+<p>FACULDADE PERNAMBUCANA DE SAÚDE. <em>Avaliação da rotulagem de suplementos proteicos comercializados na cidade do Recife-PE</em>. Trabalho de Conclusão de Curso. Recife: FPS. Disponível em: https://tcc.fps.edu.br/bitstream/fpsrepo/991/1/.</p>
+<p>FREIRES et al. Análise de suplementos proteicos. <em>Revista Mineira de Educação Física</em>, Viçosa, 2016. Disponível em: https://periodicos.ufv.br/revminef/article/download/9822/5407/43562.</p>
+<p>REVISTA CONEXÕES (Unicamp). Revisão integrativa sobre consumo de suplementos por praticantes de atividade física no Brasil, 2018. Disponível em: https://periodicos.sbu.unicamp.br/ojs/index.php/conexoes/article/download/8648126/18403.</p>
+<p>PORTAL DA INDÚSTRIA. A indústria brasileira da suplementação: vai um scoop aí? (dados ABIAD 2024). Disponível em: https://noticias.portaldaindustria.com.br/noticias/saude-e-qualidade-de-vida/a-industria-brasileira-da-suplementacao-vai-um-scoop-ai/.</p>
+<p>LANCE! Consumo de suplementos alimentares cresce no Brasil (Pesquisa ABIAD 2020). Disponível em: https://www.lance.com.br/saude-fitness/consumo-suplementos-alimentares-cresce-brasil.html.</p>
+<p>DIÁRIO DO PARÁ. Anvisa suspende venda de marca de whey por presença de glúten (2025); Whey protein com irregularidades devem ter vendas suspensas (2024). Disponível em: https://diariodopara.com.br.</p>
+<p>CONSUMER REPORTS. Investigation finds two-thirds of protein powders and shakes tested contained high levels of lead in a single serving. Out. 2025. Disponível em: https://advocacy.consumerreports.org.</p>
+<p>U.S. DAIRY EXPORT COUNCIL. Whey Protein Concentrate 80 — typical composition. Disponível em: https://thinkusadairy.org/products/whey-protein-and-ingredients/whey-categories/wpc-80.</p>
+<p>FATSECRET BRASIL. Whey Protein 80% (Growth Supplements) — informação nutricional por porção de 30 g. Disponível em: https://www.fatsecret.com.br. (Dado de terceiros: conferir no rótulo.)</p>
+</div>
+<div class="call warn" style="margin-top:10pt"><span class="t">⚠️ Antes de entregar</span>Para os estudos de repositório (UFMG, FPS, UFV), abrir o PDF e completar o <strong>nome de todos os autores</strong> no formato ABNT. Nos slides, priorizar legislação e artigos científicos (pedido do professor).</div>
+
+</main>
+
+<script>
+  // ondas de "neon" da capa (estilo do exemplo de design)
+  (function(){
+    const g=document.getElementById('wavegroup'); if(!g) return;
+    let d='';
+    for(let i=0;i<34;i++){
+      const y=760+i*7, a=60+i*2.2, ph=i*0.11;
+      let p=`M -20 ${y}`;
+      for(let x=0;x<=820;x+=20){
+        const yy=y+Math.sin(x/120+ph)*a*0.55+Math.sin(x/53+ph*2)*a*0.12-(x*0.25);
+        p+=` L ${x} ${yy.toFixed(1)}`;
+      }
+      d+=`<path d="${p}" opacity="${(0.25+0.75*Math.sin(Math.PI*i/34)).toFixed(2)}"/>`;
+    }
+    for(let i=0;i<22;i++){
+      const y=40+i*6, a=40+i*1.8, ph=i*0.15;
+      let p=`M 380 ${y}`;
+      for(let x=380;x<=820;x+=20){
+        const yy=y+Math.sin(x/90+ph)*a*0.5+(x-380)*0.1;
+        p+=` L ${x} ${yy.toFixed(1)}`;
+      }
+      d+=`<path d="${p}" opacity="${(0.2+0.6*Math.sin(Math.PI*i/22)).toFixed(2)}"/>`;
+    }
+    g.innerHTML=d;
+  })();
+</script>
+</body>
+</html>
